@@ -250,7 +250,7 @@ function Entete( $fichier, $language )
 		case "index":
 			$pays = "index";
 			$titre = "Voyage &agrave; travers le monde - Accueil";
-			$recit = "Site Web de Mickael MALLET: CV, sports et Voyage à travers le monde";
+			$recit = "Site Web de Mickael MALLET: CV, sports et voyages &agrave; travers le monde";
 			$motcle = "voyage;peru;bolivia;inca;camino;macchu;picchu;potosi;salar;Uyuni;sucre;cochabamba;cuzco";
 			break;
 
@@ -325,7 +325,7 @@ function Entete( $fichier, $language )
 	echo "\t<meta http-equiv=\"pragma\" content=\"no-cache\"/>\n";
 	echo "\t<meta http-equiv=\"expires\" content=\"Mon, 21 May 2001 12:03:14 GMT\"/>\n";
 	echo "\t<meta name=\"robots\" content=\"all\"/>\n";
-	echo "\t<meta http-equiv=\"content-type\" content=\"text/html;charset=iso-8859-1\"/>\n";
+	echo "\t<meta http-equiv='content-type' content='text/html;charset=UTF-8'/>\n";
 	echo "\t<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\" title=\"coolsheet\"/>\n";
 	echo "</head><body";
 
@@ -518,12 +518,13 @@ function EndOfPage( $CurLanguage )
 	}
 	fclose($fp);
 
-	echo '<p style="text-align: center"><a class="top" href="#top">'.$top_string.'</a></p><hr/>
-		<a href="http://jigsaw.w3.org/css-validator/check/referer">
-		<img style="border:0;width:88px;height:31px"
-		src="http://jigsaw.w3.org/css-validator/images/vcss"
-		alt="Valid CSS!"/>
-		</a>
+	echo '<div style="text-align: center"><a class="top" href="#top">'.$top_string.'</a>
+		</div>
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="CSS Valide !" />
+    </a>
 		<a href="http://validator.w3.org/check?uri=referer">
 		<img style="border:0;"
 		src="http://www.w3.org/Icons/valid-xhtml10"
