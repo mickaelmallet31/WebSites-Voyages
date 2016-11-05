@@ -467,9 +467,9 @@ function EndOfPage( $CurLanguage )
 
 	// La variable fichier correspond au nom du fichier compteur (compteur.dat)
 	$fichier = $_SERVER['REQUEST_URI'];
-	$pattern = Array( "/\/.*\//", "/\?/", "/=/", "/&/", "/cest_moi/" );
-	// notez bien les / avant et après les caractères
-	$rep_pat = Array( "", "", "", "", "" );
+	
+	$pattern = Array( "/\/.*\//", "/\?/", "/=/", "/&/", "/cest_moi/", "/%.*/" );
+	$rep_pat = Array( "", "", "", "", "", "" );
 	$fichier = preg_replace($pattern, $rep_pat, $fichier);
 
 	if ( $fichier == "" )

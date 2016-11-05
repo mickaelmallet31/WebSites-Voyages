@@ -39,7 +39,7 @@ function DisplayCommentary( $country )
 		$row = mysql_fetch_object( $result );
 
 		echo "<h2>".$row->Comment."</h2>";
-		echo "<h3>Date :</h3><p>".$row->DateDebut." <img src=\"images/right_white.png\" alt=\"Fleche droite\"/> ".$row->DateFin."</p>\n";
+		echo "<h3>Date :</h3><p>".$row->DateDebut." &#8594; ".$row->DateFin."</p>\n";
 		echo "<h3>Commentaire :</h3><p>".$row->Recit."</p>";
 
 		mysql_free_result( $result );

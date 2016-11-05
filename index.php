@@ -8,7 +8,7 @@ Entete( 'index', 'fre' );
 		<td>
 			<table style='width:100%'>
 				<tr valign="middle">
-					<td style="width: 150px"><img src="images/palmtree.gif" width="100"
+					<td style="width: 150px"><img src="images/palmtree.png" width="100"
 						alt="Image Palmier" height="100" />
 					</td>
 					<td align="center">
