@@ -3,24 +3,35 @@
 
 	Entete( 'gallery', 'fre' );
 
-	DatabaseConnection( );
 
 	// Set the local variables
 	$title = "";
 	$requete_string = "";
 
 	// Get the parameters
-	$id = $_GET[ "id" ];
+	if (isset($_GET["id"]))
+		$_SESSION['id'] = $_GET["id"];
 
-	if( $id != "" )
+	if(isset($_SESSION['id']))
 	{
-		$result = mysql_query ( "SELECT Comment FROM fichier WHERE id = '$id'" ) or die ("Requete1 invalide");
+		$id = $_SESSION[ "id" ];
+		DatabaseConnection( );
+		
+		$result = mysql_query ( "SELECT Comment FROM fichier WHERE id = '$id'" ) or die ("Requete invalide");
 		$row = mysql_fetch_object( $result );
 		$title = $row->Comment;
 
 		if( $id == ID_MAIN_GALLERY )
 		{
-			$requete_string = REQUETE_SELECT_GALLERY;
+			$requete_string = "
+			select 
+				fichier.Comment AS comment, image.Nom AS Nom, fichier.ID AS IDFichier 
+			FROM 
+				fichier, image 
+			WHERE 
+				fichier.cache = 0 AND fichier.ImageID = image.ID AND fichier.typeGallery != 1
+			ORDER BY 
+				fichier.Comment";
 		}
 		else
 		{

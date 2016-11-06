@@ -24,33 +24,39 @@ Entete( 'travel', 'fre' );
 </p>
 
 <?php
+	
+	// Get the parameters
+	if (isset($_GET["country"]))
+		$_SESSION['country'] = $_GET["country"];
 
-// Get the parameters
-$country = $_GET[ "country" ];
-
-function DisplayCommentary( $country )
-{
-	if( isset( $country ) && $country != ID_MAIN_GALLERY )
+	if (isset($_SESSION['country']))
 	{
-		DatabaseConnection( );
+		$country = $_SESSION[ "country" ];
 
-		$requete_string = "SELECT fichier.Comment AS Comment, voyage.DateDebut as DateDebut, voyage.DateFin as DateFin , voyage.Recit as Recit FROM fichier, voyage WHERE fichier.ID = '$country' AND fichier.ID = voyage.ID";
-		$result = mysql_query ( $requete_string ) or die ("Requete invalide");
-		$row = mysql_fetch_object( $result );
+		function DisplayCommentary($country)
+		{
+			if( isset( $country ) && $country != ID_MAIN_GALLERY )
+			{
+				DatabaseConnection( );
 
-		echo "<h2>".$row->Comment."</h2>";
-		echo "<h3>Date :</h3><p>".$row->DateDebut." &#8594; ".$row->DateFin."</p>\n";
-		echo "<h3>Commentaire :</h3><p>".$row->Recit."</p>";
+				$requete_string = "SELECT fichier.Comment AS Comment, voyage.DateDebut as DateDebut, voyage.DateFin as DateFin , voyage.Recit as Recit FROM fichier, voyage WHERE fichier.ID = '$country' AND fichier.ID = voyage.ID";
+				$result = mysql_query ( $requete_string ) or die ("Requete invalide");
+				$row = mysql_fetch_object( $result );
 
-		mysql_free_result( $result );
+				echo "<h2>".$row->Comment."</h2>";
+				echo "<h3>"._('Date').":</h3><p>".date(_('d/m/Y'), strtotime($row->DateDebut))." &#8594; ".date(_('d/m/Y'), strtotime($row->DateFin))."</p>\n";
+				echo "<h3>"._('Commentaires').":</h3><p>".$row->Recit."</p>";
 
-		GetAllImagesFromCountry( $country );
+				mysql_free_result( $result );
+
+				GetAllImagesFromCountry( $country );
+			}
+		}
+
+		DisplayCommentary($country);
 	}
-}
 
-DisplayCommentary( $country );
-
-EndOfPage('fre');
+	EndOfPage('fre');
 ?>
 </body>
 </html>

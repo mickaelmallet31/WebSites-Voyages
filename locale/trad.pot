@@ -1,0 +1,140 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2016-11-06 16:48+0100\n"
+"PO-Revision-Date: 2016-11-06 15:48+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Informatique/Voyages/library.php:367
+msgid "Accueil"
+msgstr ""
+
+#: Informatique/Voyages/library.php:368
+msgid "Nouveaut&eacute;s"
+msgstr ""
+
+#: Informatique/Voyages/library.php:369
+msgid "CV"
+msgstr ""
+
+#: Informatique/Voyages/library.php:375
+msgid "Les sports"
+msgstr ""
+
+#: Informatique/Voyages/library.php:379
+msgid "Roller"
+msgstr ""
+
+#: Informatique/Voyages/library.php:380
+msgid "Plong&acute;e"
+msgstr ""
+
+#: Informatique/Voyages/library.php:383
+msgid "Liens"
+msgstr ""
+
+#: Informatique/Voyages/library.php:384
+msgid "Carnets de voyages"
+msgstr ""
+
+#: Informatique/Voyages/library.php:403
+msgid "Galleries de photos"
+msgstr ""
+
+#: Informatique/Voyages/news.php:6
+msgid "Derni&egrave;res modifications du site"
+msgstr ""
+
+#: Informatique/Voyages/news.php:8 Informatique/Voyages/news.php:9
+#: Informatique/Voyages/news.php:10 Informatique/Voyages/news.php:11
+#: Informatique/Voyages/news.php:12 Informatique/Voyages/news.php:13
+#: Informatique/Voyages/news.php:14 Informatique/Voyages/news.php:15
+#: Informatique/Voyages/news.php:16 Informatique/Voyages/news.php:17
+#: Informatique/Voyages/news.php:18 Informatique/Voyages/news.php:19
+#: Informatique/Voyages/news.php:20 Informatique/Voyages/news.php:21
+#: Informatique/Voyages/news.php:22 Informatique/Voyages/news.php:23
+#: Informatique/Voyages/travel.php:47
+msgid "d/m/Y"
+msgstr ""
+
+#: Informatique/Voyages/news.php:8
+msgid "Support du multilangage avec gettext"
+msgstr ""
+
+#: Informatique/Voyages/news.php:9
+msgid "Ajout des photos de Porquerolles et Cala Montjoi"
+msgstr ""
+
+#: Informatique/Voyages/news.php:10
+msgid "Changement de barre de menu; mise &agrave; jour du CV; correction sur la transparence des images PNG"
+msgstr ""
+
+#: Informatique/Voyages/news.php:11
+msgid "Suppression du module Livre d'or &agrave; cause de messages de spam"
+msgstr ""
+
+#: Informatique/Voyages/news.php:12
+msgid "Ajout des photos du Marathon de New-york 2005"
+msgstr ""
+
+#: Informatique/Voyages/news.php:13
+msgid "Ajout d'un livre d'or"
+msgstr ""
+
+#: Informatique/Voyages/news.php:14
+msgid "Ajout des photos de Mallorca, de quelques photos sur Trinidad, Martinique et Iles Vierges Britaniques"
+msgstr ""
+
+#: Informatique/Voyages/news.php:15
+msgid "Modification graphique du site (couleur, largeur fixee). Correction des pages pour &ecirc;tre en conformance avec CSS 2.1 et XHTML"
+msgstr ""
+
+#: Informatique/Voyages/news.php:16
+msgid "Ajout des photos d'Ibiza"
+msgstr ""
+
+#: Informatique/Voyages/news.php:17
+msgid "Photos du Portugal ajout&eacute;es"
+msgstr ""
+
+#: Informatique/Voyages/news.php:18
+msgid "Ajout des photos du s&eacute;jour &agrave; Chamonix"
+msgstr ""
+
+#: Informatique/Voyages/news.php:19
+msgid "Ajout du r&eacute;cit du voyage au Qu&eacute;bec"
+msgstr ""
+
+#: Informatique/Voyages/news.php:20
+msgid "Reconstruction du site en PHP"
+msgstr ""
+
+#: Informatique/Voyages/news.php:21
+msgid "Photos du Qu&eacute;bec"
+msgstr ""
+
+#: Informatique/Voyages/news.php:22
+msgid "R&eacute;cit d'Hurghada termin&eacute"
+msgstr ""
+
+#: Informatique/Voyages/news.php:23
+msgid "Photos d'Hurghada diffus&eacute;es"
+msgstr ""
+
+#: Informatique/Voyages/travel.php:47
+msgid "Date"
+msgstr ""
+
+#: Informatique/Voyages/travel.php:48
+msgid "Commentaires"
+msgstr ""

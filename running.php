@@ -1,7 +1,7 @@
 <?php
 	include 'library.php';
 
-  Entete( 'running', 'fre' );
+  Entete('running','fre');
 ?>
 
 <h2>Liste des courses</h2>

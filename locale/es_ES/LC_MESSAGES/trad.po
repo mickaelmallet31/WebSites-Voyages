@@ -1,0 +1,139 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2016-11-06 16:49+0100\n"
+"PO-Revision-Date: 2016-11-06 16:49+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: library.php:367
+msgid "Accueil"
+msgstr "Bienvenido"
+
+#: library.php:368
+msgid "Nouveaut&eacute;s"
+msgstr "Actualidad"
+
+#: library.php:369
+msgid "CV"
+msgstr "Currículum"
+
+#: library.php:375
+msgid "Les sports"
+msgstr "Esportes"
+
+#: library.php:379
+msgid "Roller"
+msgstr "Roller"
+
+#: library.php:380
+msgid "Plong&acute;e"
+msgstr "Submarino"
+
+#: library.php:383
+msgid "Liens"
+msgstr "Lincos"
+
+#: library.php:384
+msgid "Carnets de voyages"
+msgstr "Libros de viajes"
+
+#: library.php:403
+msgid "Galleries de photos"
+msgstr "Galeria de fotografias"
+
+#: news.php:6
+msgid "Derni&egrave;res modifications du site"
+msgstr "Ultimas modificationes"
+
+#: news.php:8 news.php:9 news.php:10 news.php:11 news.php:12 news.php:13
+#: news.php:14 news.php:15 news.php:16 news.php:17 news.php:18 news.php:19
+#: news.php:20 news.php:21 news.php:22 news.php:23 travel.php:47
+msgid "d/m/Y"
+msgstr "d/m/Y"
+
+#: news.php:8
+msgid "Support du multilangage avec gettext"
+msgstr ""
+
+#: news.php:9
+msgid "Ajout des photos de Porquerolles et Cala Montjoi"
+msgstr ""
+
+#: news.php:10
+msgid ""
+"Changement de barre de menu; mise &agrave; jour du CV; correction sur la "
+"transparence des images PNG"
+msgstr ""
+
+#: news.php:11
+msgid "Suppression du module Livre d'or &agrave; cause de messages de spam"
+msgstr ""
+
+#: news.php:12
+msgid "Ajout des photos du Marathon de New-york 2005"
+msgstr ""
+
+#: news.php:13
+msgid "Ajout d'un livre d'or"
+msgstr ""
+
+#: news.php:14
+msgid ""
+"Ajout des photos de Mallorca, de quelques photos sur Trinidad, Martinique et "
+"Iles Vierges Britaniques"
+msgstr ""
+
+#: news.php:15
+msgid ""
+"Modification graphique du site (couleur, largeur fixee). Correction des "
+"pages pour &ecirc;tre en conformance avec CSS 2.1 et XHTML"
+msgstr ""
+
+#: news.php:16
+msgid "Ajout des photos d'Ibiza"
+msgstr ""
+
+#: news.php:17
+msgid "Photos du Portugal ajout&eacute;es"
+msgstr ""
+
+#: news.php:18
+msgid "Ajout des photos du s&eacute;jour &agrave; Chamonix"
+msgstr ""
+
+#: news.php:19
+msgid "Ajout du r&eacute;cit du voyage au Qu&eacute;bec"
+msgstr ""
+
+#: news.php:20
+msgid "Reconstruction du site en PHP"
+msgstr ""
+
+#: news.php:21
+msgid "Photos du Qu&eacute;bec"
+msgstr "Québec fotografias"
+
+#: news.php:22
+msgid "R&eacute;cit d'Hurghada termin&eacute"
+msgstr ""
+
+#: news.php:23
+msgid "Photos d'Hurghada diffus&eacute;es"
+msgstr ""
+
+#: travel.php:47
+msgid "Date"
+msgstr "Fecha"
+
+#: travel.php:48
+msgid "Commentaires"
+msgstr "Commentarios"

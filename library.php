@@ -1,8 +1,10 @@
 <?php
 
-define( "REQUETE_SELECT_GALLERY", "select fichier.Comment AS comment, image.Nom AS Nom, fichier.ID AS IDFichier FROM fichier, image WHERE fichier.cache = 0 AND fichier.ImageID = image.ID ORDER BY fichier.Comment" );
+require "localization.php";
+
 define( "ID_MAIN_GALLERY", 0 );
 define( "REQUETE_select_VOYAGE", "select fichier.ID FROM fichier, voyage WHERE fichier.ID = voyage.ID ORDER BY fichier.Comment" );
+
 
 $pays = "";
 
@@ -159,6 +161,7 @@ function Entete( $fichier, $language )
 {
 	global $id;
 	global $pays;
+	global $locale;
 
 	$selectedRunning = "";
 	$selectedSubDive = "";
@@ -336,65 +339,52 @@ function Entete( $fichier, $language )
 
 	echo '><table style="width:1024px; -webkit-border-radius: 5px 5px 5px 5px;-moz-border-radius: 5px 5px 5px 5px;border-radius: 5px 5px 5px 5px;"><tr><td><a id="top"></a>';
 
-	switch ($language)
+	switch ($locale)
 	{
-		case 'eng' :
-			$a = 'Home'; $b = 'Sports'; $c = 'Sports Home'; $d = 'Running'; $e = 'Subdiving'; $f = 'Links'; $g = 'Travels';
-			$i = 'AFRICA'; $j = 'Egypt'; $k = 'AMERICA'; $l = 'Bolivia'; $m = 'Dominica'; $n = 'Guadeloupe';
-			$o = 'Grenadins'; $p = 'British Virgin Islands'; $q = 'Martinique'; $r = 'Peru'; $s = 'Saint Lucia'; $t = 'and';
-			$u = 'A'; $v = ''; $w = 'England'; $x= 'Spain'; $y = 'e'; $z = 'Ireland'; $a1 = 'Nederland'; $b1 = 'A';
-			$c1 = 'Gallery'; $e1='Other Countries Gallery'; $f1='Bolivia Gallery'; $g1='Egypt Gallery';
-			$h1='Florida Gallery'; $i1='France Gallery'; $j1='Netherland Gallery'; $k1='Peru Gallery'; $l1='fre';
-			$m1='Version fran&ccedil;aise'; $n1='fr'; $o1='spa'; $p1='Version espa&ntilde;ol'; $q1='sp';$r1='a'; $s1 = 'Egypt: Hurghada';
-			$t1='Hurghada Gallery'; $u1='Quebec Gallery';
+		case 'en_US' :
+			$border_en='border="1"';
+			$border_fr='';
+			$border_es='';
 			break;
 
-		case 'fre' :
-			$a = 'Accueil'; $b = 'Les sports'; $c = 'Accueil Sports'; $d = 'Courrir'; $e = 'Plong&eacute;e sous-marine'; $f = 'Liens';
-			$g = 'Carnets de voyages'; $i = 'AFRIQUE'; $j = 'Egypte : croisi&egrave;re'; $k = 'AMERIQUE'; $l = 'Bolivie'; $m = 'Dominique'; $n = 'Guadeloupe';
-			$o = 'Grenadines'; $p = 'Iles Vierges Britanniques'; $q = 'Martinique'; $r = 'Perou'; $s = 'Saint Lucie'; $t = 'et';
-			$u = 'E'; $v = 'E'; $w = 'Angleterre'; $x= 'Espagne'; $y = 'e'; $z = 'Irlande'; $a1 = 'Pays-Bas'; $b1 = 'A';
-			$c1 = 'Gallerie Photo'; $e1='Photos Autres Pays'; $f1='Photos Bolivie'; $g1='Photos Egypte';
-			$h1='Photos Floride'; $i1='Photos France'; $j1='Photos Pays-Bas'; $k1='Photos Perou'; $l1='eng';
-			$m1='English version'; $n1='uk'; $o1='spa'; $p1='Version espa&ntilde;ol'; $q1='sp'; $r1='e'; $s1 = 'Egypte : Hurghada';
-			$t1='Photos Hurghada'; $u1='Photos Qu&eacute;bec';
+		case 'fr_FR' :
+			$border_fr='border="1"';
+			$border_en='';
+			$border_es='';
 			break;
 
-		case 'spa' :
-			$a = 'Bienvenido'; $b = 'Deportes'; $c = 'Deportes'; $d = 'Courir'; $e = 'Buceo submarino'; $f = 'Lincos'; $g = 'Viajes';
-			$i = 'AFRICA'; $j = 'Egipto'; $k = 'AMERICA'; $l = 'Bolivia'; $m = 'Dominica'; $n = 'Guadelupe';
-			$o = 'Granadinas'; $p = 'Islas Virgenes Britanicas'; $q = 'Martinica'; $r = 'Per&uacute;'; $s = 'Santa Lucia'; $t = 'y';
-			$u = 'A'; $v = 'A'; $w = 'Inglesia'; $x= 'Espa&ntilde;a'; $y = 'e'; $z = 'Irlanda'; $a1 = 'Holanda'; $b1 = 'A';
-			$c1 = 'Galer&iacute;a'; $e1='Galer&iacute;a de otras pa&iacute;ses'; $f1='Galer&iacute;a Bolivia '; $g1='Galer&iacute;a Egipto';
-			$h1='Galer&iacute;a Florida'; $i1='Galer&iacute;a Francia'; $j1='Galer&iacute;a Holanda'; $k1='Galer&iacute;a Per&uacute;'; $l1='fre';
-			$m1='Version fran&ccedil;aise'; $n1='fr'; $o1='eng'; $p1='English version'; $q1='uk';$r1='a'; $s1 = 'Egipto : Hurghada';
-			$t1='Galer&iacute;a Hurghada'; $u1='Galer&iacute;a Qu&eacute;bec';
+		case 'es_ES' :
+			$border_es='border="1"';
+			$border_en='';
+			$border_fr='';
 			break;
 	}
 
-	?>
+	echo '
+	<table border="0"><tr><td width="150" align="right"></td><td width="700">
 	<ul id="menu">
-		<li class="violet"><a href="/">Accueil</a></li><!--
-     --><li class="violet"><a href="news.php">Nouveaut&eacute;s</a></li><!--
-     --><li class="violet"><a href="#">CV</a>
+		<li class="violet"><a href="index.php">'._("Accueil").'</a></li><!--
+     --><li class="violet"><a href="news.php">'._("Nouveaut&eacute;s").'</a></li><!--
+     --><li class="violet"><a href="#">'._("CV").'</a>
 		<ul>
 			<li><a href="cv_en.php">English version</a></li>
 			<li><a href="cv_fr.php">Version fran&ccedil;aise</a></li>
 		</ul>
 		</li><!--
-     --><li class="violet"><a href="#">Les sports</a>
+     --><li class="violet"><a href="#">'._("Les sports").'</a>
 		<ul>
 			<li><a href="sports.php">--- Accueil ---</a></li>
-			<li><a href="running.php">Courrir</a></li>
-			<li><a href="roller.php">Roller</a></li>
-			<li><a href="subdive.php">Plong&eacute;e</a></li>
+			<li><a href="running.php">'.-("Courrir").'</a></li>
+			<li><a href="roller.php">'._("Roller").'</a></li>
+			<li><a href="subdive.php">'._("Plong&acute;e").'</a></li>
 		</ul>
 		</li><!--
-     --><li class="violet"><a href="links.php">Liens</a></li><!--
-     --><li class="violet"><a href="#">Carnets de voyages</a>
+     --><li class="violet"><a href="links.php">'._("Liens").'</a></li><!--
+     --><li class="violet"><a href="#">'._('Carnets de voyages').'</a>
 		<ul>
 			<li><a href="travel.php?country=0">--- Accueil ---</a></li>
-			<?php
+			';
+			
 			DatabaseConnection( );
 
 			$result = mysql_query ( REQUETE_select_VOYAGE ) or die ("Requete REQUETE_select_VOYAGE invalide");
@@ -405,47 +395,59 @@ function Entete( $fichier, $language )
 				echo "\n\t\t\t<li><a href='$URL'>$comment</a></li>";
 			}
 			mysql_free_result( $result );
-			?>
+			
+			echo '
 		</ul>
 		</li><!--
-     --><li class="violet"><a href="#">Galleries de photos</a>
+     --><li class="violet"><a href="#">'._('Galleries de photos').'</a>
 		<ul>
 			<li><a href="gallery.php?id=0">--- Accueil ---</a></li>
-			<?php
-				$requete = "select Comment, ID, typeGallery
-				FROM fichier
-				WHERE ImageID != 0 AND cache=0 AND typeGallery != 2
-				ORDER BY Comment";
-				$result = mysql_query($requete) or die ("Requete invalide : $requete");
-				while( $row = mysql_fetch_object( $result ) )
+			';
+			
+			
+			$requete = "select Comment, ID, typeGallery
+			FROM fichier
+			WHERE ImageID != 0 AND cache=0 AND typeGallery != 2
+			ORDER BY Comment";
+			$result = mysql_query($requete) or die ("Requete invalide : $requete");
+			while( $row = mysql_fetch_object( $result ) )
+			{
+				# Display the link . Reset it if the gallery type is 1
+				$link = "gallery.php?id=$row->ID";
+				if ($row->typeGallery==1) $link="javascript:void()";
+				echo "<li><a href='$link'>$row->Comment</a>";
+				
+				# Get the submenus of the typegallery 1 gallery
+				if ($row->typeGallery==1)
 				{
-					# Display the link . Reset it if the gallery type is 1
-					$link = "gallery.php?id=$row->ID";
-					if ($row->typeGallery==1) $link="javascript:void()";
-					echo "<li><a href='$link'>$row->Comment</a>";
-					
-					# Get the submenus of the typegallery 1 gallery
-					if ($row->typeGallery==1)
+					$requete2 = "select Comment, ID, typeGallery
+					FROM fichier
+					WHERE ImageID != 0 AND cache = 0 AND typeGallery = 2 AND masterGallery=$row->ID
+					ORDER BY Comment";
+					$result2 = mysql_query($requete2) or die ("Requete invalide : $requete2");
+					echo "<ul>";
+					while( $row = mysql_fetch_object( $result2 ) )
 					{
-						$requete2 = "select Comment, ID, typeGallery
-						FROM fichier
-						WHERE ImageID != 0 AND cache = 0 AND typeGallery = 2 AND masterGallery=$row->ID
-						ORDER BY Comment";
-						$result2 = mysql_query($requete2) or die ("Requete invalide : $requete2");
-						echo "<ul>";
-						while( $row = mysql_fetch_object( $result2 ) )
-						{
-							echo "<li><a href='gallery.php?id=$row->ID'>$row->Comment</a></li>\n";
-						}
-						echo "</ul>\n";
+						echo "<li><a href='gallery.php?id=$row->ID'>$row->Comment</a></li>\n";
 					}
-					echo "</li>\n";
+					echo "</ul>\n";
 				}
-				mysql_free_result( $result );
-			?>
+				echo "</li>\n";
+			}
+			mysql_free_result( $result );
+		?>
 		</ul>
 		</li>
 	</ul>
+	</td><td width="150" align="right">
+	<?php
+		echo "
+	<a href='?l=fr_FR'><img $border_fr src='images/flag_fr.png'/></a>
+	<a href='?l=en_US'><img $border_en src='images/flag_uk.png'/></a> 
+	<a href='?l=es_ES'><img $border_es src='images/flag_sp.png'/></a>
+	";
+	?>
+	</td></tr></table>
 	<div style="min-height:600px;">
 <?php
 GetPubBanner( $pays, $fichier );
@@ -455,7 +457,7 @@ GetPubBanner( $pays, $fichier );
 function DatabaseConnection( )
 //========================================================================
 {
-	mysql_connect ("127.0.0.1", "mickael.mallet", "jsa35eej") or die ("Connexion impossible");
+	mysqli_connect ("127.0.0.1", "mickael.mallet", "jsa35eej") or die ("Connexion impossible");
 	if ( mysql_select_db( "mickael_mallet" ) == 0 )
 	{
 		$result = mysql_select_db( "voyages" ) or die ("Can not open voyages" );
@@ -538,7 +540,7 @@ function EndOfPage( $CurLanguage )
 	}
 	fclose($fp);
 
-	echo '</div><div style="text-align: center"><a class="top" href="#top">'.$top_string.'</a>
+	echo '</div><div style="text-align: center"><a class="top" href="#top">Top</a>
 		</div>
     <a href="http://jigsaw.w3.org/css-validator/check/referer">
         <img style="border:0;width:88px;height:31px"
