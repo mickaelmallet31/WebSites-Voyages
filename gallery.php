@@ -3,7 +3,6 @@
 
 	Entete( 'gallery', 'fre' );
 
-	echo '<div>';
 	DatabaseConnection( );
 
 	// Set the local variables
@@ -37,23 +36,22 @@
 	{
 		if( $counter % 4 == 0 )
 		{
-        if ( $counter != 0 ) echo '</tr>';
-        echo '<tr valign="top">';
-    }
+			if ( $counter != 0 ) echo '</tr>';
+			echo '<tr valign="top">';
+		}
 
-    echo '<td style="text-align:center">';
+		echo '<td style="text-align:center">';
 		if( $id == ID_MAIN_GALLERY )
 		{
 			$result2 = mysql_query ( "SELECT Comment FROM fichier WHERE ID = '$row->IDFichier'" ) or die ("Requete invalide");
 			$row2 = mysql_fetch_object( $result2 );
-
-                        echo '<div style="color:green">'.$row2->Comment.'<br/><a href="gallery.php?id='.$row->IDFichier.'">
-                        <img src="images/vignettes/'.$row->Nom.'.jpg" style="border:0px;" alt="" width="174" height="117"/></a></div>';
+			echo '<div style="color:green">'.$row2->Comment.'<br/><a href="gallery.php?id='.$row->IDFichier.'">
+			<img src="images/vignettes/'.$row->Nom.'.jpg" style="border:0px;" alt="" width="174" height="117"/></a></div>';
 		}
 		else
 		{
 			echo '<a href="image.php?idfichier='.$row->IDFichier.'&amp;id='.$row->ID.'">
-                        <img src="images/vignettes/'.$row->Nom.'.jpg" style="border: 0px;" width="174" height="117" alt="'.$row->Commentaire.'"/></a>';
+					<img src="images/vignettes/'.$row->Nom.'.jpg" style="border: 0px;" width="174" height="117" alt="'.$row->Commentaire.'"/></a>';
 		}
 
 		echo "</td>\n";

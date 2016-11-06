@@ -5,7 +5,7 @@
 ?>
 
 <h2>Liste des courses</h2>
-<table border="1" style='padding:3; spacing:0; width:100%'>
+<table border="1" style='padding:0; spacing:3;'>
 <tr align="center">
 <td>Date</td>
 <td>Course</td>

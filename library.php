@@ -121,7 +121,7 @@ function GetPubBanner( $Pays, $fichier )
 //========================================================================
 {
 	if( $fichier != 'cv') {
-		echo '<p style="text-align: center"><a href="http://www.greenpeace.fr/kitweb" title="Greenpeace France"><img src="http://www.greenpeace.org/france/Global/france/graphics/goodies/2008/12/392x72-baleine-1.png" width="392" height="72" alt="Greenpeace France"/></a></p>';
+		#echo '<p style="text-align: center"><a href="http://www.greenpeace.fr/kitweb" title="Greenpeace France"><img src="http://www.greenpeace.org/france/Global/france/graphics/goodies/2008/12/392x72-baleine-1.png" width="392" height="72" alt="Greenpeace France"/></a></p>';
 	}
 	return;
 
@@ -373,26 +373,25 @@ function Entete( $fichier, $language )
 	}
 
 	?>
-<ul class="menu">
-
-	<li><a href="/">Accueil</a></li>
-	<li><a href="news.php">Nouveaut&eacute;s</a></li>
-	<li><a href="#">CV</a>
+	<ul id="menu">
+		<li class="violet"><a href="/">Accueil</a></li><!--
+     --><li class="violet"><a href="news.php">Nouveaut&eacute;s</a></li><!--
+     --><li class="violet"><a href="#">CV</a>
 		<ul>
 			<li><a href="cv_en.php">English version</a></li>
 			<li><a href="cv_fr.php">Version fran&ccedil;aise</a></li>
 		</ul>
-	</li>
-	<li><a href="#">Les sports</a>
+		</li><!--
+     --><li class="violet"><a href="#">Les sports</a>
 		<ul>
 			<li><a href="sports.php">--- Accueil ---</a></li>
 			<li><a href="running.php">Courrir</a></li>
-			<li><a href="subdive.php">Plong&eacute;e</a></li>
 			<li><a href="roller.php">Roller</a></li>
+			<li><a href="subdive.php">Plong&eacute;e</a></li>
 		</ul>
-	</li>
-	<li><a href="links.php">Liens</a></li>
-	<li><a href="#">Carnets de voyages</a>
+		</li><!--
+     --><li class="violet"><a href="links.php">Liens</a></li><!--
+     --><li class="violet"><a href="#">Carnets de voyages</a>
 		<ul>
 			<li><a href="travel.php?country=0">--- Accueil ---</a></li>
 			<?php
@@ -408,25 +407,46 @@ function Entete( $fichier, $language )
 			mysql_free_result( $result );
 			?>
 		</ul>
-	</li>
-	<li><a href="#">Galleries de photos</a>
+		</li><!--
+     --><li class="violet"><a href="#">Galleries de photos</a>
 		<ul>
 			<li><a href="gallery.php?id=0">--- Accueil ---</a></li>
 			<?php
-			$result = mysql_query ( "select Comment, ID
-			FROM fichier
-			WHERE ImageID != 0 AND cache = 0
-			ORDER BY Comment" ) or die ("Requete invalide");
-	$optGroup = "";
-	while( $row = mysql_fetch_object( $result ) )
-	{
-		echo "<li><a href='gallery.php?id=$row->ID'>$row->Comment</a></li>";
-	}
-	mysql_free_result( $result );
-	?>
+				$requete = "select Comment, ID, typeGallery
+				FROM fichier
+				WHERE ImageID != 0 AND cache=0 AND typeGallery != 2
+				ORDER BY Comment";
+				$result = mysql_query($requete) or die ("Requete invalide : $requete");
+				while( $row = mysql_fetch_object( $result ) )
+				{
+					# Display the link . Reset it if the gallery type is 1
+					$link = "gallery.php?id=$row->ID";
+					if ($row->typeGallery==1) $link="javascript:void()";
+					echo "<li><a href='$link'>$row->Comment</a>";
+					
+					# Get the submenus of the typegallery 1 gallery
+					if ($row->typeGallery==1)
+					{
+						$requete2 = "select Comment, ID, typeGallery
+						FROM fichier
+						WHERE ImageID != 0 AND cache = 0 AND typeGallery = 2 AND masterGallery=$row->ID
+						ORDER BY Comment";
+						$result2 = mysql_query($requete2) or die ("Requete invalide : $requete2");
+						echo "<ul>";
+						while( $row = mysql_fetch_object( $result2 ) )
+						{
+							echo "<li><a href='gallery.php?id=$row->ID'>$row->Comment</a></li>\n";
+						}
+						echo "</ul>\n";
+					}
+					echo "</li>\n";
+				}
+				mysql_free_result( $result );
+			?>
 		</ul>
-	</li>
-</ul>
+		</li>
+	</ul>
+	<div style="min-height:600px;">
 <?php
 GetPubBanner( $pays, $fichier );
 }
@@ -518,7 +538,7 @@ function EndOfPage( $CurLanguage )
 	}
 	fclose($fp);
 
-	echo '<div style="text-align: center"><a class="top" href="#top">'.$top_string.'</a>
+	echo '</div><div style="text-align: center"><a class="top" href="#top">'.$top_string.'</a>
 		</div>
     <a href="http://jigsaw.w3.org/css-validator/check/referer">
         <img style="border:0;width:88px;height:31px"

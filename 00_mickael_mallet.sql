@@ -3,12 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: mickael.mallet.sql.free.fr
--- Généré le : Sam 05 Novembre 2016 à 00:53
+-- G&eacute;n&eacute;r&eacute; le : Sam 05 Novembre 2016 &agrave; 00:53
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,7 +15,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `mickael_mallet`
+-- Base de donn&eacute;es: `mickael_mallet`
 --
 
 -- --------------------------------------------------------
@@ -48,6 +47,8 @@ INSERT INTO `actualite` (`Date`, `Evenement`) VALUES
 ('2005-10-08', 'Ajout d''un <a href="/guestbook.php">livre d''or</a>'),
 ('2006-01-31', 'Ajout des photos du <a href="gallery.php?id=32">Marathon de New-york 2005</a>'),
 ('2006-10-14', 'Suppression du module Livre d''or &agrave; cause de messages de spam'),
+('2016-11-05', 'Ajout des photos de Porquerolles et Cala Montjoi'),
+('2016-11-06', 'Mise en place de menus d&eacute;roulants sur 2 niveaux'),
 ('2012-12-08', 'Changement de barre de menu; mise &agrave; jour du CV; correction sur la transparence des images PNG');
 
 -- --------------------------------------------------------
@@ -92,8 +93,10 @@ INSERT INTO `course` (`Date`, `Nom`, `Temps`, `ClassGen`, `ClassCat`, `URL`) VAL
 ('2005-09-10', '21&egrave;me Marathon du M&eacute;doc', '05:39:03', '4037 sur 6349', '773 des SEH', '#MarathonMedoc2005'),
 ('2005-11-06', 'Marathon de New-York 2005', '04:18:22', '13797 sur 36000', '4043', 'http://www.ingnycmarathon.org'),
 ('2010-03-07', 'Semi-Marathon - Blagnac', '1h49m21', '630', NULL, NULL),
-('2010-05-23', 'Les gendarmes et les Voleurs (32km) - Am', '3h39h15', '1019', NULL, NULL),
+('2010-05-23', 'Les gendarmes et les Voleurs (32km) - Ambazac', '3h39h15', '1019', NULL, NULL),
 ('2010-09-11', 'Marathon du M&eacute;doc', '5h54m58', '3848', NULL, NULL),
+('2016-05-15', 'Les gendarmes et les voleurs (32km) - Ambazac', '04h23m51', '1695', '660', NULL),
+('2014-02-01', 'Forest Trail 2014 (21km)', '2h36m24', '288', NULL, 'http://foresttrail31.fr/'),
 ('2009-10-18', '10km de Toulouse', '56m50', '279', NULL, NULL),
 ('2007-03-11', 'Semi-Marathon - Blagnac', '1h45h26', '589', NULL, NULL),
 ('2007-05-27', 'Marathon de la Ville aux Clercs', '3h49h27', '55', NULL, NULL),
@@ -107,11 +110,13 @@ INSERT INTO `course` (`Date`, `Nom`, `Temps`, `ClassGen`, `ClassCat`, `URL`) VAL
 --
 
 CREATE TABLE IF NOT EXISTS `fichier` (
-  `ID` tinyint(4) NOT NULL default '0',
-  `Nom` varchar(20) collate latin1_general_ci NOT NULL default '',
+  `ID` int(4) NOT NULL default 0,
+  `Nom` varchar(40) collate latin1_general_ci NOT NULL default '',
   `Comment` varchar(44) collate latin1_general_ci NOT NULL default '',
-  `cache` tinyint(2) NOT NULL default '0',
-  `ImageID` int(4) NOT NULL default '0',
+  `cache` int(2) NOT NULL default 0,
+  `typeGallery` int(2) NOT NULL default 0,
+  `masterGallery` int(4) NOT NULL default 0,
+  `ImageID` int(4) NOT NULL default 0,
   PRIMARY KEY  (`ID`),
   KEY `ID` (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
@@ -120,39 +125,47 @@ CREATE TABLE IF NOT EXISTS `fichier` (
 -- Contenu de la table `fichier`
 --
 
-INSERT INTO `fichier` (`ID`, `Nom`, `Comment`, `cache`, `ImageID`) VALUES
-(0, 'gallery', 'Voyages, voyages...', 0, 0),
-(1, 'gal_pablo', 'Pablo', 1, 10),
-(2, 'gal_mihinic', 'Week-end au Mihinic/Rance', 1, 1),
-(3, 'quebec', 'Canada: Qu&eacute;bec', 0, 127),
-(4, 'egypt', 'Egypte: Croisi&egrave;re sur le Nil', 0, 186),
-(5, 'bolivia', 'Bolivie', 0, 230),
-(6, 'gal_england', 'Angleterre', 0, 234),
-(7, 'gal_dominic', 'La Dominique', 0, 237),
-(8, 'gal_guadeloupe', 'France: Guadeloupe', 0, 242),
-(9, 'grenadin', 'Les Grenadines', 0, 245),
-(10, 'gal_ireland', 'Irlande', 0, 246),
-(11, 'gal_jersey', 'Jersey', 0, 251),
-(12, 'gal_martinique', 'France: Martinique', 0, 255),
-(13, 'gal_stlucia', 'Sainte Lucie', 0, 258),
-(14, 'gal_amsterdam', 'Pays-Bas: Amsterdam', 0, 266),
-(15, 'gal_tat', 'Trinidad &amp; Tobago', 0, 269),
-(16, 'gal_belle_ile', 'France: Belle-&Icirc;le', 0, 271),
-(18, 'gal_fil_1998', 'France: F. Interceltique de Lorient', 0, 275),
-(19, 'gal_corse', 'France: Corse', 0, 282),
-(20, 'bvi', 'Iles Vierges Britanniques', 0, 288),
-(21, 'bookperu', 'P&eacute;rou', 0, 289),
-(22, 'florida', 'USA: Floride', 0, 335),
-(23, 'hurghada', 'Egypte: Hurghada', 0, 346),
-(24, 'gal_sport_running', 'Sport: Course &agrave; pied', 0, 369),
-(25, 'gal_sport_scuba', 'Sport: Plong&eacute;e sous-marine', 0, 378),
-(26, 'gal_spain', 'Espagne: Barcelone', 0, 0),
-(27, 'gal_sport_roller', '', 0, 0),
-(28, 'chamonix', 'Sport: Ski &agrave; Chamonix', 0, 393),
-(29, 'portugal', 'Portugal: de Aveiro &agrave; Lisbonne', 0, 420),
-(30, 'ibiza', 'Espagne: Ibiza', 0, 477),
-(31, 'mallorca', 'Espagne: Mallorca', 0, 516),
-(32, 'nyc_2005', 'Sport: Marathon de New-York 2005', 0, 527);
+INSERT INTO `fichier` (`ID`, `Nom`, `Comment`, `cache`, `typeGallery`, `masterGallery`, `ImageID`) VALUES
+(1, 'gal_pablo', 'Pablo', 1, 0, 0, 10),
+(2, 'gal_mihinic', 'Week-end au Mihinic/Rance', 1, 0, 0, 1),
+(3, 'quebec', 'Canada: Qu&eacute;bec', 0, 0, 0, 127),
+(4, 'egypt', 'Croisi&egrave;re sur le Nil', 0, 2, 37, 186),
+(5, 'bolivia', 'Bolivie', 0, 0, 0, 230),
+(6, 'gal_england', 'Angleterre', 0, 0, 0, 234),
+(7, 'gal_dominic', 'La Dominique', 0, 0, 0, 237),
+(8, 'gal_guadeloupe', 'Guadeloupe', 0, 2, 35, 242),
+(9, 'grenadin', 'Les Grenadines', 0, 0, 0, 245),
+(10, 'gal_ireland', 'Irlande', 0, 0, 0, 246),
+(11, 'gal_jersey', 'Jersey', 0, 0, 0, 251),
+(12, 'gal_martinique', 'Martinique', 0, 2, 35, 255),
+(13, 'gal_stlucia', 'Sainte Lucie', 0, 0, 0, 258),
+(14, 'gal_amsterdam', 'Pays-Bas: Amsterdam', 0, 0, 0, 266),
+(15, 'gal_tat', 'Trinidad &amp; Tobago', 0, 0, 0, 269),
+(16, 'gal_belle_ile', 'Belle-&Icirc;le', 0, 2, 35, 271),
+(18, 'gal_fil_1998', 'Festival Interceltique de Lorient', 0, 2, 35, 275),
+(19, 'gal_corse', 'Corse', 0, 2, 35, 282),
+(20, 'bvi', 'Iles Vierges Britanniques', 0, 0, 0, 288),
+(21, 'bookperu', 'P&eacute;rou', 0, 0, 0, 289),
+(22, 'florida', 'USA: Floride', 0, 0, 0, 335),
+(23, 'hurghada', 'Hurghada', 0, 2, 37, 346),
+(24, 'gal_sport_running', 'Marathon du M&eacute;doc et Trail des Citadelles', 0, 2, 39, 369),
+(25, 'gal_sport_scuba', 'Martinique', 0, 2, 38, 378),
+(26, 'gal_spain', 'Barcelone', 0, 2, 36, 0),
+(27, 'gal_sport_roller', '', 0, 0, 0, 0),
+(28, 'chamonix', 'Chamonix', 0, 2, 40, 393),
+(29, 'portugal', 'Portugal: de Aveiro &agrave; Lisbonne', 0, 0, 0, 420),
+(30, 'ibiza', 'Ibiza', 0, 2, 36, 477),
+(31, 'mallorca', 'Mallorca', 0, 2, 36, 516),
+(32, 'nyc_2005', 'Marathon de New-York 2005', 0, 2, 39, 527),
+(33, 'calamontjoi', 'Cala Montjoi', 0, 2, 38, 572),
+(34, 'porquerolles', 'Porquerolles', 0, 2, 38, 584),
+(35, 'france', 'France', 0, 1, 0, 584),
+(36, 'espagne', 'Espagne', 0, 1, 0, 584),
+(37, 'egypte', 'Egypte', 0, 1, 0, 584),
+(38, 'plongee', 'Sport: Plong&eacute;e sous-marine', 0, 1, 0, 572),
+(39, 'courrir', 'Sport: Course &agrave; pied', 0, 1, 0, 572),
+(40, 'courrir', 'Sport: Ski', 0, 1, 0, 572),
+(0, 'gallery', 'Voyages, voyages...', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -626,7 +639,23 @@ INSERT INTO `fichierimage` (`ID`, `IDFichier`) VALUES
 (568, 32),
 (569, 32),
 (570, 32),
-(571, 32);
+(571, 32),
+(572, 33),
+(573, 33),
+(574, 33),
+(575, 33),
+(576, 33),
+(577, 33),
+(578, 33),
+(579, 33),
+(580, 33),
+(581, 33),
+(582, 33),
+(583, 33),
+(584, 34),
+(585, 34),
+(586, 34),
+(587, 34);
 
 -- --------------------------------------------------------
 
@@ -970,9 +999,9 @@ INSERT INTO `image` (`ID`, `Nom`, `Commentaire`) VALUES
 (444, 'portugal_25', ''),
 (445, 'portugal_26', ''),
 (446, 'ibiza_01', 'La piscine du Club Med'),
-(447, 'ibiza_02', 'Le mur d''escalade - derri?re le Baby Club'),
+(447, 'ibiza_02', 'Le mur d''escalade - derri&egrave;re le Baby Club'),
 (448, 'ibiza_03', 'Plage d''Eivissa avec l''&icirc;le de Formentera au fond'),
-(450, 'ibiza_05', 'Eivissa: un peu b?tonn? quand m?me'),
+(450, 'ibiza_05', 'Eivissa: un peu b&eacute;tonn&eacute; quand m&ecirc;me'),
 (451, 'ibiza_06', 'Vues sur la forteresse d''Eivissa'),
 (452, 'ibiza_07', 'Front de mer d''Eivissa'),
 (453, 'ibiza_08', 'Vue d''ensemble de la plage d''en Bossa avec au bout le Club Med'),
@@ -980,15 +1009,15 @@ INSERT INTO `image` (`ID`, `Nom`, `Commentaire`) VALUES
 (456, 'ibiza_11', 'Eivissa: joli fond de mer'),
 (457, 'ibiza_12', 'Forteresse d''Eivissa'),
 (458, 'ibiza_13', 'Forteresse d''Eivissa: une des entr&eacute;es'),
-(459, 'ibiza_14', 'Eivissa: le ch?teau int?gr? ? la ville'),
+(459, 'ibiza_14', 'Eivissa: le ch&acirc;teau int&eacute;gr&eacute; &agrave; la ville'),
 (460, 'ibiza_15', 'Forteresse d''Eivissa: les rues'),
 (461, 'ibiza_16', 'Forteresse d''Eivissa: Plaza del sol'),
 (462, 'ibiza_17', 'Forteresse d''Eivissa: Vue sur le reste de la ville'),
 (463, 'ibiza_18', 'Forteresse d''Eivissa: chemin de ronde'),
 (464, 'ibiza_19', 'Forteresse d''Eivissa: chemin de ronde 2'),
-(465, 'ibiza_20', 'Forteresse d''Eivissa: ?glise avec le port au fond'),
-(466, 'ibiza_21', 'Forteresse d''Eivissa: ? l''int?rieur de l''?glise'),
-(468, 'ibiza_23', 'Eivissa: une cabine t?l?phone tr?s design'),
+(465, 'ibiza_20', 'Forteresse d''Eivissa: &eacute;glise avec le port au fond'),
+(466, 'ibiza_21', 'Forteresse d''Eivissa: &agrave; l''int&eacute;rieur de l''&eacute;glise'),
+(468, 'ibiza_23', 'Eivissa: une cabine t&eacute;l&eacute;phone tr&egrave;s design'),
 (469, 'ibiza_24', 'Forteresse d''Eivissa: ruelle'),
 (470, 'ibiza_25', 'Forteresse d''Eivissa: ruelle II'),
 (471, 'ibiza_26', 'Forteresse d''Eivissa: marchande du festival m?di?val'),
@@ -998,7 +1027,7 @@ INSERT INTO `image` (`ID`, `Nom`, `Commentaire`) VALUES
 (475, 'ibiza_30', 'Forteresse d''Eivissa: un charmeur de serpents'),
 (476, 'ibiza_31', 'Forteresse d''Eivissa: une troupe de musiciens...'),
 (477, 'ibiza_32', 'Forteresse d''Eivissa: ... avec une jolie danseuse'),
-(478, 'ibiza_33', 'Forteresse d''Eivissa: vue sur l''?glise'),
+(478, 'ibiza_33', 'Forteresse d''Eivissa: vue sur l''&eacute;glise'),
 (480, 'ibiza_35', 'Eivissa 33'),
 (481, 'ibiza_36', 'Forteresse d''Eivissa: un marchan de th'),
 (482, 'ibiza_37', 'Forteresse d''Eivissa: principale entr&eacute;e'),
@@ -1045,50 +1074,68 @@ INSERT INTO `image` (`ID`, `Nom`, `Commentaire`) VALUES
 (524, 'trinidad07', 'Qui veut mettre le pied dans ce trou de p&eacute;trole ?'),
 (525, 'martinique09', 'Mangrove: on peut y voir un petit crabe au premier plan'),
 (526, 'trinidad08', 'Grotte au sud de Trinidad'),
-(527, 'ny_marathon05_01', 'Le célèbre taxi jaune'),
+(527, 'ny_marathon05_01', 'Le c&eacute;l&egrave;bre taxi jaune'),
 (528, 'ny_marathon05_02', 'Une sortie de secours'),
-(529, 'ny_marathon05_03', 'Des poussettes de 4 bébés, qui dit mieux ?!'),
+(529, 'ny_marathon05_03', 'Des poussettes de 4 b&eacute;b&eacute;s, qui dit mieux ?!'),
 (530, 'ny_marathon05_04', 'Style d''architecture'),
-(531, 'ny_marathon05_05', 'Une célèbre dame de fer'),
+(531, 'ny_marathon05_05', 'Une c&eacute;l&egrave;bre dame de fer'),
 (532, 'ny_marathon05_06', 'Le centre finance de Manhattan'),
-(533, 'ny_marathon05_07', 'Les Twins Towers devraient etre en arrière plan'),
+(533, 'ny_marathon05_07', 'Les Twins Towers devraient etre en arri&egrave;re plan'),
 (534, 'ny_marathon05_08', 'Embarquadaire de Manhattan'),
 (535, 'ny_marathon05_09', 'Le petit port de Manhattan'),
 (536, 'ny_marathon05_10', 'Manhattan vue du Sud'),
 (537, 'ny_marathon05_11', 'Les rues etroites'),
 (538, 'ny_marathon05_12', 'Il faut optimiser la place'),
-(540, 'ny_marathon05_14', 'Reflet des vitres sur une église'),
+(540, 'ny_marathon05_14', 'Reflet des vitres sur une &eacute;glise'),
 (541, 'ny_marathon05_15', 'Rockfeller Center'),
 (542, 'ny_marathon05_16', 'La patinoire'),
 (543, 'ny_marathon05_17', 'Chrysler Center'),
-(544, 'ny_marathon05_18', 'L''entrée de l''Empire State Building'),
+(544, 'ny_marathon05_18', 'L''entr&eacute;e de l''Empire State Building'),
 (545, 'ny_marathon05_19', 'Vue noctune de Manhattan du haut de l''Empire'),
 (546, 'ny_marathon05_20', 'Times Square'),
-(547, 'ny_marathon05_21', 'Le Hard Rock Café'),
+(547, 'ny_marathon05_21', 'Le Hard Rock Caf&eacute;'),
 (548, 'ny_marathon05_22', 'Ponton pour l''embarquement pour Ellis Island et Liberty Island'),
 (549, 'ny_marathon05_23', 'Vue du centre financier'),
-(550, 'ny_marathon05_24', 'Bâtiment d''Ellis Island qui recevait les immigrés'),
-(551, 'ny_marathon05_25', 'La statue de la Liberté avec au fond Manhattan'),
-(552, 'ny_marathon05_26', 'Vue de Manhattan à partir de Liberty Island'),
-(553, 'ny_marathon05_27', 'Explication sur le pédestal de la Statue'),
-(554, 'ny_marathon05_28', 'Arrêt à Ellis Island'),
-(555, 'ny_marathon05_29', 'La course du samedi: le départ'),
+(550, 'ny_marathon05_24', 'Bâtiment d''Ellis Island qui recevait les immigr&eacute;s'),
+(551, 'ny_marathon05_25', 'La statue de la Libert&eacute; avec au fond Manhattan'),
+(552, 'ny_marathon05_26', 'Vue de Manhattan &agrave; partir de Liberty Island'),
+(553, 'ny_marathon05_27', 'Explication sur le p&eacute;destal de la Statue'),
+(554, 'ny_marathon05_28', 'Arrêt &agrave; Ellis Island'),
+(555, 'ny_marathon05_29', 'La course du samedi: le d&eacute;part'),
 (556, 'ny_marathon05_30', 'La course du samedi: c''est parti'),
 (557, 'ny_marathon05_31', 'La course du samedi: on peut y apercevoir les Hollandais'),
 (558, 'ny_marathon05_32', 'Un charmant endroit...'),
-(559, 'ny_marathon05_33', 'La course du samedi: l''arrivée à Central Park'),
-(560, 'ny_marathon05_34', 'La Pasta Party: grand show à l''américaine'),
-(561, 'ny_marathon05_35', 'Les décorations dans le parc'),
+(559, 'ny_marathon05_33', 'La course du samedi: l''arriv&eacute;e &agrave; Central Park'),
+(560, 'ny_marathon05_34', 'La Pasta Party: grand show &agrave; l''am&eacute;ricaine'),
+(561, 'ny_marathon05_35', 'Les d&eacute;corations dans le parc'),
 (562, 'ny_marathon05_36', 'Le jour J: une petite pause pipi ?'),
-(563, 'ny_marathon05_37', 'Le jour J: les vêtements qui seront redistribués aux oeuvres caritatives'),
+(563, 'ny_marathon05_37', 'Le jour J: les vêtements qui seront redistribu&eacute;s aux oeuvres caritatives'),
 (564, 'ny_marathon05_38', 'Le jour J: c''est parti. Premier pont: le Verrazano'),
 (565, 'ny_marathon05_39', 'Le jour J: le second flux de coureurs au fond'),
-(566, 'ny_marathon05_40', 'Le jour J: les 5 quartiers traversés (I)'),
-(567, 'ny_marathon05_41', 'Le jour J: les 5 quartiers traversés (II)'),
+(566, 'ny_marathon05_40', 'Le jour J: les 5 quartiers travers&eacute;s (I)'),
+(567, 'ny_marathon05_41', 'Le jour J: les 5 quartiers travers&eacute;s (II)'),
 (568, 'ny_marathon05_42', 'Le jour J: le Queensborought bridge'),
 (569, 'ny_marathon05_43', 'Le jour J: les longs avenues de Manhattan'),
 (570, 'ny_marathon05_44', 'Le jour J: enfin Central Park'),
-(571, 'ny_marathon05_45', 'Le jour J: l''arrivée');
+(571, 'ny_marathon05_45', 'Le jour J: l''arriv&eacute;e'),
+(572, 'calamontjoi_01', 'La plage de Cala Montjoi'),
+(573, 'calamontjoi_02', 'Vous pouvez remarquer la couleur du sable: il n''est pas blanc mais plut&ocirc;t gris'),
+(574, 'calamontjoi_03', 'Bien s&ucirc;r, on peut y voir des b&acirc;teaux de plaisance (surtout le week-end)'),
+(575, 'calamontjoi_04', 'Et des plongeurs d&eacute;barqu&eacute;s (le club de plong&eacute;e est &agrave; l''int&eacute;rieur du club village)'),
+(576, 'calamontjoi_05', 'Cala Montjoi'),
+(577, 'calamontjoi_06', 'Cala Montjoi'),
+(578, 'calamontjoi_07', 'Cala Montjoi'),
+(579, 'calamontjoi_08', 'Cala Montjoi'),
+(580, 'calamontjoi_09', 'Cala Montjoi'),
+(581, 'calamontjoi_10', 'Cala Montjoi'),
+(582, 'calamontjoi_11', 'Cala Montjoi'),
+(583, 'calamontjoi_12', 'Cala Montjoi'),
+(584, 'porquerolles001', 'Porquerolles'),
+(585, 'porquerolles002', 'Porquerolles'),
+(586, 'porquerolles003', 'Porquerolles'),
+(587, 'porquerolles004', 'Porquerolles');
+
+
 
 -- --------------------------------------------------------
 

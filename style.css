@@ -114,246 +114,9 @@ h2 {
 	color: green
 }
 
-div.entete {
-	background-color: black;
-	border-width: thin;
-	border-color: white;
-	border-style: groove
-}
-
-div.entete2 {
-	position: relative;
-	background-color: silver;
-	border-width: thin;
-	border-color: white;
-	border-style: groove;
-	visibility: hidden
-}
-
-div.cache {
-	display: none;
-	position: relative;
-	top: 2px;
-	border-bottom: 2px outset #B02420;
-	border-left: 2px outset #B02420;
-	border-top: 2px outset #B02420;
-	border-right: 2px outset #B02420;
-	margin-left: 0px;
-	margin-bottom: 3px;
-	padding-top: 2px;
-	padding-right: 2px;
-	padding-bottom: 2px;
-	padding-left: 2px;
-}
-
-#affimg {
-	cursor: pointer;
-	margin-left: 5px;
-	border-top: 3px outset #B02420;
-	border-right: 3px outset #B02420;
-	border-bottom: 3px outset #B02420;
-	border-left: 3px outset #B02420;
-	padding-top: 1px;
-	padding-right: 1px;
-	/* cursor: hand; */
-}
-/* Op7 n'accepte pas midnightblue et firebrick dans les border */
-#affimg:hover {
-	border-left: 3px inset;
-	border-bottom: 3px inset;
-	border-top: 3px inset;
-	border-right: 3px inset;
-}
-
-#menuCV {
-	position: absolute;
-	top: 0;
-	left: 0px;
-	HEIGHT: 10px;
-}
-
-#menu A {
-	cursor: pointer;
-	TEXT-ALIGN: center;
-	text-decoration: none;
-	position: relative;
-	height: 20px;
-	/* width:74px; */
-	border-bottom: 2px outset #B02420;
-	border-left: 2px outset #B02420;
-	border-top: 2px outset #B02420;
-	border-right: 2px outset #B02420;
-	margin-left: 3px;
-	margin-bottom: 3px;
-	padding-top: 2px;
-	padding-right: 2px;
-	padding-bottom: 2px;
-	padding-left: 2px;
-	/* cursor: hand; */
-}
-
-#menu A:hover {
-	border-top: 2px inset #B02420;
-	border-right: 2px inset #B02420;
-	border-left: 2px inset #B02420;
-	border-bottom: 2px inset #B02420;
-}
-
-#menu A.smouchoperador:hover {
-	border-top: 2px outset #B02420;
-	border-right: 2px outset #B02420;
-	border-bottom: 2px outset #B02420;
-	border-left: 2px outset #B02420;
-}
-/* rendre 1 dynamic static c'est zarbi quand m&ecirc;me */
-.menu,.menu ul,.menu li,.menu a {
-	margin: 0;
-	padding: 0;
-	border: none;
-	outline: none;
-	z-index: 10;
-}
-
-.menu {
-	height: 30px;
-	width: 800px;
-	background: #4c4e5a;
-	border-radius: 2px;
-}
-
-.menu li {
-	position: relative;
-	list-style: none;
-	float: left;
-	display: block;
-	height: 30px;
-}
-
-.menu ul {
-	position: absolute;
-	top: 30px;
-	left: 0;
-	opacity: 0;
-	background: #1f2024;
-	-webkit-border-radius: 0 0 5px 5px;
-	-moz-border-radius: 0 0 5px 5px;
-	border-radius: 0 0 5px 5px;
-	-webkit-transition: opacity .25s ease .1s;
-	-moz-transition: opacity .25s ease .1s;
-	-o-transition: opacity .25s ease .1s;
-	-ms-transition: opacity .25s ease .1s;
-	transition: opacity .25s ease .1s;
-}
-
-.menu li:hover>ul {
-	opacity: 1;
-}
-
-.menu ul li {
-	height: 0;
-	overflow: hidden;
-	padding: 0;
-	text-align: left; -webkit-transition : height .25s ease .1s;
-	-moz-transition: height .25s ease .1s;
-	-o-transition: height .25s ease .1s;
-	-ms-transition: height .25s ease .1s;
-	transition: height .25s ease .1s;
-	-webkit-transition: height .25s ease .1s;
-}
-
-.menu ul li a {
-	width: 250px;
-	padding: 4px 0 4px 4px;
-	margin: 0;
-	border: none;
-	border-bottom: 1px solid #353539;
-}
-
-.menu ul li:last-child a {
-	border: none;
-}
-
-.menu li:hover>ul li {
-	height: 26px;
-	overflow: visible;
-	padding: 0;
-}
-
-.menu li a {
-	display: block;
-	padding: 0 14px;
-	margin: 6px 0;
-	line-height: 18px;
-	text-decoration: none;
-	border-left: 1px solid #393942;
-	border-right: 1px solid #4f5058;
-	font-family: Helvetica, Arial, sans-serif;
-	font-weight: bold;
-	font-size: 13px;
-	color: #f3f3f3;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, .6);
-	-webkit-transition: color .2s ease-in-out;
-	-moz-transition: color .2s ease-in-out;
-	-o-transition: color .2s ease-in-out;
-	-ms-transition: color .2s ease-in-out;
-	transition: color .2s ease-in-out;
-}
-
-.menu li:first-child a {
-	border-left: none;
-}
-
-.menu li:last-child a {
-	border-right: none;
-}
-
-.menu li:hover>a {
-	color: #8fde62;
-}
-
-div.on {
-	display: block;
-	border: thin solid black;
-	-webkit-border-radius: 0 0 10px 10px;
-	-moz-border-radius: 0 0 10px 10px;
-	border-radius: 0 0 10px 10px;
-}
-
 div.cv {
 	height: 700px;  
 	width: 1001px;
-}
-div.onglet1,div.onglet2,div.onglet3 {
-	background: green;
-	font-size: large;
-	position: absolute;
-	border: thin solid black;
-	cursor: pointer;
-	height: 50px;
-	text-align: center;
-	-webkit-border-radius: 10px 10px 0 0;
-	-moz-border-radius: 10px 10px 0 0;
-	border-radius: 10px 10px 0 0;
-}
-
-div.onglet1 {
-	left: 0px;
-	width: 332px;
-}
-
-div.onglet2 {
-	left: 333px;
-	width: 333px;
-}
-
-div.onglet3 {
-	left: 667px;
-	width: 332px;
-}
-
-div.off {
-	display: none;
-	border: thin solid grey;
 }
 
 a.on {
@@ -362,4 +125,87 @@ a.on {
 
 a.off {
 	color: yellow;
+}
+
+/* -----------------------------------------------------------------
+	NEW MENU : from www.frogweb.fr/demos/menu-deroulant-2-niveaux.html
+-------------------------------------------------------------------- */
+#menu, #menu ul {
+  padding:0;
+  margin:0;
+  list-style: none;
+  text-align: center;
+}
+
+#menu li {
+  display:inline-block;
+  vertical-align: top;
+  position: relative;
+  border-right: 1px solid #000;
+}
+#menu li li {
+  display:inherit;
+}
+#menu a {
+  display:block;
+  padding:5px 10px;
+  text-decoration: none;
+  color:#fff;
+  font-family:arial;
+}
+#menu ul li a {
+  padding:5px 10px;
+}
+#menu ul {
+  position: absolute;
+  z-index: 1000;
+  min-width:100%;
+  white-space: nowrap;
+  text-align: left;
+}
+#menu ul ul {
+  left:100%;
+  top:0;
+  overflow: hidden;
+  max-width: 0;
+  min-width: 0;
+  transition: 0.3s all;
+}
+#menu ul li:hover ul {
+  max-width: 30em;
+}
+#menu ul li {
+  max-height:0;
+  overflow: hidden;
+  transition:all 0.8s;
+}
+#menu li li li {
+  max-height: inherit;
+}
+#menu li:hover li {
+  max-height: 15em;
+  overflow: visible;
+}
+/* background des liens menus */
+.violet {
+	background-color: #65537A;
+	background-image:linear-gradient(to bottom, #65537A 0%, #2A2333 100%);
+}
+.violet li {
+    background:#2A2333
+}
+.violet li:hover {
+    background:#65537A
+}
+#menu li:hover {
+    background-image:none;
+}
+#menu li:hover a, .menu li li:hover a {
+    color:#000
+}
+#menu li:hover li a, #menu li:hover li li a {
+    color:#fff
+}
+#menu li:hover a, #menu li li:hover a, #menu li li li:hover a {
+    color:#000
 }
