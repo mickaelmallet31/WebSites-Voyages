@@ -3,8 +3,6 @@
 
 	Entete( 'image','fre' );
 
-	DatabaseConnection( );
-
 	// Get the parameters
 	if (isset($_GET["id"]))
 		$_SESSION['id'] = $_GET["id"];
@@ -17,16 +15,16 @@
 		$idfichier = $_SESSION[ "idfichier" ];
 
 		$request = "SELECT Comment, Commentaire, image.Nom AS Nom FROM image, fichier, fichierimage WHERE image.ID = fichierimage.ID AND fichier.ID = '$idfichier' AND image.ID = '$id'";
-		$result = mysql_query ( $request ) or die ("Requete '$request' invalide");
-		$row = mysql_fetch_object( $result );
+		$result = mysqli_query($con, $request ) or die ("Requete '$request' invalide");
+		$row = mysqli_fetch_object( $result );
 
 		$request = "SELECT MAX( ID ) AS ID FROM fichierimage WHERE ID < '$id' AND IDFichier = '$idfichier'";
-		$result2 = mysql_query ( $request ) or die ("Requete '$request' invalide");
-		$row2 = mysql_fetch_object( $result2 );
+		$result2 = mysqli_query($con, $request ) or die ("Requete '$request' invalide");
+		$row2 = mysqli_fetch_object( $result2 );
 
 		$request = "SELECT MIN( ID ) AS ID FROM fichierimage WHERE ID > '$id' AND IDFichier = '$idfichier'";
-		$result3 = mysql_query ( $request ) or die ("Requete '$request' invalide");
-		$row3 = mysql_fetch_object( $result3 );
+		$result3 = mysqli_query($con, $request ) or die ("Requete '$request' invalide");
+		$row3 = mysqli_fetch_object( $result3 );
 
 		echo '
 		<style>
@@ -55,9 +53,9 @@
 		}
 		echo '</td></tr></table>';
 
-		mysql_free_result( $result );
-		mysql_free_result( $result2 );
-		mysql_free_result( $result3 );
+		mysqli_free_result( $result );
+		mysqli_free_result( $result2 );
+		mysqli_free_result( $result3 );
 	}
 
 	EndOfPage( 'fre' );

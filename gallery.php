@@ -15,10 +15,9 @@
 	if(isset($_SESSION['id']))
 	{
 		$id = $_SESSION[ "id" ];
-		DatabaseConnection( );
 		
-		$result = mysql_query ( "SELECT Comment FROM fichier WHERE id = '$id'" ) or die ("Requete invalide");
-		$row = mysql_fetch_object( $result );
+		$result = mysqli_query($con, "SELECT Comment FROM fichier WHERE id = '$id'" ) or die ("Requete invalide");
+		$row = mysqli_fetch_object($result);
 		$title = $row->Comment;
 
 		if( $id == ID_MAIN_GALLERY )
@@ -42,8 +41,8 @@
 	echo '<h2 style="text-align: center">'.$title.'</h2><table cellpadding="5" cellspacing="5">';
 
 	$counter = 0;
-	$result = mysql_query ( $requete_string ) or die ("$requete_string invalide");
-	while( $row = mysql_fetch_object( $result ) )
+	$result = mysqli_query($con, $requete_string ) or die ("$requete_string invalide");
+	while( $row = mysqli_fetch_object( $result ) )
 	{
 		if( $counter % 4 == 0 )
 		{
@@ -54,8 +53,8 @@
 		echo '<td style="text-align:center">';
 		if( $id == ID_MAIN_GALLERY )
 		{
-			$result2 = mysql_query ( "SELECT Comment FROM fichier WHERE ID = '$row->IDFichier'" ) or die ("Requete invalide");
-			$row2 = mysql_fetch_object( $result2 );
+			$result2 = mysqli_query($con, "SELECT Comment FROM fichier WHERE ID = '$row->IDFichier'" ) or die ("Requete invalide");
+			$row2 = mysqli_fetch_object( $result2 );
 			echo '<div style="color:green">'.$row2->Comment.'<br/><a href="gallery.php?id='.$row->IDFichier.'">
 			<img src="images/vignettes/'.$row->Nom.'.jpg" style="border:0px;" alt="" width="174" height="117"/></a></div>';
 		}
@@ -70,7 +69,7 @@
 	}
 	echo "\n</tr>\n</table>";
 	echo "</div>\n";
-	mysql_free_result( $result );
+	mysqli_free_result( $result );
 
 	EndOfPage('fre');
 ?>

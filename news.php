@@ -3,7 +3,7 @@
 
 	Entete( 'news', 'fre' );
 
-	echo '<p style="color: green">'._('Derni&egrave;res modifications du site').":</p><table><tr><td width='10'><td>";
+	echo '<p style="color: green">'._('Derni&egrave;res modifications du site').":</p><div style='margin-left: 1cm;'>";
     
 	echo date(_('d/m/Y'), strtotime('2016-11-06')).' : '._('Support du multilangage avec gettext').'<br/>';
 	echo date(_('d/m/Y'), strtotime('2016-11-05')).' : '._('Ajout des photos de Porquerolles et Cala Montjoi').'<br/>';
@@ -22,7 +22,7 @@
     echo date(_('d/m/Y'), strtotime('2001-09-07')).' : '._("R&eacute;cit d'Hurghada termin&eacute").";<br/>";
     echo date(_('d/m/Y'), strtotime('2001-07-21')).' : '._("Photos d'Hurghada diffus&eacute;es")."<br/>";
 
-	echo '</td></tr></table>';
+	echo '</div>';
 	
 	EndOfPage('fre');
 ?>

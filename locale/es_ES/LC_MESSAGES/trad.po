@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-11-06 16:49+0100\n"
-"PO-Revision-Date: 2016-11-06 16:49+0100\n"
+"POT-Creation-Date: 2016-11-06 18:36+0100\n"
+"PO-Revision-Date: 2016-11-06 18:47+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -14,39 +14,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: library.php:367
+#: library.php:379
 msgid "Accueil"
 msgstr "Bienvenido"
 
-#: library.php:368
+#: library.php:380
 msgid "Nouveaut&eacute;s"
 msgstr "Actualidad"
 
-#: library.php:369
+#: library.php:381
 msgid "CV"
 msgstr "Currículum"
 
-#: library.php:375
+#: library.php:387
 msgid "Les sports"
 msgstr "Esportes"
 
-#: library.php:379
+#: library.php:390
+msgid "Courrir"
+msgstr "Correr"
+
+#: library.php:391
 msgid "Roller"
 msgstr "Roller"
 
-#: library.php:380
-msgid "Plong&acute;e"
-msgstr "Submarino"
+#: library.php:392
+msgid "Plong&eacute;e"
+msgstr "Submarinismo"
 
-#: library.php:383
+#: library.php:395
 msgid "Liens"
 msgstr "Lincos"
 
-#: library.php:384
+#: library.php:396
 msgid "Carnets de voyages"
 msgstr "Libros de viajes"
 
-#: library.php:403
+#: library.php:415
 msgid "Galleries de photos"
 msgstr "Galeria de fotografias"
 
@@ -56,67 +60,69 @@ msgstr "Ultimas modificationes"
 
 #: news.php:8 news.php:9 news.php:10 news.php:11 news.php:12 news.php:13
 #: news.php:14 news.php:15 news.php:16 news.php:17 news.php:18 news.php:19
-#: news.php:20 news.php:21 news.php:22 news.php:23 travel.php:47
+#: news.php:20 news.php:21 news.php:22 news.php:23 travel.php:49
 msgid "d/m/Y"
 msgstr "d/m/Y"
 
 #: news.php:8
 msgid "Support du multilangage avec gettext"
-msgstr ""
+msgstr "Multi lingua soporte con gettext funcion"
 
 #: news.php:9
 msgid "Ajout des photos de Porquerolles et Cala Montjoi"
-msgstr ""
+msgstr "Inclusion de fotos de Porquerolles y Cala Montjoi"
 
 #: news.php:10
 msgid ""
 "Changement de barre de menu; mise &agrave; jour du CV; correction sur la "
 "transparence des images PNG"
-msgstr ""
+msgstr "Cambio del menu"
 
 #: news.php:11
 msgid "Suppression du module Livre d'or &agrave; cause de messages de spam"
-msgstr ""
+msgstr "Supresion del libro de visitas porque mucho spams"
 
 #: news.php:12
 msgid "Ajout des photos du Marathon de New-york 2005"
-msgstr ""
+msgstr "Inclusion de fotographias del Marathon de NYC, 2005"
 
 #: news.php:13
 msgid "Ajout d'un livre d'or"
-msgstr ""
+msgstr "Inclusion de un libro de visitas"
 
 #: news.php:14
 msgid ""
 "Ajout des photos de Mallorca, de quelques photos sur Trinidad, Martinique et "
 "Iles Vierges Britaniques"
 msgstr ""
+"Inclusion de fotos de Mallorca, Trinidad, Martinica y Islas Virgines "
+"Britannicas"
 
 #: news.php:15
 msgid ""
 "Modification graphique du site (couleur, largeur fixee). Correction des "
 "pages pour &ecirc;tre en conformance avec CSS 2.1 et XHTML"
-msgstr ""
+msgstr "TBD"
 
 #: news.php:16
 msgid "Ajout des photos d'Ibiza"
-msgstr ""
+msgstr "Inclusion de fotos de Ibiza"
 
 #: news.php:17
 msgid "Photos du Portugal ajout&eacute;es"
-msgstr ""
+msgstr "Inclusion de fotos de Portugal"
 
 #: news.php:18
 msgid "Ajout des photos du s&eacute;jour &agrave; Chamonix"
-msgstr ""
+msgstr "Inclusion de fotos del estancia a Chamonix"
 
 #: news.php:19
 msgid "Ajout du r&eacute;cit du voyage au Qu&eacute;bec"
-msgstr ""
+msgstr "TBD"
 
 #: news.php:20
 msgid "Reconstruction du site en PHP"
-msgstr ""
+msgstr "TBD"
 
 #: news.php:21
 msgid "Photos du Qu&eacute;bec"
@@ -124,16 +130,19 @@ msgstr "Québec fotografias"
 
 #: news.php:22
 msgid "R&eacute;cit d'Hurghada termin&eacute"
-msgstr ""
+msgstr "TBD"
 
 #: news.php:23
 msgid "Photos d'Hurghada diffus&eacute;es"
-msgstr ""
+msgstr "Inclusion de fotos de Hurghada"
 
-#: travel.php:47
+#: travel.php:49
 msgid "Date"
 msgstr "Fecha"
 
-#: travel.php:48
+#: travel.php:50
 msgid "Commentaires"
 msgstr "Commentarios"
+
+#~ msgid "Plong&acute;e"
+#~ msgstr "Submarino"

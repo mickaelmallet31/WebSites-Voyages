@@ -5,8 +5,11 @@ require "localization.php";
 define( "ID_MAIN_GALLERY", 0 );
 define( "REQUETE_select_VOYAGE", "select fichier.ID FROM fichier, voyage WHERE fichier.ID = voyage.ID ORDER BY fichier.Comment" );
 
-
 $pays = "";
+if (! isset($con))
+{
+	DatabaseConnection();
+}
 
 //========================================================================
 function DisplayLink( $URL, $Commentaire )
@@ -19,10 +22,12 @@ function DisplayLink( $URL, $Commentaire )
 function GetLink( $ID )
 //========================================================================
 {
+	global $con;
+	
 	echo "<ul>";
 
-	$result = mysql_query ( "	select Commentaire, URL FROM liens WHERE ID='$ID'" ) or die ("Requete invalide");
-	$row = mysql_fetch_object( $result );
+	$result = mysqli_query($con, "	select Commentaire, URL FROM liens WHERE ID='$ID'" ) or die ("Requete invalide");
+	$row = mysqli_fetch_object( $result );
 	DisplayLink( $row->URL, $row->Commentaire );
 
 	echo "</ul>";
@@ -32,10 +37,12 @@ function GetLink( $ID )
 function GetLinkFromType( $ID )
 //========================================================================
 {
+	global $con;
+	
 	echo "<ul>";
 
-	$result = mysql_query ( "select Commentaire, URL FROM liens WHERE IDFichier='$ID'" ) or die ("Requete invalide");
-	while( $row = mysql_fetch_object( $result ) )
+	$result = mysqli_query ($con, "select Commentaire, URL FROM liens WHERE IDFichier='$ID'" ) or die ("Requete invalide");
+	while( $row = mysqli_fetch_object( $result ) )
 	{
 		DisplayLink( $row->URL, $row->Commentaire );
 	}
@@ -47,8 +54,10 @@ function GetLinkFromType( $ID )
 function GetLinkFromCountry( $country, &$comment, &$X1, &$Y1, &$X2, &$Y2 )
 //========================================================================
 {
-	$result = mysql_query ( "	select Comment, Recit, Nom, X1, X2, Y1, Y2 FROM fichier, voyage WHERE fichier.ID='$country' AND fichier.ID = voyage.ID" ) or die ("Requete invalide");
-	$row = mysql_fetch_object( $result );
+	global $con;
+	
+	$result = mysqli_query($con, "	select Comment, Recit, Nom, X1, X2, Y1, Y2 FROM fichier, voyage WHERE fichier.ID='$country' AND fichier.ID = voyage.ID" ) or die ("Requete invalide");
+	$row = mysqli_fetch_object( $result );
 
 	if( strlen( $row->Recit ) != 0 )
 	{
@@ -64,7 +73,7 @@ function GetLinkFromCountry( $country, &$comment, &$X1, &$Y1, &$X2, &$Y2 )
 	$Y1 = $row->Y1;
 	$Y2 = $row->Y2;
 	$comment = $row->Comment;
-	mysql_free_result( $result );
+	mysqli_free_result( $result );
 
 	return $URL;
 }
@@ -73,40 +82,43 @@ function GetLinkFromCountry( $country, &$comment, &$X1, &$Y1, &$X2, &$Y2 )
 function GetAllImagesFromCountry( $IDFichier )
 //========================================================================
 {
+	global $con;
+	
 	echo "<h3>Photos :</h3>";
 
 	$requete_string = "select image.ID AS ID, Commentaire FROM image, fichierimage WHERE image.ID = fichierimage.ID AND fichierimage.IDFichier = '$IDFichier' ORDER BY image.ID";
-	$result = mysql_query ( $requete_string ) or die ("Requete1 invalide");
+	$result = mysqli_query($con, $requete_string ) or die ("Requete1 invalide");
 
 	print "\n<ul>\n";
-	while( $row = mysql_fetch_object( $result ) )
+	while( $row = mysqli_fetch_object( $result ) )
 	{
 		LinkImage( $IDFichier, $row->ID, $row->Commentaire );
 	}
 	print "</ul>\n";
 
-	mysql_free_result( $result );
+	mysqli_free_result( $result );
 }
 
 //========================================================================
 function GetCommentFromImage(  )
 //========================================================================
 {
+	global $con;
+	
 	$numargs = func_num_args();
 	$arg_list = func_get_args();
-	DatabaseConnection( );
 
 	echo "<h3>Photos :</h3>";
 	print "<ul>\n";
 	for ($i = 1; $i < $numargs; $i++)
 	{
 		$requete_string = "select Commentaire FROM image WHERE ID = '$arg_list[$i]'";
-		$result = mysql_query ( $requete_string ) or die ("Requete2 invalide");
+		$result = mysqli_query($con, $requete_string ) or die ("Requete2 invalide");
 
-		$row = mysql_fetch_object( $result );
+		$row = mysqli_fetch_object( $result );
 		LinkImage( $arg_list[0], $arg_list[$i], $row->Commentaire );
 
-		mysql_free_result( $result );
+		mysqli_free_result( $result );
 	}
 	print "</ul>\n";
 }
@@ -122,32 +134,33 @@ function LinkImage( $IDFichier, $ID, $Comment )
 function GetPubBanner( $Pays, $fichier )
 //========================================================================
 {
+	global $con;
+	
 	if( $fichier != 'cv') {
 		#echo '<p style="text-align: center"><a href="http://www.greenpeace.fr/kitweb" title="Greenpeace France"><img src="http://www.greenpeace.org/france/Global/france/graphics/goodies/2008/12/392x72-baleine-1.png" width="392" height="72" alt="Greenpeace France"/></a></p>';
 	}
 	return;
 
-	DatabaseConnection( );
 	$condition = "";
 	if ( $Pays != "" )
 	{
 		$condition = "AND Pays = '$Pays'";
 	}
 
-	$result = mysql_query ( "select * FROM publicite WHERE type = '$format' $condition") or die ("Requete invalide");
+	$result = mysqli_query($con, "select * FROM publicite WHERE type = '$format' $condition") or die ("Requete invalide");
 
 	if ( $Pays == "" )
 	{
-		$number = rand( 0, mysql_num_rows( $result ) -1 );
+		$number = rand( 0, mysqli_num_rows( $result ) -1 );
 
-		if (!mysql_data_seek ($result, $number))
+		if (!mysqli_data_seek ($result, $number))
 		{
 			die ("Requete invalide");
 		}
 	}
-	$row = mysql_fetch_object( $result );
+	$row = mysqli_fetch_object( $result );
 
-	mysql_free_result( $result );
+	mysqli_free_result( $result );
 
 	if ( $row->Pub != "" )
 	{
@@ -162,6 +175,7 @@ function Entete( $fichier, $language )
 	global $id;
 	global $pays;
 	global $locale;
+	global $con;
 
 	$selectedRunning = "";
 	$selectedSubDive = "";
@@ -374,9 +388,9 @@ function Entete( $fichier, $language )
      --><li class="violet"><a href="#">'._("Les sports").'</a>
 		<ul>
 			<li><a href="sports.php">--- Accueil ---</a></li>
-			<li><a href="running.php">'.-("Courrir").'</a></li>
+			<li><a href="running.php">'._("Courrir").'</a></li>
 			<li><a href="roller.php">'._("Roller").'</a></li>
-			<li><a href="subdive.php">'._("Plong&acute;e").'</a></li>
+			<li><a href="subdive.php">'._("Plong&eacute;e").'</a></li>
 		</ul>
 		</li><!--
      --><li class="violet"><a href="links.php">'._("Liens").'</a></li><!--
@@ -385,16 +399,15 @@ function Entete( $fichier, $language )
 			<li><a href="travel.php?country=0">--- Accueil ---</a></li>
 			';
 			
-			DatabaseConnection( );
 
-			$result = mysql_query ( REQUETE_select_VOYAGE ) or die ("Requete REQUETE_select_VOYAGE invalide");
+			$result = mysqli_query($con, REQUETE_select_VOYAGE ) or die ("Requete REQUETE_select_VOYAGE invalide");
 			$optGroup = "";
-			while( $row = mysql_fetch_object( $result ) )
+			while( $row = mysqli_fetch_object($result) )
 			{
 				$URL = GetLinkFromCountry( $row->ID, $comment, $X1, $Y1, $X2, $Y2 );
 				echo "\n\t\t\t<li><a href='$URL'>$comment</a></li>";
 			}
-			mysql_free_result( $result );
+			mysqli_free_result( $result );
 			
 			echo '
 		</ul>
@@ -409,8 +422,8 @@ function Entete( $fichier, $language )
 			FROM fichier
 			WHERE ImageID != 0 AND cache=0 AND typeGallery != 2
 			ORDER BY Comment";
-			$result = mysql_query($requete) or die ("Requete invalide : $requete");
-			while( $row = mysql_fetch_object( $result ) )
+			$result = mysqli_query($con, $requete) or die ("Requete invalide : $requete");
+			while( $row = mysqli_fetch_object( $result ) )
 			{
 				# Display the link . Reset it if the gallery type is 1
 				$link = "gallery.php?id=$row->ID";
@@ -424,9 +437,9 @@ function Entete( $fichier, $language )
 					FROM fichier
 					WHERE ImageID != 0 AND cache = 0 AND typeGallery = 2 AND masterGallery=$row->ID
 					ORDER BY Comment";
-					$result2 = mysql_query($requete2) or die ("Requete invalide : $requete2");
+					$result2 = mysqli_query($con, $requete2) or die ("Requete invalide : $requete2");
 					echo "<ul>";
-					while( $row = mysql_fetch_object( $result2 ) )
+					while( $row = mysqli_fetch_object( $result2 ) )
 					{
 						echo "<li><a href='gallery.php?id=$row->ID'>$row->Comment</a></li>\n";
 					}
@@ -434,7 +447,7 @@ function Entete( $fichier, $language )
 				}
 				echo "</li>\n";
 			}
-			mysql_free_result( $result );
+			mysqli_free_result( $result );
 		?>
 		</ul>
 		</li>
@@ -457,10 +470,12 @@ GetPubBanner( $pays, $fichier );
 function DatabaseConnection( )
 //========================================================================
 {
-	mysqli_connect ("127.0.0.1", "mickael.mallet", "jsa35eej") or die ("Connexion impossible");
-	if ( mysql_select_db( "mickael_mallet" ) == 0 )
+	global $con;
+	
+	$con = mysqli_connect("127.0.0.1", "mickael.mallet", "jsa35eej", "mickael_mallet");
+	if (mysqli_connect_errno())
 	{
-		$result = mysql_select_db( "voyages" ) or die ("Can not open voyages" );
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 }
 

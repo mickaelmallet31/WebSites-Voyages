@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-11-06 16:49+0100\n"
-"PO-Revision-Date: 2016-11-06 16:54+0100\n"
+"POT-Creation-Date: 2016-11-06 18:35+0100\n"
+"PO-Revision-Date: 2016-11-06 18:35+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -14,39 +14,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: library.php:367
+#: library.php:379
 msgid "Accueil"
 msgstr "Homepage"
 
-#: library.php:368
+#: library.php:380
 msgid "Nouveaut&eacute;s"
 msgstr "News"
 
-#: library.php:369
+#: library.php:381
 msgid "CV"
 msgstr "Resume"
 
-#: library.php:375
+#: library.php:387
 msgid "Les sports"
 msgstr "Sports"
 
-#: library.php:379
+#: library.php:390
+msgid "Courrir"
+msgstr "Running"
+
+#: library.php:391
 msgid "Roller"
 msgstr "Roller"
 
-#: library.php:380
-msgid "Plong&acute;e"
-msgstr "Scuba diving"
+#: library.php:392
+msgid "Plong&eacute;e"
+msgstr "Scuba-diving"
 
-#: library.php:383
+#: library.php:395
 msgid "Liens"
 msgstr "Links"
 
-#: library.php:384
+#: library.php:396
 msgid "Carnets de voyages"
 msgstr "Travel books"
 
-#: library.php:403
+#: library.php:415
 msgid "Galleries de photos"
 msgstr "Photos galleries"
 
@@ -56,7 +60,7 @@ msgstr "Last modifications"
 
 #: news.php:8 news.php:9 news.php:10 news.php:11 news.php:12 news.php:13
 #: news.php:14 news.php:15 news.php:16 news.php:17 news.php:18 news.php:19
-#: news.php:20 news.php:21 news.php:22 news.php:23 travel.php:47
+#: news.php:20 news.php:21 news.php:22 news.php:23 travel.php:49
 msgid "d/m/Y"
 msgstr "M d, Y"
 
@@ -132,10 +136,13 @@ msgstr "Adding of the Hurghada book travel"
 msgid "Photos d'Hurghada diffus&eacute;es"
 msgstr "Adding of the Hurghada photos"
 
-#: travel.php:47
+#: travel.php:49
 msgid "Date"
 msgstr "Date"
 
-#: travel.php:48
+#: travel.php:50
 msgid "Commentaires"
 msgstr "Comments"
+
+#~ msgid "Plong&acute;e"
+#~ msgstr "Scuba diving"
