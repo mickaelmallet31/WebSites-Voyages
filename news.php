@@ -5,6 +5,7 @@
 
 	echo '<p style="color: green">'._('Derni&egrave;res modifications du site').":</p><div style='margin-left: 1cm;'>";
     
+	echo date(_('d/m/Y'), strtotime('2016-11-07')).' : '._('Ajout des photos de la Cr&egrave;te, de Venise, de Maurice et de la R&eacute;union').'<br/>';
 	echo date(_('d/m/Y'), strtotime('2016-11-06')).' : '._('Support du multilangage avec gettext').'<br/>';
 	echo date(_('d/m/Y'), strtotime('2016-11-05')).' : '._('Ajout des photos de Porquerolles et Cala Montjoi').'<br/>';
 	echo date(_('d/m/Y'), strtotime('2012-12-08')).' : '._('Changement de barre de menu; mise &agrave; jour du CV; correction sur la transparence des images PNG').'<br/>';

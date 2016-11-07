@@ -21,39 +21,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `actualite`
---
-
-CREATE TABLE IF NOT EXISTS `actualite` (
-  `Date` date NOT NULL default '0000-00-00',
-  `Evenement` longtext collate latin1_general_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
---
--- Contenu de la table `actualite`
---
-
-INSERT INTO `actualite` (`Date`, `Evenement`) VALUES
-('2005-07-31', 'Ajout des photos de <a href="gallery.php?id=31">Mallorca</a>, de quelques photos sur <a href="gallery.php?id=15">Trinidad</a>, <a href="gallery.php?id=12">Martinique</a> et <a href="gallery.php?id=20">Iles Vierges Britaniques</a>'),
-('2001-07-21', '<a href="gallery.php?id=23">Photos d''Hurghada diffus&eacute;es</a>'),
-('2001-09-07', '<a href="hurghada.php">R&eacute;cit d''Hurghada termin&eacute;</a>'),
-('2001-09-21', '<a href="gallery.php?id=3">Photos du Qu&eacute;bec</a>'),
-('2002-07-09', 'Reconstruction du site en PHP'),
-('2002-07-16', '<a href="quebec.php">Ajout du r&eacute;cit du voyage au Qu&eacute;bec</a>'),
-('2003-03-25', '<a href="gallery.php?id=28">Ajout des photos du s&eacute;jour &agrave; Chamonix</a>'),
-('2003-06-10', '<a href="gallery.php?id=29">Photos du Portugal ajout&eacute;es</a>'),
-('2004-05-11', '<a href="gallery.php?id=30">Ajout des photos d''Ibiza</a>'),
-('2005-07-30', 'Modification graphique du site (couleur, largeur fixee). Correction des pages pour &ecirc;tre en conformance avec CSS 2.1 et XHTML'),
-('2005-10-08', 'Ajout d''un <a href="/guestbook.php">livre d''or</a>'),
-('2006-01-31', 'Ajout des photos du <a href="gallery.php?id=32">Marathon de New-york 2005</a>'),
-('2006-10-14', 'Suppression du module Livre d''or &agrave; cause de messages de spam'),
-('2016-11-05', 'Ajout des photos de Porquerolles et Cala Montjoi'),
-('2016-11-06', 'Mise en place de menus d&eacute;roulants sur 2 niveaux'),
-('2012-12-08', 'Changement de barre de menu; mise &agrave; jour du CV; correction sur la transparence des images PNG');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `course`
 --
 
@@ -165,6 +132,10 @@ INSERT INTO `fichier` (`ID`, `Nom`, `Comment`, `cache`, `typeGallery`, `masterGa
 (38, 'plongee', 'Sport: Plong&eacute;e sous-marine', 0, 1, 0, 572),
 (39, 'courrir', 'Sport: Course &agrave; pied', 0, 1, 0, 572),
 (40, 'courrir', 'Sport: Ski', 0, 1, 0, 572),
+(41, 'crete', 'Gr&egrave;ce : Cr&egrave;te', 0, 0, 0, 588),
+(42, 'venise', 'Italie : Venise', 0, 0, 0, 602),
+(43, 'maurice', 'Maurice', 0, 0, 0, 630),
+(44, 'reunion', 'L''&icirc;le de la R&eacute;union', 0, 2, 35, 632),
 (0, 'gallery', 'Voyages, voyages...', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -655,7 +626,72 @@ INSERT INTO `fichierimage` (`ID`, `IDFichier`) VALUES
 (584, 34),
 (585, 34),
 (586, 34),
-(587, 34);
+(587, 34),
+(588, 41),
+(589, 41),
+(590, 41),
+(591, 41),
+(592, 41),
+(593, 41),
+(594, 41),
+(595, 41),
+(596, 41),
+(597, 41),
+(598, 41),
+(599, 41),
+(600, 41),
+(601, 41),
+(602, 42),
+(603, 42),
+(604, 42),
+(605, 42),
+(606, 42),
+(607, 42),
+(608, 42),
+(609, 42),
+(610, 42),
+(611, 42),
+(612, 42),
+(613, 42),
+(614, 42),
+(615, 42),
+(616, 42),
+(617, 42),
+(618, 42),
+(619, 42),
+(620, 43),
+(621, 43),
+(622, 43),
+(623, 43),
+(624, 43),
+(625, 43),
+(626, 43),
+(627, 43),
+(628, 43),
+(629, 43),
+(630, 43),
+(631, 43),
+(632, 44),
+(633, 44),
+(634, 44),
+(635, 44),
+(636, 44),
+(637, 44),
+(638, 44),
+(639, 44),
+(640, 44),
+(641, 44),
+(642, 44),
+(643, 44),
+(644, 44),
+(645, 44),
+(646, 44),
+(647, 44),
+(648, 44),
+(649, 44),
+(650, 44),
+(651, 44),
+(652, 44);
 
 -- --------------------------------------------------------
 
@@ -1133,9 +1169,72 @@ INSERT INTO `image` (`ID`, `Nom`, `Commentaire`) VALUES
 (584, 'porquerolles001', 'Porquerolles'),
 (585, 'porquerolles002', 'Porquerolles'),
 (586, 'porquerolles003', 'Porquerolles'),
-(587, 'porquerolles004', 'Porquerolles');
-
-
+(587, 'porquerolles004', 'Porquerolles'),
+(588, 'crete001', 'Eglise orthodoxe &agrave; Heraklion'),
+(589, 'crete002', 'Batiment municipal d''Heraklion'),
+(590, 'crete003', 'Santorin'),
+(591, 'crete004', 'Santorin: vue sur les toits bleus'),
+(592, 'crete005', 'Santorin: autre vue'),
+(593, 'crete006', 'Santorin: vue sur la caldera'),
+(594, 'crete007', 'Santorin: Eglise chr&eacute;tienne avec un dome'),
+(595, 'crete008', 'Bateau &agrave; Rethimon'),
+(596, 'crete009', 'Restaurant de Rethimon avec pleins de chaises multicolores'),
+(597, 'crete010', 'Balcon v&eacute;nitien de Rethimon'),
+(598, 'crete011', 'Fontaine de Rethimon'),
+(599, 'crete012', 'Une des nombreuses chapelles au bord de la route'),
+(600, 'crete013', 'Coucher de soleil vu de la plage'),
+(601, 'crete014', 'H&ocirc;tel de Marmara &agrave; Gouves'),
+(602, 'venise001', 'Le grand canal'),
+(603, 'venise002', 'Un des nombreux palais'),
+(604, 'venise003', 'Une gondole'),
+(605, 'venise004', 'Pont'),
+(606, 'venise005', 'Vaporettos'),
+(607, 'venise006', 'Le palais Ducal'),
+(608, 'venise007', 'Le campanile'),
+(609, 'venise008', 'La plaza San Marco'),
+(610, 'venise009', 'La plaza San Marco de nuit'),
+(611, 'venise010', 'L''horloge de San Marco'),
+(612, 'venise011', 'Vue du pont des Soupirs'),
+(613, 'venise012', 'Masque de carnaval'),
+(614, 'venise013', 'Labyrinthe de Venise'),
+(615, 'venise014', 'L''ambulance locale'),
+(616, 'venise015', 'Un souffleur de verre'),
+(617, 'venise016', 'Rue tr&egrave;s color&eacute;e sur une des &icirc;les de Venise'),
+(618, 'venise017', 'Attention, l''&eacute;glise va tomber'),
+(619, 'venise018', 'Venise vue autrement'),
+(620, 'ilemaurice001', 'Grandes chauve-souris dans le jardin de Pamplemousse'),
+(621, 'ilemaurice002', 'Fromager du jardin de Pamplemousse'),
+(622, 'ilemaurice003', 'Faune de Maurice'),
+(623, 'ilemaurice004', 'Vue sur le piton du milieu'),
+(624, 'ilemaurice005', 'Eh si: on a pu voir des dodos'),
+(625, 'ilemaurice006', 'Palais hindou (tr&egrave;s color&eacute; n''est pas)'),
+(626, 'ilemaurice007', 'Plage vue de l''h&ocirc;tel'),
+(627, 'ilemaurice008', 'Nos voisins du soir &eacute;taient bruyants'),
+(628, 'ilemaurice009', 'Sortie catamaran sur l''&icirc;le aux cerfs'),
+(629, 'ilemaurice010', 'Macaques de l''&icirc;le aux cerfs'),
+(630, 'ilemaurice011', 'Place paradisiaque de l''&icirc;le aux cerfs'),
+(631, 'ilemaurice012', 'Chambre de l''h&ocirc;tel'),
+(632, 'lareunion001', 'Arbre du voyageur'),
+(633, 'lareunion002', 'Temple Hindou'),
+(634, 'lareunion003', 'Eglise sauv&eacute;e de la coul&eacute;e de lave'),
+(635, 'lareunion004', 'Coul&eacute;e de lave se jetant dans la mer'),
+(636, 'lareunion005', 'La nature reprend ses droits'),
+(637, 'lareunion006', 'Le piton des neiges'),
+(638, 'lareunion007', 'La glaci&egrave;re'),
+(639, 'lareunion008', 'Foug&egrave;re arborescente'),
+(640, 'lareunion009', 'Gousse de vanille encore sur le plant'),
+(641, 'lareunion010', 'Une fois s&egrave;ches les gousses sont tri&eacute;es &agrave; la main'),
+(642, 'lareunion011', 'Maison du cirque de Cilaos'),
+(643, 'lareunion012', 'Cascade'),
+(644, 'lareunion013', 'La fameuse bi&egrave;re de la R&eacute;union'),
+(645, 'lareunion014', 'Vue sur l''enclave du Piton de la Fournaise'),
+(646, 'lareunion015', 'Le crat&egrave;re du Piton de la Fournaise'),
+(647, 'lareunion016', 'D&eacute;part de la Diagonale des Fous'),
+(648, 'lareunion017', 'Tracteur rentrant dans une sucrerie'),
+(649, 'lareunion018', 'Magnifique cascade mais l''eau est tr&egrave;s froide'),
+(650, 'lareunion019', 'Vue sur le trou de fer depuis l''h&eacute;licopt&egrave;re'),
+(651, 'lareunion020', 'On se s''est pas trop baign&eacute; vu les possibles voisins'),
+(652, 'lareunion021', 'Maison coloniale de Saint-Denis');
 
 -- --------------------------------------------------------
 
