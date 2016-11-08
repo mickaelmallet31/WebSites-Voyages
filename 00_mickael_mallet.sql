@@ -70,6 +70,131 @@ INSERT INTO `course` (`Date`, `Nom`, `Temps`, `ClassGen`, `ClassCat`, `URL`) VAL
 ('2007-10-28', 'Marseille-Cassis', '2h08m25', '8704', NULL, NULL),
 ('2002-09-07', 'Marathon du M&eacute;doc', '05h01m07', '2892', NULL, NULL);
 
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `liens`
+--
+
+CREATE TABLE IF NOT EXISTS `liens` (
+  `ID` tinyint(4) NOT NULL default '0',
+  `IDFichier` tinyint(4) NOT NULL default '0',
+  `URL` varchar(70) collate latin1_general_ci NOT NULL default '',
+  `Commentaire` varchar(100) collate latin1_general_ci NOT NULL default ''
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Contenu de la table `liens`
+--
+
+INSERT INTO `liens` (`ID`, `IDFichier`, `URL`, `Commentaire`) VALUES
+(1, 6, 'http://www.brittany-ferries.fr', 'http://www.brittany-ferries.fr'),
+(2, 8, 'http://webcaraibes.com', 'http://webcaraibes.com'),
+(3, 10, 'http://www.brittany-ferries.fr', 'http://www.brittany-ferries.fr'),
+(4, 11, 'http://www.jersey.gov.uk', 'http://www.jersey.gov.uk'),
+(5, 12, 'http://sous-les-cocotiers.com', 'http://sous-les-cocotiers.com'),
+(6, 16, 'http://koun.free.fr', 'Une adresse pour dormir sur l''&icirc;le'),
+(7, 1, 'http://www.amisdelaterre.org', 'Amis de la Terre France'),
+(8, 1, 'http://www.greenpeace.fr', 'Greenpeace France'),
+(9, 1, 'http://solar-club.web.cern.ch/solar-club/solairehome2.html', 'Club Solaire du CERN'),
+(10, 1, 'http://nature.free.fr', '&Eacute;cologie en france'),
+(11, 1, 'http://www.ifrance.com/ami/index.htm', '&Eacute;cologie appliqu&eacute;e'),
+(12, 1, 'http://www.ciele.org/filieres/index.html', 'CIELE'),
+(13, 2, 'http://www.luchon.com/bienvenue.html', 'Luchon Superbagn&egrave;re'),
+(14, 2, 'http://www.multimania.com/dojang/sommaire.html', 'Dojang - Le taekwondo'),
+(15, 2, 'http://magicvtt.free.fr/guide/guide.html', 'VTT en ligne'),
+(16, 2, 'http://www.caesium.fr/kiosque/sport/index.html', 'Sports, loisirs et comp&eacute;tition'),
+(17, 2, 'http://www.courirenfrance.com', 'Courir en France'),
+(18, 3, 'http://www.lonelyplanet.fr', 'Lonely Planet'),
+(19, 3, 'http://www.partir.com', 'Partir'),
+(20, 0, 'http://www.antourtan.org', 'An Tour Tan : le serveur de la diaspora Bretonne'),
+(21, 0, 'http://www.aidez.org', 'Pour faire des dons en ligne'),
+(22, 2, 'http://www.marathondumedoc.com', 'Le Marathon du Medoc'),
+(23, 3, 'http://www.routard.com/', 'Le guide du Routard'),
+(24, 1, 'http://www.mdi.lu', 'La voiture &agrave; air comprim&eacute;'),
+(25, 1, 'http://nature.jardin.free.fr/', 'Encyclop&eacute;die sur le jardin'),
+(26, 0, 'http://www.planete-numerique.com', 'http://www.planete-numerique.com'),
+(27, 1, 'http://www.web-ecolo.fr.st/', 'http://www.web-ecolo.fr.st/'),
+(28, 2, 'http://www.parismarathon.com/marathon/2002/fr/entrainement.html', 'Plan Entrainement Marathon'),
+(29, 1, 'http://web.wanadoo.be/brian.huebner/mythes.htm', 'Brisons les mythes...'),
+(0, 1, 'http://www.domsweb.org', 'http://www.domsweb.org'),
+(0, 0, 'http://filezilla.sourceforge.net/', 'FileZilla'),
+(0, 3, 'http://decouvrirlemonde.chez.tiscali.fr', 'Tour du Monde en un an de Lise et Nicolas : R&eacute;cits de voyages et Album photo');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `publicite`
+--
+
+CREATE TABLE IF NOT EXISTS `publicite` (
+  `Pays` varchar(50) collate latin1_general_ci NOT NULL default '',
+  `Pub` text collate latin1_general_ci NOT NULL,
+  `Type` smallint(6) NOT NULL default '0',
+  KEY `Type` (`Type`),
+  KEY `Pays` (`Pays`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Contenu de la table `publicite`
+--
+
+INSERT INTO `publicite` (`Pays`, `Pub`, `Type`) VALUES
+('Egypte', '<a href="http://www.alapage.com/partenaires/banners/adclick.php?what=YKCMY&amp;n=4~GENE~468x60">\r\n   <img style="border: 0px" src="http://www.alapage.com/partenaires/banners/adview.php?what=YKCMY&amp;n=4~GENE~468x60" alt=""/>\r\n</a>', 1),
+('index', '<iframe src="http://www.alapage.com/webservices/topXml.php?partnerId=KCFYT&categoryCode=4&nbrep=5&ts=1" style="height:100% ; width:100%;" frameborder="no" scrolling="no" marginheight="0" marginwidth="0"></iframe>', 0),
+('index2', '<a href="http://www.alapage.com/partenaires/banners/adclick.php?what=YKCMY&amp;n=4~GENE~468x60">\r\n   <img style="border: 0px" src="http://www.alapage.com/partenaires/banners/adview.php?what=YKCMY&amp;n=4~GENE~468x60" alt=""/>\r\n</a>', 1),
+('index3', '<a href="http://oceans.greenpeace.org/pirates" target="_blank"><img src="http://www.greenpeace.org/international/assets/banners/piratefishing430x150" alt="" width="430" height="100" border="0" title="Help stop pirate fishing"></a>', 1),
+('index', '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"\r\ncodebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="430" height="100" id="04_forest_430x100"\r\nalign="middle"> <param name="allowScriptAccess" value="sameDomain" />\r\n<param name="movie" value="http://www.greenpeace.org/belgium/assets/flashes/blauwe-dolfijnen-fr?clickTag=http://www.greenpeace.org/france/getinvolved/subscribe"\r\n/> <param name="quality" value="high" /> <param name="bgcolor"\r\nvalue="#ffffff" /> <embed\r\nsrc="http://www.greenpeace.org/belgium/assets/flashes/blauwe-dolfijnen-fr?clickTag=http://www.greenpeace.org/france/getinvolved/subscribe" quality="high"\r\nbgcolor="#ffffff" width="430" height="100" name="04_forest_430x100"\r\nalign="middle" allowScriptAccess="sameDomain"\r\ntype="application/x-shockwave-flash"\r\npluginspage="http://www.macromedia.com/go/getflashplayer" /> </object>', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `voyage`
+--
+
+CREATE TABLE IF NOT EXISTS `voyage` (
+  `ID` tinyint(4) NOT NULL default '0',
+  `DateDebut` date NOT NULL default '0000-00-00',
+  `DateFin` date NOT NULL default '0000-00-00',
+  `Recit` text collate latin1_general_ci NOT NULL,
+  `X1` smallint(4) NOT NULL default '0',
+  `Y1` smallint(4) NOT NULL default '0',
+  `X2` smallint(4) NOT NULL default '0',
+  `Y2` smallint(4) NOT NULL default '0',
+  PRIMARY KEY  (`ID`),
+  UNIQUE KEY `ID` (`ID`),
+  KEY `ID_2` (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Contenu de la table `voyage`
+--
+
+INSERT INTO `voyage` (`ID`, `DateDebut`, `DateFin`, `Recit`, `X1`, `Y1`, `X2`, `Y2`) VALUES
+(3, '0000-00-00', '0000-00-00', '', 177, 40, 230, 58),
+(4, '0000-00-00', '0000-00-00', '', 357, 134, 459, 150),
+(5, '0000-00-00', '0000-00-00', '', 101, 280, 141, 293),
+(6, '1996-02-01', '1996-02-04', 'J&#39;ai toujours voulu aller voir Stonehenge. Je suis parti 4 jours en voiture de St-Malo. Arriv&eacute;e &agrave; Porsthmouth. Direction Londres que j&#39;ai survol&eacute; (si on peut dire) en une journ&eacute;e (pas le temps de trainer et pourtant plein de choses &agrave; d&eacute;couvrir). Ensuite, le ch&acirc;teau de Windsor, Salisbury et Stonehenge. Magnifique. Un parfum de myst&egrave;re plane sur tout le comt&eacute; de Salisbury (des tumulus restent &agrave; d&eacute;couvrir). Puis Exeter, le parc de Dartmoor. De nuit, tr&egrave;s impressionnant. Si vous pouvez, on peut d&eacute;couvrir le parc par des chemins de randonn&eacute;e. Mais attention, le brouillard tombe vite et on peut faire de dr&ocirc;les de rencontres (Cf Le Chien de Baskerville). Enfin, Plymouth pour retourner sur St-Malo.', 198, 99, 262, 115),
+(7, '1997-05-01', '1997-05-05', 'Une &icirc;le magnifique avec des gens tr&egrave;s sympathiques. En 5 jours, d&eacute;couvrez Indian River, Trafalgar Falls, Porsthmouth, The Booling Lake (apr&egrave;s 3 heures de randonn&eacute;e)... ', 18, 217, 101, 230),
+(8, '1997-04-15', '1997-04-18', ' Louez une voiture et partez faire le tour de l&#39;&icirc;le (la Grande Terre et la Basse-Terre). Si vous trouvez que c&#39;est un peu trop peupl&eacute;e, partez sur les &icirc;les rattach&eacute;es : Marie- Galante, la D&eacute;sirade, les Saintes (en 1 journ&eacute;e), St Barth, St Martin (rien d&#39;authentique &agrave; part quelques plages et tout ce qu&#39;il faut pour d&eacute;penser ses petites &eacute;conomies - attention aux mauvais calculs).', 18, 186, 92, 200),
+(9, '0000-00-00', '0000-00-00', '', 19, 244, 115, 257),
+(10, '1994-04-06', '1996-09-30', ' J&#39;ai commenc&eacute; par un stage de fin de D.U.T. &agrave; Cork (mars &agrave; octobre 1993). Et les 2 &eacute;t&eacute;s suivants, j&#39;y suis retourn&eacute; pour bosser &agrave; l&#39;Universit&eacute; de Cork. Les Irlandais sont des gens tr&egrave;s sympathiques et l&#39;ambiance dans les pubs est amicale. On y retrouve aussi bien les hommes que les femmes et ils boivent tous de la bi&egrave;re.<br/>En tout, j&#39;y suis rest&eacute; 10 mois', 198, 84, 239, 97),
+(11, '1999-06-02', '1999-06-03', 'Parti de StMalo en bateau avec Emeraudes Lines, j&#39;ai d&eacute;barqu&eacute; &agrave; St Helier. J&#39;ai le week-end pour d&eacute;couvrir l&#39;&icirc;le. Direction le Royal Hotel o&ugrave; ma chambre m&#39;attend. Hotel correct avec bcp de charme. Ensuite je vais chercher mon v&eacute;lo. Je n&#39;&eacute;tais jamais mont&eacute; sur une bicyclette comme &ccedil;&agrave;: les roues sont pleines (pas de pb de crevaison mais &ccedil;&agrave; alourdit pas mal le v&eacute;lo), avec un pneu plut&ocirc;t proche du carr&eacute; que du demi cylindre (attention dans les virages, je ne sais plus combien de fois j&#39;ai failli tomber) et pour couronner le tout, un freinage &agrave; retrop&eacute;dalage. Apr&egrave;s quelques temps d&#39;adaptation, je quitte la capitale pour me diriger vers la pointe Sud- Ouest de l&#39;&icirc;le. J&#39;ai pris une sauc&eacute;e, comme jamais je n&#39;en avais pris &agrave; v&eacute;lo. J&#39;ai souvent pens&eacute; &agrave; me refugier dans un pub. Mais si le reste du week-end est pourri que &ccedil;&agrave;, je n&#39;allais pas voir grand chose de l&#39;&icirc;le. Alors j&#39;ai continu&eacute; &agrave; pousser sur ces satan&eacute;es p&eacute;dales. Apr&egrave;s 2 heures p&eacute;nibles sous la pluie et le vent, j&#39;aper&ccedil;ois la pointe. Le reste du week-end fut tr&egrave;s ensoleill&eacute;... ', 199, 117, 242, 131),
+(12, '1996-10-16', '1998-02-04', 'Pour mon service militaire, j&#39;ai demand&eacute; un dossier pour l&#39;Aide Technique. Pour partir dans les D.O.M. On choisit une destination et avec un peu de chance, on part l&agrave; o&ugrave; on a d&eacute;cid&eacute;. J&#39;avais choisi la R&eacute;union et je suis parti en Martinique. Pour 16 mois. Je sais que ca peut paraitre bizarre mais si vous &ecirctes apte &agrave; effectuer votre service, demandez l&#39;aide technique. C&#39;est un service civil (pas de classes, rien en uniforme) qui dure 16 mois. Vous &ecirctes plac&eacute; dans une administration (j&#39;&eacute;tais aux Imp&ocirc;ts avec un salaire de 7000 F net par mois). De quoi faire r&ecircver !!! Des randonn&eacute;es &agrave; faire, tous les sports nautiques, la bronzette (si on peut appeler un sport). Et si on trouve l&#39;&icirc;le un peu petite, c&#39;est tr&egrave;s facile de partir sur les autres &icirc;les de la Cara&icirc;be. ', 18, 201, 82, 216),
+(13, '1997-06-05', '1997-06-07', ' J&#39;ai fait une croisi&egrave;re de 3 jours autour de Sainte-Lucie. On s&#39;est arr&ecirc;t&eacute; le vendredi soir &agrave; Castries (la capitale) et l&#39;ambiance y est tr&egrave;s chaude. Comme les brochettes de lambies. ', 18, 231, 96, 243),
+(14, '2000-04-29', '2000-05-01', ' Quoi de plus naturel d&#39;aller en avion aux Pays-Bas avec la compagnie KLM. Le probl&egrave;me est qu&#39;il est justement bas, ce pays. R&eacute;sultat : &agrave; cause du brouillard &agrave; l&#39;a&eacute;roport n&eacute;erlandais, nous partons avec 2heures de retard. Arriv&eacute; la-bas, je regarde dans les couloirs de l&#39;a&eacute;roport s&#39;il y a vraiment des femmes qui vendent du plaisir. Nada !!! Elles sont peut &ecirc;tre dans la zone internationale o&ugrave; les passagers sont en transit. Facile de se d&eacute;brouiller tout seul pour aller &agrave; Amsterdam : un train part toutes les 5 minutes. Heureusement car il est bomb&eacute;.<P>Nous d&eacute;barquons &agrave; la gare centrale. On se dirige au Bureau de Tourisme qui est en face de la gare. Il y a foule pour cherche un logement. On a bien de r&eacute;server l&#39;h&ocirc;tel depuis la France. On y ach&egrave;te un pass pour prendre le tramway pendant les 3 jours que nous allons rester ici. On y apprend aussi que c&#39;est la f&ecirc;te de la Reine aujourd&#39;hui et que les N&eacute;erlandais sont &agrave; Amsterdam ce week-end. On a bien choisi.<P>Enfin, aujourd&#39;hui, on ne va trop utiliser le pass puisque aucune ligne de tramway du centre ville ne fonctionne aujourd&#39;hui. Avec un plan de la ville, nous parvenons &agrave; notre hotel qui est juste en p&eacute;riph&eacute;rie de l&#39;agitation. La r&eacute;ception est sans d&eacute;fault et la chambre petite mais propre. La suite de notre s&eacute;jour se d&eacute;roule en d&eacute;ambulant dans les rues, visitant le Mus&eacute;e de Van Gogh (pour les initi&eacute;s), la maison d&#39;Anne Franck (pas sensas, il n&#39;y a plus que des pi&egrave;ces vides), un tour en bateau sur les canaux (plein de compagnies sur les principaux quais)... et le quartier Rouge bien s&ucirc;r o&ugrave; on y trouve d&#39;ailleurs que des fran&ccedil;ais. Il y en a pour tous les go&ucirc;ts.<P>On n&#39;a m&ecirc;me pas eu le temps de rouler &agrave; v&eacute;lo ou d&#39;aller voir les moulins et les champs de tulipes. Mais il y a un magnifique march&eacute; aux fleurs en ville.<P>Voici <A CLASS="travel" HREF="images/map_amsterdam.jpg" TARGET="_blank">un plan de la ville</A>.', 199, 69, 269, 83),
+(15, '1997-11-04', '1997-11-10', ' Une semaine sur l&#39;&icirc;le du Carnaval (dommage que &ccedil;&agrave; n&#39;&eacute;tait pas la bonne p&eacute;riode, c&#39;est &agrave; dire F&eacute;vrier). A voir : un des seuls lacs de goudron &agrave; ciel ouvert, la r&eacute;serve ornithologique, quelques belles plages, Gaspar Cave... Les structures touristiques ne sont pas encore au point. On a un peu gal&eacute;r&eacute; pour trouver des h&ocirc;tels corrects. Pour la location de voiture, pareil. ', 194, 172, 242, 185),
+(16, '1999-08-05', '1999-08-06', 'J&#39;ai embarqu&eacute; avec mon v&eacute;lo sur le bateau &agrave; Quiberon. Apr&egrave;s une heure de travers&eacute;e, nous avons amarr&eacute; au pied de la citabelle Vauban &agrave; Le Palais (la plus grande ville de l&#39;&icirc;le). H&eacute;berg&eacute; au camping municipal de Le Palais, j&#39;ai parcouru Belle-&Icirc;le en mer en VTT (100km sur les 2 jours que cela m&#39;a pris). Le temps &eacute;tait magnifique et il existe une piste cyclable qui traverse l&#39;&icirc;le de part en part. J&#39;ai particuli&egrave;rement aim&eacute; la cr&egrave;perie qui se situe pr&egrave;s de la pointe de Kerobis, au pied de la mer.', 199, 131, 241, 143),
+(18, '1998-08-07', '1998-08-10', 'Le week-end du 7 ao&ucirc;t 1998, je suis all&eacute; au FIL (Festival Interceltique de Lorient). Un temps magnifique, une ambiance d&#39;enfer avec ces Asturiens qui remplissent les verres avec la bouteille au dessus de leur t&ecirc;te.', 199, 131, 241, 143),
+(19, '2000-08-12', '2000-08-20', ' <H2>12/08/2000</H2> En route vers Toulon. A l&#39;embarcadaire, on nous annonce que le d&eacute;part est diff&eacute;r&eacute; de 3 heures. Vive la compagnie maritime SNCM. Ca commence bien. On prends notre mal en patience. Visite des quais toulonnais. On fini dans un bar avec une danseuse chichement v&eacute;tue. En draguant le serveur, Manou a parvient &agrave; lui estorquer un tee- shirt. C&#39;est l&#39;heure du d&eacute;part. J&eacute;rome et Manou visitent le bateau tandis que Christine et moi-m&ecirc;me allons au lit. <H2>13/ 08/2000</H2> Lever &agrave; 6h. D&eacute;couverte de la Corse sous la brume et la pluie. Plus de croissants au petit d&eacute;jeuner (qui n&#39;est pas compris dans le prix du billet). Arriv&eacute;e &agrave; Propriano vers 10h. Il ait beau. Bcp de monde sur l&#39;embarcadaire. Quelques difficult&eacute;s pour sortir de cette ville. Direction Bonifacio. Arr&ecirc;ts fr&eacute;quents sur la route pour apercevoir de magnifiques criques. Dur de trouver un stationnement autoris&eacute; &agrave; Bonifacio. On a fini dans un "parking" tenu par une mamie (4h de l&#39;heure, pas ch&egrave;re par rapport au parking Jean Jaur&egrave;s de Toulouse &agrave; 15F/ heure). On visite &agrave; pied le coeur de Bonifacio. On mange sur le quai. Le serveur a le sourire crisp&eacute;. Manou d&eacute;couvre la charcuterie corse ("Eum, j&#39;adore &ccedil;&agrave; !"). Visite de la citadelle qui surplombe les fameuses falaises. Vers 17h, direction la plage de Santa Manza. L&#39;eau est comme on l&#39;aime: chaude et bleue turquoise. En apn&eacute;e, je d&eacute;couvre un poulpe et quelques poissons. Maintenant il faut retrouvrer l&#39;autre J&eacute;r&ocirc;me et Sylvie qui sont venus en moto. Direction Corte. La route est longue et sinueuse &agrave; la fin (&agrave; partir d&#39;Al&eacute;ria). On arrive enfin au Camping Aleratu. D&eacute;couverte de notre bungalow fra&icirc;chement fini. Manou et moi dormons dans la cuisine. <H2>14/08/2000</H2> Lever &agrave; 10h. Quelques achats s&#39;imposent au Champion du coin. Visiblement les prix sont pratiquement identiques &agrave; ceux du Continent. Vers 15h, apr&egrave;s s&#39;&ecirc;tre restaur&eacute;, on part pour la vall&eacute;e de la Restonica. Les 2 J&eacute;romes sur la moto et le reste de la bande dans la 306. Bcp de difficult&eacute;s pour se croiser sur la route. Mais les paysages sont magnifiques. Au pont de Tragone, les gar&ccedil;ons continuent de rouler mais les voitures sont stopp&eacute;es (&agrave; partir de 14h &agrave; cause des difficult&eacute;s pour se croiser). Nous ne pouvons continuer plus loin en voiture. Il nous reste 7km avant la rando qui commence &agrave; la bergerie. Je pars devant en essayant de courrir (avec plus ou moins de succ&egrave;s). <H2>18/08/2000</H2> Visite de la brasserie pr&egrave;s du stade Furiani, &agrave; Bastia. <H2>20/08/ 2000</H2> Tour du Cap Corse. On monte &agrave; la Tour S&eacute;n&egrave;que pr&egrave;s de Lunio. Apr&egrave;s 10mn de marche, on atteint la tour perch&eacute;e sur un promontoir. La vue est magnifique.', 199, 131, 241, 143),
+(20, '0000-00-00', '0000-00-00', '', 18, 169, 169, 183),
+(21, '0000-00-00', '0000-00-00', '', 100, 262, 136, 276),
+(22, '0000-00-00', '0000-00-00', '', 105, 126, 150, 143),
+(23, '0000-00-00', '0000-00-00', '', 356, 153, 455, 169),
+(26, '1996-07-15', '1996-07-20', 'Parti en bus (Rennes - Barcelona avec Euroline) pour 5 jours. Apr&egrave;s 18 heures de bus, arriv&eacute;e &agrave; Barcelona la nuit. Ambiance tr&egrave;s chaude dans les rues de la capitale Catalane. Le jour, visite des sites touristiques (quartier m&eacute;di&eacute;val, l&#39;&eacute;glise, le complexe olympique) et la nuit, la f&ecircte dans les rues. En fait, &agrave; Barcelone, la vie commence &agrave; 8 heure le soir o&ugrave; il commence &agrave; faire plus frais. Beaucoup de spectacles...', 200, 147, 261, 160),
+(31, '2005-07-06', '2005-07-13', 'Palma de Mallorca (Iles Bal&eacute;res)', 0, 0, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -117,7 +242,7 @@ INSERT INTO `fichier` (`ID`, `Nom`, `Comment`, `cache`, `typeGallery`, `masterGa
 (23, 'hurghada', 'Hurghada', 0, 2, 37, 346),
 (24, 'gal_sport_running', 'Marathon du M&eacute;doc et Trail des Citadelles', 0, 2, 39, 369),
 (25, 'gal_sport_scuba', 'Martinique', 0, 2, 38, 378),
-(26, 'gal_spain', 'Barcelone', 0, 2, 36, 0),
+(26, 'gal_spain', 'Barcelone', 0, 2, 36, 653),
 (27, 'gal_sport_roller', '', 0, 0, 0, 0),
 (28, 'chamonix', 'Chamonix', 0, 2, 40, 393),
 (29, 'portugal', 'Portugal: de Aveiro &agrave; Lisbonne', 0, 0, 0, 420),
@@ -691,7 +816,36 @@ INSERT INTO `fichierimage` (`ID`, `IDFichier`) VALUES
 (649, 44),
 (650, 44),
 (651, 44),
-(652, 44);
+(652, 44),
+(653, 26),
+(654, 26),
+(655, 26),
+(656, 26),
+(657, 26),
+(658, 26),
+(659, 26),
+(660, 26),
+(661, 26),
+(662, 26),
+(663, 26),
+(664, 26),
+(665, 26),
+(666, 26),
+(667, 26),
+(668, 26),
+(669, 26),
+(670, 26),
+(671, 26),
+(672, 26),
+(673, 26),
+(674, 26),
+(675, 26),
+(676, 26),
+(677, 26),
+(678, 26),
+(679, 26),
+(680, 26),
+(681, 26);
 
 -- --------------------------------------------------------
 
@@ -1234,131 +1388,36 @@ INSERT INTO `image` (`ID`, `Nom`, `Commentaire`) VALUES
 (649, 'lareunion018', 'Magnifique cascade mais l''eau est tr&egrave;s froide'),
 (650, 'lareunion019', 'Vue sur le trou de fer depuis l''h&eacute;licopt&egrave;re'),
 (651, 'lareunion020', 'On se s''est pas trop baign&eacute; vu les possibles voisins'),
-(652, 'lareunion021', 'Maison coloniale de Saint-Denis');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `liens`
---
-
-CREATE TABLE IF NOT EXISTS `liens` (
-  `ID` tinyint(4) NOT NULL default '0',
-  `IDFichier` tinyint(4) NOT NULL default '0',
-  `URL` varchar(70) collate latin1_general_ci NOT NULL default '',
-  `Commentaire` varchar(100) collate latin1_general_ci NOT NULL default ''
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
---
--- Contenu de la table `liens`
---
-
-INSERT INTO `liens` (`ID`, `IDFichier`, `URL`, `Commentaire`) VALUES
-(1, 6, 'http://www.brittany-ferries.fr', 'http://www.brittany-ferries.fr'),
-(2, 8, 'http://webcaraibes.com', 'http://webcaraibes.com'),
-(3, 10, 'http://www.brittany-ferries.fr', 'http://www.brittany-ferries.fr'),
-(4, 11, 'http://www.jersey.gov.uk', 'http://www.jersey.gov.uk'),
-(5, 12, 'http://sous-les-cocotiers.com', 'http://sous-les-cocotiers.com'),
-(6, 16, 'http://koun.free.fr', 'Une adresse pour dormir sur l''&icirc;le'),
-(7, 1, 'http://www.amisdelaterre.org', 'Amis de la Terre France'),
-(8, 1, 'http://www.greenpeace.fr', 'Greenpeace France'),
-(9, 1, 'http://solar-club.web.cern.ch/solar-club/solairehome2.html', 'Club Solaire du CERN'),
-(10, 1, 'http://nature.free.fr', '&Eacute;cologie en france'),
-(11, 1, 'http://www.ifrance.com/ami/index.htm', '&Eacute;cologie appliqu&eacute;e'),
-(12, 1, 'http://www.ciele.org/filieres/index.html', 'CIELE'),
-(13, 2, 'http://www.luchon.com/bienvenue.html', 'Luchon Superbagn&egrave;re'),
-(14, 2, 'http://www.multimania.com/dojang/sommaire.html', 'Dojang - Le taekwondo'),
-(15, 2, 'http://magicvtt.free.fr/guide/guide.html', 'VTT en ligne'),
-(16, 2, 'http://www.caesium.fr/kiosque/sport/index.html', 'Sports, loisirs et comp&eacute;tition'),
-(17, 2, 'http://www.courirenfrance.com', 'Courir en France'),
-(18, 3, 'http://www.lonelyplanet.fr', 'Lonely Planet'),
-(19, 3, 'http://www.partir.com', 'Partir'),
-(20, 0, 'http://www.antourtan.org', 'An Tour Tan : le serveur de la diaspora Bretonne'),
-(21, 0, 'http://www.aidez.org', 'Pour faire des dons en ligne'),
-(22, 2, 'http://www.marathondumedoc.com', 'Le Marathon du Medoc'),
-(23, 3, 'http://www.routard.com/', 'Le guide du Routard'),
-(24, 1, 'http://www.mdi.lu', 'La voiture &agrave; air comprim&eacute;'),
-(25, 1, 'http://nature.jardin.free.fr/', 'Encyclop&eacute;die sur le jardin'),
-(26, 0, 'http://www.planete-numerique.com', 'http://www.planete-numerique.com'),
-(27, 1, 'http://www.web-ecolo.fr.st/', 'http://www.web-ecolo.fr.st/'),
-(28, 2, 'http://www.parismarathon.com/marathon/2002/fr/entrainement.html', 'Plan Entrainement Marathon'),
-(29, 1, 'http://web.wanadoo.be/brian.huebner/mythes.htm', 'Brisons les mythes...'),
-(0, 1, 'http://www.domsweb.org', 'http://www.domsweb.org'),
-(0, 0, 'http://filezilla.sourceforge.net/', 'FileZilla'),
-(0, 3, 'http://decouvrirlemonde.chez.tiscali.fr', 'Tour du Monde en un an de Lise et Nicolas : R&eacute;cits de voyages et Album photo');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `publicite`
---
-
-CREATE TABLE IF NOT EXISTS `publicite` (
-  `Pays` varchar(50) collate latin1_general_ci NOT NULL default '',
-  `Pub` text collate latin1_general_ci NOT NULL,
-  `Type` smallint(6) NOT NULL default '0',
-  KEY `Type` (`Type`),
-  KEY `Pays` (`Pays`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
---
--- Contenu de la table `publicite`
---
-
-INSERT INTO `publicite` (`Pays`, `Pub`, `Type`) VALUES
-('Egypte', '<a href="http://www.alapage.com/partenaires/banners/adclick.php?what=YKCMY&amp;n=4~GENE~468x60">\r\n   <img style="border: 0px" src="http://www.alapage.com/partenaires/banners/adview.php?what=YKCMY&amp;n=4~GENE~468x60" alt=""/>\r\n</a>', 1),
-('index', '<iframe src="http://www.alapage.com/webservices/topXml.php?partnerId=KCFYT&categoryCode=4&nbrep=5&ts=1" style="height:100% ; width:100%;" frameborder="no" scrolling="no" marginheight="0" marginwidth="0"></iframe>', 0),
-('index2', '<a href="http://www.alapage.com/partenaires/banners/adclick.php?what=YKCMY&amp;n=4~GENE~468x60">\r\n   <img style="border: 0px" src="http://www.alapage.com/partenaires/banners/adview.php?what=YKCMY&amp;n=4~GENE~468x60" alt=""/>\r\n</a>', 1),
-('index3', '<a href="http://oceans.greenpeace.org/pirates" target="_blank"><img src="http://www.greenpeace.org/international/assets/banners/piratefishing430x150" alt="" width="430" height="100" border="0" title="Help stop pirate fishing"></a>', 1),
-('index', '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"\r\ncodebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="430" height="100" id="04_forest_430x100"\r\nalign="middle"> <param name="allowScriptAccess" value="sameDomain" />\r\n<param name="movie" value="http://www.greenpeace.org/belgium/assets/flashes/blauwe-dolfijnen-fr?clickTag=http://www.greenpeace.org/france/getinvolved/subscribe"\r\n/> <param name="quality" value="high" /> <param name="bgcolor"\r\nvalue="#ffffff" /> <embed\r\nsrc="http://www.greenpeace.org/belgium/assets/flashes/blauwe-dolfijnen-fr?clickTag=http://www.greenpeace.org/france/getinvolved/subscribe" quality="high"\r\nbgcolor="#ffffff" width="430" height="100" name="04_forest_430x100"\r\nalign="middle" allowScriptAccess="sameDomain"\r\ntype="application/x-shockwave-flash"\r\npluginspage="http://www.macromedia.com/go/getflashplayer" /> </object>', 1);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `voyage`
---
-
-CREATE TABLE IF NOT EXISTS `voyage` (
-  `ID` tinyint(4) NOT NULL default '0',
-  `DateDebut` date NOT NULL default '0000-00-00',
-  `DateFin` date NOT NULL default '0000-00-00',
-  `Recit` text collate latin1_general_ci NOT NULL,
-  `X1` smallint(4) NOT NULL default '0',
-  `Y1` smallint(4) NOT NULL default '0',
-  `X2` smallint(4) NOT NULL default '0',
-  `Y2` smallint(4) NOT NULL default '0',
-  PRIMARY KEY  (`ID`),
-  UNIQUE KEY `ID` (`ID`),
-  KEY `ID_2` (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
---
--- Contenu de la table `voyage`
---
-
-INSERT INTO `voyage` (`ID`, `DateDebut`, `DateFin`, `Recit`, `X1`, `Y1`, `X2`, `Y2`) VALUES
-(3, '0000-00-00', '0000-00-00', '', 177, 40, 230, 58),
-(4, '0000-00-00', '0000-00-00', '', 357, 134, 459, 150),
-(5, '0000-00-00', '0000-00-00', '', 101, 280, 141, 293),
-(6, '1996-02-01', '1996-02-04', 'J&#39;ai toujours voulu aller voir Stonehenge. Je suis parti 4 jours en voiture de St-Malo. Arriv&eacute;e &agrave; Porsthmouth. Direction Londres que j&#39;ai survol&eacute; (si on peut dire) en une journ&eacute;e (pas le temps de trainer et pourtant plein de choses &agrave; d&eacute;couvrir). Ensuite, le ch&acirc;teau de Windsor, Salisbury et Stonehenge. Magnifique. Un parfum de myst&egrave;re plane sur tout le comt&eacute; de Salisbury (des tumulus restent &agrave; d&eacute;couvrir). Puis Exeter, le parc de Dartmoor. De nuit, tr&egrave;s impressionnant. Si vous pouvez, on peut d&eacute;couvrir le parc par des chemins de randonn&eacute;e. Mais attention, le brouillard tombe vite et on peut faire de dr&ocirc;les de rencontres (Cf Le Chien de Baskerville). Enfin, Plymouth pour retourner sur St-Malo.', 198, 99, 262, 115),
-(7, '1997-05-01', '1997-05-05', 'Une &icirc;le magnifique avec des gens tr&egrave;s sympathiques. En 5 jours, d&eacute;couvrez Indian River, Trafalgar Falls, Porsthmouth, The Booling Lake (apr&egrave;s 3 heures de randonn&eacute;e)... ', 18, 217, 101, 230),
-(8, '1997-04-15', '1997-04-18', ' Louez une voiture et partez faire le tour de l&#39;&icirc;le (la Grande Terre et la Basse-Terre). Si vous trouvez que c&#39;est un peu trop peupl&eacute;e, partez sur les &icirc;les rattach&eacute;es : Marie- Galante, la D&eacute;sirade, les Saintes (en 1 journ&eacute;e), St Barth, St Martin (rien d&#39;authentique &agrave; part quelques plages et tout ce qu&#39;il faut pour d&eacute;penser ses petites &eacute;conomies - attention aux mauvais calculs).', 18, 186, 92, 200),
-(9, '0000-00-00', '0000-00-00', '', 19, 244, 115, 257),
-(10, '1994-04-06', '1996-09-30', ' J&#39;ai commenc&eacute; par un stage de fin de D.U.T. &agrave; Cork (mars &agrave; octobre 1993). Et les 2 &eacute;t&eacute;s suivants, j&#39;y suis retourn&eacute; pour bosser &agrave; l&#39;Universit&eacute; de Cork. Les Irlandais sont des gens tr&egrave;s sympathiques et l&#39;ambiance dans les pubs est amicale. On y retrouve aussi bien les hommes que les femmes et ils boivent tous de la bi&egrave;re.<br/>En tout, j&#39;y suis rest&eacute; 10 mois', 198, 84, 239, 97),
-(11, '1999-06-02', '1999-06-03', 'Parti de StMalo en bateau avec Emeraudes Lines, j&#39;ai d&eacute;barqu&eacute; &agrave; St Helier. J&#39;ai le week-end pour d&eacute;couvrir l&#39;&icirc;le. Direction le Royal Hotel o&ugrave; ma chambre m&#39;attend. Hotel correct avec bcp de charme. Ensuite je vais chercher mon v&eacute;lo. Je n&#39;&eacute;tais jamais mont&eacute; sur une bicyclette comme &ccedil;&agrave;: les roues sont pleines (pas de pb de crevaison mais &ccedil;&agrave; alourdit pas mal le v&eacute;lo), avec un pneu plut&ocirc;t proche du carr&eacute; que du demi cylindre (attention dans les virages, je ne sais plus combien de fois j&#39;ai failli tomber) et pour couronner le tout, un freinage &agrave; retrop&eacute;dalage. Apr&egrave;s quelques temps d&#39;adaptation, je quitte la capitale pour me diriger vers la pointe Sud- Ouest de l&#39;&icirc;le. J&#39;ai pris une sauc&eacute;e, comme jamais je n&#39;en avais pris &agrave; v&eacute;lo. J&#39;ai souvent pens&eacute; &agrave; me refugier dans un pub. Mais si le reste du week-end est pourri que &ccedil;&agrave;, je n&#39;allais pas voir grand chose de l&#39;&icirc;le. Alors j&#39;ai continu&eacute; &agrave; pousser sur ces satan&eacute;es p&eacute;dales. Apr&egrave;s 2 heures p&eacute;nibles sous la pluie et le vent, j&#39;aper&ccedil;ois la pointe. Le reste du week-end fut tr&egrave;s ensoleill&eacute;... ', 199, 117, 242, 131),
-(12, '1996-10-16', '1998-02-04', 'Pour mon service militaire, j&#39;ai demand&eacute; un dossier pour l&#39;Aide Technique. Pour partir dans les D.O.M. On choisit une destination et avec un peu de chance, on part l&agrave; o&ugrave; on a d&eacute;cid&eacute;. J&#39;avais choisi la R&eacute;union et je suis parti en Martinique. Pour 16 mois. Je sais que ca peut paraitre bizarre mais si vous &ecirctes apte &agrave; effectuer votre service, demandez l&#39;aide technique. C&#39;est un service civil (pas de classes, rien en uniforme) qui dure 16 mois. Vous &ecirctes plac&eacute; dans une administration (j&#39;&eacute;tais aux Imp&ocirc;ts avec un salaire de 7000 F net par mois). De quoi faire r&ecircver !!! Des randonn&eacute;es &agrave; faire, tous les sports nautiques, la bronzette (si on peut appeler un sport). Et si on trouve l&#39;&icirc;le un peu petite, c&#39;est tr&egrave;s facile de partir sur les autres &icirc;les de la Cara&icirc;be. ', 18, 201, 82, 216),
-(13, '1997-06-05', '1997-06-07', ' J&#39;ai fait une croisi&egrave;re de 3 jours autour de Sainte-Lucie. On s&#39;est arr&ecirc;t&eacute; le vendredi soir &agrave; Castries (la capitale) et l&#39;ambiance y est tr&egrave;s chaude. Comme les brochettes de lambies. ', 18, 231, 96, 243),
-(14, '2000-04-29', '2000-05-01', ' Quoi de plus naturel d&#39;aller en avion aux Pays-Bas avec la compagnie KLM. Le probl&egrave;me est qu&#39;il est justement bas, ce pays. R&eacute;sultat : &agrave; cause du brouillard &agrave; l&#39;a&eacute;roport n&eacute;erlandais, nous partons avec 2heures de retard. Arriv&eacute; la-bas, je regarde dans les couloirs de l&#39;a&eacute;roport s&#39;il y a vraiment des femmes qui vendent du plaisir. Nada !!! Elles sont peut &ecirc;tre dans la zone internationale o&ugrave; les passagers sont en transit. Facile de se d&eacute;brouiller tout seul pour aller &agrave; Amsterdam : un train part toutes les 5 minutes. Heureusement car il est bomb&eacute;.<P>Nous d&eacute;barquons &agrave; la gare centrale. On se dirige au Bureau de Tourisme qui est en face de la gare. Il y a foule pour cherche un logement. On a bien de r&eacute;server l&#39;h&ocirc;tel depuis la France. On y ach&egrave;te un pass pour prendre le tramway pendant les 3 jours que nous allons rester ici. On y apprend aussi que c&#39;est la f&ecirc;te de la Reine aujourd&#39;hui et que les N&eacute;erlandais sont &agrave; Amsterdam ce week-end. On a bien choisi.<P>Enfin, aujourd&#39;hui, on ne va trop utiliser le pass puisque aucune ligne de tramway du centre ville ne fonctionne aujourd&#39;hui. Avec un plan de la ville, nous parvenons &agrave; notre hotel qui est juste en p&eacute;riph&eacute;rie de l&#39;agitation. La r&eacute;ception est sans d&eacute;fault et la chambre petite mais propre. La suite de notre s&eacute;jour se d&eacute;roule en d&eacute;ambulant dans les rues, visitant le Mus&eacute;e de Van Gogh (pour les initi&eacute;s), la maison d&#39;Anne Franck (pas sensas, il n&#39;y a plus que des pi&egrave;ces vides), un tour en bateau sur les canaux (plein de compagnies sur les principaux quais)... et le quartier Rouge bien s&ucirc;r o&ugrave; on y trouve d&#39;ailleurs que des fran&ccedil;ais. Il y en a pour tous les go&ucirc;ts.<P>On n&#39;a m&ecirc;me pas eu le temps de rouler &agrave; v&eacute;lo ou d&#39;aller voir les moulins et les champs de tulipes. Mais il y a un magnifique march&eacute; aux fleurs en ville.<P>Voici <A CLASS="travel" HREF="images/map_amsterdam.jpg" TARGET="_blank">un plan de la ville</A>.', 199, 69, 269, 83),
-(15, '1997-11-04', '1997-11-10', ' Une semaine sur l&#39;&icirc;le du Carnaval (dommage que &ccedil;&agrave; n&#39;&eacute;tait pas la bonne p&eacute;riode, c&#39;est &agrave; dire F&eacute;vrier). A voir : un des seuls lacs de goudron &agrave; ciel ouvert, la r&eacute;serve ornithologique, quelques belles plages, Gaspar Cave... Les structures touristiques ne sont pas encore au point. On a un peu gal&eacute;r&eacute; pour trouver des h&ocirc;tels corrects. Pour la location de voiture, pareil. ', 194, 172, 242, 185),
-(16, '1999-08-05', '1999-08-06', 'J&#39;ai embarqu&eacute; avec mon v&eacute;lo sur le bateau &agrave; Quiberon. Apr&egrave;s une heure de travers&eacute;e, nous avons amarr&eacute; au pied de la citabelle Vauban &agrave; Le Palais (la plus grande ville de l&#39;&icirc;le). H&eacute;berg&eacute; au camping municipal de Le Palais, j&#39;ai parcouru Belle-&Icirc;le en mer en VTT (100km sur les 2 jours que cela m&#39;a pris). Le temps &eacute;tait magnifique et il existe une piste cyclable qui traverse l&#39;&icirc;le de part en part. J&#39;ai particuli&egrave;rement aim&eacute; la cr&egrave;perie qui se situe pr&egrave;s de la pointe de Kerobis, au pied de la mer.', 199, 131, 241, 143),
-(18, '1998-08-07', '1998-08-10', 'Le week-end du 7 ao&ucirc;t 1998, je suis all&eacute; au FIL (Festival Interceltique de Lorient). Un temps magnifique, une ambiance d&#39;enfer avec ces Asturiens qui remplissent les verres avec la bouteille au dessus de leur t&ecirc;te.', 199, 131, 241, 143),
-(19, '2000-08-12', '2000-08-20', ' <H2>12/08/2000</H2> En route vers Toulon. A l&#39;embarcadaire, on nous annonce que le d&eacute;part est diff&eacute;r&eacute; de 3 heures. Vive la compagnie maritime SNCM. Ca commence bien. On prends notre mal en patience. Visite des quais toulonnais. On fini dans un bar avec une danseuse chichement v&eacute;tue. En draguant le serveur, Manou a parvient &agrave; lui estorquer un tee- shirt. C&#39;est l&#39;heure du d&eacute;part. J&eacute;rome et Manou visitent le bateau tandis que Christine et moi-m&ecirc;me allons au lit. <H2>13/ 08/2000</H2> Lever &agrave; 6h. D&eacute;couverte de la Corse sous la brume et la pluie. Plus de croissants au petit d&eacute;jeuner (qui n&#39;est pas compris dans le prix du billet). Arriv&eacute;e &agrave; Propriano vers 10h. Il ait beau. Bcp de monde sur l&#39;embarcadaire. Quelques difficult&eacute;s pour sortir de cette ville. Direction Bonifacio. Arr&ecirc;ts fr&eacute;quents sur la route pour apercevoir de magnifiques criques. Dur de trouver un stationnement autoris&eacute; &agrave; Bonifacio. On a fini dans un "parking" tenu par une mamie (4h de l&#39;heure, pas ch&egrave;re par rapport au parking Jean Jaur&egrave;s de Toulouse &agrave; 15F/ heure). On visite &agrave; pied le coeur de Bonifacio. On mange sur le quai. Le serveur a le sourire crisp&eacute;. Manou d&eacute;couvre la charcuterie corse ("Eum, j&#39;adore &ccedil;&agrave; !"). Visite de la citadelle qui surplombe les fameuses falaises. Vers 17h, direction la plage de Santa Manza. L&#39;eau est comme on l&#39;aime: chaude et bleue turquoise. En apn&eacute;e, je d&eacute;couvre un poulpe et quelques poissons. Maintenant il faut retrouvrer l&#39;autre J&eacute;r&ocirc;me et Sylvie qui sont venus en moto. Direction Corte. La route est longue et sinueuse &agrave; la fin (&agrave; partir d&#39;Al&eacute;ria). On arrive enfin au Camping Aleratu. D&eacute;couverte de notre bungalow fra&icirc;chement fini. Manou et moi dormons dans la cuisine. <H2>14/08/2000</H2> Lever &agrave; 10h. Quelques achats s&#39;imposent au Champion du coin. Visiblement les prix sont pratiquement identiques &agrave; ceux du Continent. Vers 15h, apr&egrave;s s&#39;&ecirc;tre restaur&eacute;, on part pour la vall&eacute;e de la Restonica. Les 2 J&eacute;romes sur la moto et le reste de la bande dans la 306. Bcp de difficult&eacute;s pour se croiser sur la route. Mais les paysages sont magnifiques. Au pont de Tragone, les gar&ccedil;ons continuent de rouler mais les voitures sont stopp&eacute;es (&agrave; partir de 14h &agrave; cause des difficult&eacute;s pour se croiser). Nous ne pouvons continuer plus loin en voiture. Il nous reste 7km avant la rando qui commence &agrave; la bergerie. Je pars devant en essayant de courrir (avec plus ou moins de succ&egrave;s). <H2>18/08/2000</H2> Visite de la brasserie pr&egrave;s du stade Furiani, &agrave; Bastia. <H2>20/08/ 2000</H2> Tour du Cap Corse. On monte &agrave; la Tour S&eacute;n&egrave;que pr&egrave;s de Lunio. Apr&egrave;s 10mn de marche, on atteint la tour perch&eacute;e sur un promontoir. La vue est magnifique.', 199, 131, 241, 143),
-(20, '0000-00-00', '0000-00-00', '', 18, 169, 169, 183),
-(21, '0000-00-00', '0000-00-00', '', 100, 262, 136, 276),
-(22, '0000-00-00', '0000-00-00', '', 105, 126, 150, 143),
-(23, '0000-00-00', '0000-00-00', '', 356, 153, 455, 169),
-(26, '1996-07-15', '1996-07-20', 'Parti en bus (Rennes - Barcelona avec Euroline) pour 5 jours. Apr&egrave;s 18 heures de bus, arriv&eacute;e &agrave; Barcelona la nuit. Ambiance tr&egrave;s chaude dans les rues de la capitale Catalane. Le jour, visite des sites touristiques (quartier m&eacute;di&eacute;val, l&#39;&eacute;glise, le complexe olympique) et la nuit, la f&ecircte dans les rues. En fait, &agrave; Barcelone, la vie commence &agrave; 8 heure le soir o&ugrave; il commence &agrave; faire plus frais. Beaucoup de spectacles...', 200, 147, 261, 160),
-(31, '2005-07-06', '2005-07-13', 'Palma de Mallorca (Iles Bal&eacute;res)', 0, 0, 0, 0);
+(652, 'lareunion021', 'Maison coloniale de Saint-Denis'),
+(653, 'barcelona_01', 'L''aquarium : un nautilus'),
+(654, 'barcelona_02', 'L''aquarium : les dents de la mer IV ?'),
+(655, 'barcelona_03', 'Ca grimpe pour aller au Parc G&uuml;ell'),
+(656, 'barcelona_04', 'L''entr&eacute;e du Parc G&uuml;ell'),
+(657, 'barcelona_05', 'La terrasse du Parc G&uuml;ell'),
+(658, 'barcelona_06', 'Parc Guell: vous voyez les chauve-souris ?'),
+(659, 'barcelona_07', 'Influence de Gaudi ?'),
+(660, 'barcelona_08', 'La Pedrera'),
+(661, 'barcelona_09', 'Front de mer'),
+(662, 'barcelona_10', 'Rambla del Raval: le Chat de Botelo'),
+(663, 'barcelona_11', 'Le pont des Soupirs de Barcelone ?'),
+(664, 'barcelona_12', 'Une fontaine avec ses azuleros'),
+(665, 'barcelona_13', 'La casa Batll&oacute;'),
+(666, 'barcelona_14', 'Un lampadaire de la Passeig de Gracia'),
+(667, 'barcelona_15', 'La cath&eacute;drale'),
+(668, 'barcelona_16', 'Le mus&eacute;e de la Musique'),
+(669, 'barcelona_17', 'Visage de Jaume Plensa'),
+(670, 'barcelona_18', 'Magasin de Quiksilver sur le front de mer (les planches tournent)'),
+(671, 'barcelona_19', 'Street Art ?'),
+(672, 'barcelona_20', 'Fa&ccedil;ade m&eacute;di&eacute;vale'),
+(673, 'barcelona_21', 'La Sagrada Familia: la porte de la Nativit&eacute;'),
+(674, 'barcelona_22', 'La Sagrada Familia: d&eacute;tail de la porte d''entr&eacute;e'),
+(675, 'barcelona_23', 'Un des nombreux vitraux'),
+(676, 'barcelona_24', 'La Sagrada Familia: la magnifique nef'),
+(677, 'barcelona_25', 'La Sagrada Familia: une impression de for&ecirc;t de pierres'),
+(678, 'barcelona_26', 'La Sagrada Familia: la porte de la Passion'),
+(679, 'barcelona_27', 'La Sagrada Familia: vue de l''ext&eacute;rieur'),
+(680, 'barcelona_28', 'La Sagrada Familia: d&eacute;tail du haut d''une tour'),
+(681, 'barcelona_29', 'La Sagrada Familia: ce qu''il reste &agrave; faire en blanc - 10 ans de travaux');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
