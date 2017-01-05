@@ -200,7 +200,13 @@ function Entete( $fichier, $language )
 			$motcle = "Gallerie;Photo";
 			break;
 
-		case "image":
+		case "bric_a_brac":
+			$titre = "Bric &agrave; brac";
+			$recit = "Page qui contient des informations dont j'ai eu besoin au cours du temps";
+			$motcle = "attelage;attache remorque;scenic 1 phase 2;circuit electrique;faisceau";
+			break;
+
+			case "image":
 			$titre = "Photo";
 			$recit = "Photo";
 			$motcle = "Photo";
@@ -343,7 +349,7 @@ function Entete( $fichier, $language )
 	echo "\t<meta http-equiv=\"expires\" content=\"Mon, 21 May 2001 12:03:14 GMT\"/>\n";
 	echo "\t<meta name=\"robots\" content=\"all\"/>\n";
 	echo "\t<meta http-equiv='content-type' content='text/html;charset=UTF-8'/>\n";
-	echo "\t<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\" title=\"coolsheet\"/>\n";
+	echo "\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\" title=\"coolsheet\"/>\n";
 	echo "</head><body";
 
 	if ( $fichier == "cv" )
@@ -351,7 +357,7 @@ function Entete( $fichier, $language )
 		echo " onload=\"cache( 'section2', 'section1', 'section3', 'num2', 'num1', 'num3' )\"";
 	}
 
-	echo '><table style="width:1024px; -webkit-border-radius: 5px 5px 5px 5px;-moz-border-radius: 5px 5px 5px 5px;border-radius: 5px 5px 5px 5px;"><tr><td><a id="top"></a>';
+	echo '><table style="padding: 10px 10px 10px 10px; width:1024px; -webkit-border-radius: 5px 5px 5px 5px;-moz-border-radius: 5px 5px 5px 5px;border-radius: 5px 5px 5px 5px;"><tr><td><a id="top"></a>';
 
 	switch ($locale)
 	{
@@ -377,26 +383,26 @@ function Entete( $fichier, $language )
 	echo '
 	<table border="0"><tr><td width="150" align="right"></td><td width="700">
 	<ul id="menu">
-		<li class="violet"><a href="index.php">'._("Accueil").'</a></li><!--
-     --><li class="violet"><a href="news.php">'._("Nouveaut&eacute;s").'</a></li><!--
+		<li class="violet"><a href="/index.php">'._("Accueil").'</a></li><!--
+     --><li class="violet"><a href="/news.php">'._("Nouveaut&eacute;s").'</a></li><!--
      --><li class="violet"><a href="#">'._("CV").'</a>
 		<ul>
-			<li><a href="cv_en.php">English version</a></li>
-			<li><a href="cv_fr.php">Version fran&ccedil;aise</a></li>
+			<li><a href="/cv_en.php">English version</a></li>
+			<li><a href="/cv_fr.php">Version fran&ccedil;aise</a></li>
 		</ul>
 		</li><!--
      --><li class="violet"><a href="#">'._("Les sports").'</a>
 		<ul>
-			<li><a href="sports.php">--- Accueil ---</a></li>
-			<li><a href="running.php">'._("Courrir").'</a></li>
-			<li><a href="roller.php">'._("Roller").'</a></li>
-			<li><a href="subdive.php">'._("Plong&eacute;e").'</a></li>
+			<li><a href="/running.php">'._("Courrir").'</a></li>
+			<li><a href="/roller.php">'._("Roller").'</a></li>
+			<li><a href="/subdive.php">'._("Plong&eacute;e").'</a></li>
 		</ul>
 		</li><!--
-     --><li class="violet"><a href="links.php">'._("Liens").'</a></li><!--
+     --><li class="violet"><a href="/links.php">'._("Liens").'</a></li><!--
+	 --><li class="violet"><a href="/bric_a_brac.php">'._("Bric &agrave; brac").'</a></li><!--
      --><li class="violet"><a href="#">'._('Carnets de voyages').'</a>
 		<ul>
-			<li><a href="travel.php?country=0">--- Accueil ---</a></li>
+			<li><a href="/travel.php?country=0">--- Accueil ---</a></li>
 			';
 			
 
@@ -414,7 +420,7 @@ function Entete( $fichier, $language )
 		</li><!--
      --><li class="violet"><a href="#">'._('Galleries de photos').'</a>
 		<ul>
-			<li><a href="gallery.php?id=0">--- Accueil ---</a></li>
+			<li><a href="/gallery.php?id=0">--- Accueil ---</a></li>
 			';
 			
 			
@@ -452,12 +458,15 @@ function Entete( $fichier, $language )
 		</ul>
 		</li>
 	</ul>
+	<script type="text/javascript" src="http://counter3.01counter.com/private/countertab.js?c=d0f669a7061d5e51a9ae911ba22fd762"></script>
+<noscript><a href="http://www.compteurdevisite.com" title="compteur internet"><img src="http://counter3.01counter.com/private/compteurdevisite.php?c=d0f669a7061d5e51a9ae911ba22fd762" border="0" title="compteur internet" alt="compteur internet"></a>
+</noscript>
 	</td><td width="150" align="right">
 	<?php
 		echo "
-	<a href='?l=fr_FR'><img $border_fr src='images/flag_fr.png'/></a>
-	<a href='?l=en_US'><img $border_en src='images/flag_uk.png'/></a> 
-	<a href='?l=es_ES'><img $border_es src='images/flag_sp.png'/></a>
+	<a href='?l=fr_FR'><img $border_fr src='/images/flag_fr.png'/></a>
+	<a href='?l=en_US'><img $border_en src='/images/flag_uk.png'/></a> 
+	<a href='?l=es_ES'><img $border_es src='/images/flag_sp.png'/></a>
 	";
 	?>
 	</td></tr></table>
