@@ -8,6 +8,7 @@ body {
 	width: 1024px;
 	margin: 0 auto;
 	text-align: center;
+    margin-left: calc(50vw - 500px);    
 }
 
 table {
@@ -19,6 +20,10 @@ table {
 	margin: 0 auto;
 	text-align: left;
 	vertical-align: top;
+}
+
+table.menu {
+    position: fixed;
 }
 
 table.cv {

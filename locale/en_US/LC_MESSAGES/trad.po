@@ -1,58 +1,446 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-11-06 18:35+0100\n"
-"PO-Revision-Date: 2016-11-06 18:35+0100\n"
+"POT-Creation-Date: 2017-10-07 11:25+0200\n"
+"PO-Revision-Date: 2017-10-07 11:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.4\n"
 "X-Poedit-Basepath: ../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: library.php:379
-msgid "Accueil"
-msgstr "Homepage"
+#: cv.php:37
+msgid "T&eacute;l"
+msgstr "Phone"
 
-#: library.php:380
+#: cv.php:39
+msgid "M&eacute;l"
+msgstr "Email address"
+
+#: cv.php:43
+msgid "INGENIEUR GESTION DE CONFIGURATION / DEVELOPPEMENT"
+msgstr "CONFIGURATION MANAGEMENT / DEVELOPMENT ENGINEER"
+
+#: cv.php:51
+msgid "EXPERIENCES PROFESSIONNELLES"
+msgstr "PROFESSIONAL EXPERIENCES"
+
+#: cv.php:53 cv.php:57
+msgid "Responsable projet pour l'int&eacute;gration continue"
+msgstr "Project lead for the Internal Continuous Integration"
+
+#: cv.php:54
+msgid "depuis juillet 2017"
+msgstr "since July 2017"
+
+#: cv.php:61 cv.php:65
+msgid "Responsable du support de l'outil d'intégration Buildbot/ACS"
+msgstr "Buildbot/ACS Monitoring & Control team leader"
+
+#: cv.php:62
+msgid "avril 2013 - juin 2017 (4 ans 3 mois)"
+msgstr "april 2013 - june 2017 (4 years 3 months)"
+
+#: cv.php:69
+msgid "D&eacute;veloppeur d'un outil d'automatisation de tests de validation"
+msgstr "Validation test automation tool development"
+
+#: cv.php:70
+msgid "septembre 2011 - Poste actuel (1 an 5 mois)"
+msgstr "september 2011 – Now (1 year 5 months)"
+
+#: cv.php:73
+msgid ""
+"Am&eacute;lioration d'un outil &eacute;crit en Python pour automatiser les "
+"tests de validation de la livraison logiciel du modem, en contr&ocirc;lant "
+"le t&eacute;l&eacute;phone avec un bo&icirc;tier Arduino et les analyseurs "
+"logiques de r&eacute;seaux via des commandes GPIB"
+msgstr ""
+"Improvment of a tool written in Python to automate the sanity tests used to "
+"validate the modem release, by controlling the phone with an Arduino box and "
+"logic analyzers through GPIB commands"
+
+#: cv.php:74
+msgid ""
+"Livraison de nouvelles versions du modem (outil GIT pour la gestion de "
+"configuration)"
+msgstr ""
+"Management of modem releases (GIT used as configuration management tool)"
+
+#: cv.php:78
+msgid "Responsable Gestion de Configuration des composants STACK LTE/WCDMA/GSM"
+msgstr "Configuration management lead of the LTE/WCDMA/GSM STACK components"
+
+#: cv.php:79
+msgid "septembre 2004 - septembre 2011 (7 ans 1 mois)"
+msgstr "september 2004 – september 2011 (7 years 1 month)"
+
+#: cv.php:81
+msgid ""
+"Responsable de la gestion de configuration du composant STACK LTE/WCDMA/GSM "
+"(jusqu'&agrave; 7 personnes dans  l'&eacute;quipe : aux Etats-Unis, Inde et "
+"France) sous Clearcase puis sous GIT"
+msgstr ""
+"Lead of the configuration management for the LTE/WCDMA/GSM STACK "
+"component(until 7 peoples in the team : 2 in USA, 2 in India and 3 in "
+"France) under Clearcase first then under GIT"
+
+#: cv.php:82
+msgid ""
+"D&eacute;veloppement d'outils/interfaces Web pour propager les changements "
+"sur les diff&eacute;rentes branches du composant (scripts CGI en Perl)"
+msgstr ""
+"Development of tools/web interfaces to control the propagation of change "
+"requests on\n"
+"the several mainlines of the component (CGI scripts in Perl"
+
+#: cv.php:83
+msgid ""
+"Contr&ocirc;le de la qualit&eacute; de la version sortie en utilisant "
+"l'outil Klocwork pour la d&eacute;tection statique d'erreurs, Purify pour la "
+"d&eacute;tection dynamique (fuite m&eacute;moire en autres)"
+msgstr ""
+"Quality control of the release done by Klocwork use for static defects and "
+"Purify for\n"
+"the dynamic defects"
+
+#: cv.php:84
+msgid ""
+"Utilisation d'outils de simulations/tests sur le r&eacute;seau pour valider "
+"le \n"
+"comportement du composant"
+msgstr ""
+"Use of simulation tool/live sanity tests to validate the component behaviour"
+
+#: cv.php:89
+msgid "Responsable Gestion de Configuration du composant STACK 2G"
+msgstr "Configuration management lead of the 2G STACK component"
+
+#: cv.php:90
+msgid "juillet 2002 - septembre 2004 (2 ans 3 mois)"
+msgstr "september 2004 (2 years 3 months)"
+
+#: cv.php:92
+msgid ""
+"Responsable de la gestion de configuration du composant STACK 2G sous "
+"Clearcase"
+msgstr ""
+"Configuration management lead of the 2G STACK component under Clearcase"
+
+#: cv.php:95
+msgid "D&eacute;veloppeur Outil Test & Simulation"
+msgstr "Simulation / test tool development"
+
+#: cv.php:96
+msgid "octobre 1999 - juin 2002 (2 ans 9 mois)"
+msgstr "october 1999 – june 2002 (2 years 9 months)"
+
+#: cv.php:98
+msgid ""
+"D&eacute;veloppeur C d'un outil de simulation sous environnement Unix pour "
+"stresser le code de la t&acirc;che STACK 2G"
+msgstr ""
+"Development in C language of the tool to simulate the GSM protocol to "
+"communicate with the 2G STACK component. Tool under Unix"
+
+#: cv.php:101
+msgid "D&eacute;veloppeur Protocol GSM"
+msgstr "GSM Protocol developer"
+
+#: cv.php:102
+msgid "f&eacute;vrier 1998 - septembre 1999 (1 an 8 mois)"
+msgstr "february 1998 – september 1999 (1 year 8 months)"
+
+#: cv.php:104
+msgid "D&eacute;veloppeur C de la couche protocolaire Call Control"
+msgstr ""
+"Development in C language of the Call Control protocol task in GSM norm"
+
+#: cv.php:108
+msgid "Support Technique"
+msgstr "Technical support"
+
+#: cv.php:109
+msgid "octobre 1996 - janvier 1998 (1 an 4 mois)"
+msgstr "october 1996 – january 1998 (1 year 4 months)"
+
+#: cv.php:110
+msgid ""
+"Support Technique pour les 4 centres des Imp&ocirc;ts de la Martinique (dans "
+"le cadre du Service Civil)"
+msgstr ""
+"Technical support for the 4 income taxes centers of Martinique (Western "
+"Caraibean) (in place of my national service)"
+
+#: cv.php:113
+msgid "D&eacute;veloppeur Logiciel de facturation"
+msgstr "Invoice software development"
+
+#: cv.php:114
+msgid "juillet 1993 (2 mois)"
+msgstr "july - august 1993 (2 mois)"
+
+#: cv.php:115
+msgid ""
+"D&eacute;veloppement d'un logiciel de facturation pour un abattoir irlandais "
+"sous Microsoft Access"
+msgstr ""
+"Development in Microsoft Access of an invoice software for a slaughterhouse"
+
+#: cv.php:118
+msgid "AUTRES EXPERIENCES"
+msgstr "OTHER EXPERIENCES"
+
+#: cv.php:120
+msgid "Mars 1996 (6 mois)"
+msgstr ""
+"March 1996 (6\n"
+"months)"
+
+#: cv.php:121
+msgid ""
+"participation au d&eacute;veloppement d'un g&eacute;n&eacute;rateur pour la "
+"t&eacute;l&eacute;vision num&eacute;rique et test d'&eacute;quipements de la "
+"cha&icirc;ne DVB"
+msgstr ""
+"help to the development of a generator for the numeric television and tests "
+"of DVB channel equipments"
+
+#: cv.php:122
+msgid "Juillet 1995 (2 mois)"
+msgstr "July 1995 (2 months)"
+
+#: cv.php:122
+msgid ""
+"analyse et conception d'un programme d'analyse financi&egrave;re en Visual "
+"Basic (VB)"
+msgstr ""
+"analyze and development of a Financial analyze software written in Visual "
+"Basic"
+
+#: cv.php:123
+msgid "Juillet 1994 (3 mois)"
+msgstr "July 1994 (3 months)"
+
+#: cv.php:124
+msgid ""
+"Analyse et conception d'une application de visualisation de flux de "
+"donn&eacute;es &agrave; l'int&eacute;rieur d'une organisation, en VB"
+msgstr ""
+"Analyze and development of a software to visualize the dataflow within an "
+"organization, written in Visual Basic"
+
+#: cv.php:125
+msgid "Mars 1994 (2 mois)"
+msgstr "March 1994 (2 months)"
+
+#: cv.php:126
+msgid ""
+"D&eacute;veloppement d'un gestionnaire de comptabilit&eacute; pour &eacute;"
+"tablissements scolaires, sous Access"
+msgstr ""
+"Development of a accounting software for school of education, with Microsoft "
+"Access"
+
+#: cv.php:127
+msgid "Avril 1993 (3 mois)"
+msgstr "April 1993 (3 months)"
+
+#: cv.php:128
+msgid ""
+"Cr&eacute;ation d'une interface dans le domaine des syst&egrave;mes "
+"d'informations, en VB"
+msgstr ""
+"Creation of an interface for the information system area in Visual Basic"
+
+#: cv.php:129
+msgid ""
+"Maintenance informatique de premier niveau et animation de formation "
+"&agrave; la F&eacute;d&eacute;ration des Oeuvres La&iuml;ques &agrave; Fort "
+"de France en 1997-1998"
+msgstr ""
+
+#: cv.php:130
+msgid ""
+"Moniteur Informatique Pour Tous &agrave; la Facult&eacute; des Sciences de "
+"Rennes en 1995"
+msgstr ""
+
+#: cv.php:131
+msgid "Pupitreur &agrave; l'I.U.T. de Lannion en 1992"
+msgstr ""
+
+#: cv.php:135
+msgid "FORMATION"
+msgstr "EXAMENS"
+
+#: cv.php:142
+msgid "LANGUES"
+msgstr "LANGUAGES"
+
+#: cv.php:144
+msgid "Anglais op&eacute;rationnel (10 mois en Irlande)"
+msgstr "English : Professional working proficiency (10 months in Ireland)"
+
+#: cv.php:145
+msgid "Notions d''Espagnol (1 mois en Am&eacute;rique du Sud)"
+msgstr "Spanish : elementary proficiency (1 month in South America)"
+
+#: cv.php:149
+msgid "INFORMATIONS COMPLEMENTAIRES"
+msgstr "MISCELLANEOUS"
+
+#: cv.php:151
+msgid "Permis A et B"
+msgstr "Car and motorbike driving licences"
+
+#: cv.php:152
+msgid ""
+"Sports : plong&eacute;e sous-marine, course &agrave; pied, ski, surf, roller "
+"hockey"
+msgstr "Sports : scuba diving, running, ski, surf, roller hockey"
+
+#: cv.php:153
+msgid ""
+"Passions : les voyages, la litt&eacute;rature, les anciennes civilisations"
+msgstr "Hobbies: travelling, literature, the old civilizations"
+
+#: library.php:378
+msgid "Accueil"
+msgstr "Home"
+
+#: library.php:379
 msgid "Nouveaut&eacute;s"
 msgstr "News"
 
-#: library.php:381
+#: library.php:380
 msgid "CV"
 msgstr "Resume"
 
-#: library.php:387
+#: library.php:381
 msgid "Les sports"
 msgstr "Sports"
 
-#: library.php:390
+#: library.php:383
 msgid "Courrir"
 msgstr "Running"
 
-#: library.php:391
+#: library.php:384
 msgid "Roller"
 msgstr "Roller"
 
-#: library.php:392
+#: library.php:385
 msgid "Plong&eacute;e"
 msgstr "Scuba-diving"
 
-#: library.php:395
+#: library.php:388
 msgid "Liens"
 msgstr "Links"
 
-#: library.php:396
+#: library.php:389
+msgid "Bric &agrave; brac"
+msgstr "Miscellaneous"
+
+#: library.php:390
 msgid "Carnets de voyages"
 msgstr "Travel books"
 
-#: library.php:415
+#: library.php:392 library.php:418
+msgid "Angleterre"
+msgstr "England"
+
+#: library.php:393
+msgid "Barcelone"
+msgstr "Barcelona"
+
+#: library.php:395 library.php:419
+msgid "Bolivie"
+msgstr "Bolivia"
+
+#: library.php:398 library.php:423
+msgid "Croisi&egrave;re sur le Nil"
+msgstr "Crusade on the Nile"
+
+#: library.php:399 library.php:438
+msgid "Festival Interceltique de Lorient"
+msgstr "Lorient Interceltic Festival"
+
+#: library.php:400
+msgid "Guadeloupe"
+msgstr "Guadeloupe island"
+
+#: library.php:402 library.php:445
+msgid "Iles Vierges Britanniques"
+msgstr "British Virgin Islands"
+
+#: library.php:403 library.php:446
+msgid "Irlande"
+msgstr "Ireland"
+
+#: library.php:405 library.php:449
+msgid "La Dominique"
+msgstr "The Dominic"
+
+#: library.php:406 library.php:450
+msgid "Les Grenadines"
+msgstr "Grenadines"
+
+#: library.php:408
+msgid "Martinique"
+msgstr "Martinic"
+
+#: library.php:409 library.php:452
+msgid "P&eacute;rou"
+msgstr "Peru"
+
+#: library.php:410 library.php:453
+msgid "Pays-Bas: Amsterdam"
+msgstr "Netherland : Amsterdam"
+
+#: library.php:411 library.php:455
+msgid "Sainte Lucie"
+msgstr "Saint Lucia"
+
+#: library.php:413 library.php:469
+msgid "USA: Floride"
+msgstr "USA: Florida"
+
+#: library.php:416
 msgid "Galleries de photos"
 msgstr "Photos galleries"
+
+#: library.php:421
+msgid "Egypte"
+msgstr "Egypt"
+
+#: library.php:427
+msgid "Espagne"
+msgstr "Spain"
+
+#: library.php:440
+msgid "L&icirc;le de la R&eacute;union"
+msgstr "R&eacute;union island"
+
+#: library.php:444
+msgid "Gr&egrave;ce : Cr&egrave;te"
+msgstr "Greece: Cretia"
+
+#: library.php:447
+msgid "Italie : Venise"
+msgstr "Italia: Venice"
+
+#: library.php:451
+msgid "Maurice"
+msgstr "Mauricius"
+
+#: library.php:454
+msgid "Portugal: de Aveiro &agrave; Lisbonne"
+msgstr "Portugal: from Aveiro to Lisbon"
 
 #: news.php:6
 msgid "Derni&egrave;res modifications du site"
@@ -60,19 +448,36 @@ msgstr "Last modifications"
 
 #: news.php:8 news.php:9 news.php:10 news.php:11 news.php:12 news.php:13
 #: news.php:14 news.php:15 news.php:16 news.php:17 news.php:18 news.php:19
-#: news.php:20 news.php:21 news.php:22 news.php:23 travel.php:49
+#: news.php:20 news.php:21 news.php:22 news.php:23 news.php:24 news.php:25
+#: news.php:26 travel.php:47
 msgid "d/m/Y"
 msgstr "M d, Y"
 
 #: news.php:8
+msgid "Quelque retouches: fixe de la barre de menu, CV au même format..."
+msgstr "Some changes: menu bar fixed now, resume page at the same format..."
+
+#: news.php:9
+msgid "Ajout des photos du week-end &agrave; Barcelone"
+msgstr "Added pictures of the weekend in Barcelona"
+
+#: news.php:10
+msgid ""
+"Ajout des photos de la Cr&egrave;te, de Venise, de Maurice et de la R&eacute;"
+"union"
+msgstr ""
+"Added pictures from Cretia (Greece), Venice (Italia), Mauricius and R&eacute;"
+"unio island"
+
+#: news.php:11
 msgid "Support du multilangage avec gettext"
 msgstr "Multi language support with gettext"
 
-#: news.php:9
+#: news.php:12
 msgid "Ajout des photos de Porquerolles et Cala Montjoi"
 msgstr "Adding of photos about Porquerolles and Cala Montjoi"
 
-#: news.php:10
+#: news.php:13
 msgid ""
 "Changement de barre de menu; mise &agrave; jour du CV; correction sur la "
 "transparence des images PNG"
@@ -80,67 +485,67 @@ msgstr ""
 "New menu bar (with 2 levels), update of the resume, correction of PNG "
 "pictures transparency"
 
-#: news.php:11
+#: news.php:14
 msgid "Suppression du module Livre d'or &agrave; cause de messages de spam"
 msgstr "Deletion of the gold book due to too many spams"
 
-#: news.php:12
+#: news.php:15
 msgid "Ajout des photos du Marathon de New-york 2005"
 msgstr "Adding of the NYC Marathon 2005 edition photos"
 
-#: news.php:13
+#: news.php:16
 msgid "Ajout d'un livre d'or"
 msgstr "Gold book adding"
 
-#: news.php:14
+#: news.php:17
 msgid ""
 "Ajout des photos de Mallorca, de quelques photos sur Trinidad, Martinique et "
 "Iles Vierges Britaniques"
 msgstr "Adding of photos about Mallorca, Trinidad, Martinique and the BVI"
 
-#: news.php:15
+#: news.php:18
 msgid ""
 "Modification graphique du site (couleur, largeur fixee). Correction des "
 "pages pour &ecirc;tre en conformance avec CSS 2.1 et XHTML"
 msgstr "Update of the website graphic part"
 
-#: news.php:16
+#: news.php:19
 msgid "Ajout des photos d'Ibiza"
 msgstr "Ibiza photos adding"
 
-#: news.php:17
+#: news.php:20
 msgid "Photos du Portugal ajout&eacute;es"
 msgstr "Adding of Portugal photos"
 
-#: news.php:18
+#: news.php:21
 msgid "Ajout des photos du s&eacute;jour &agrave; Chamonix"
 msgstr "Adding of photos about Chamonix travel"
 
-#: news.php:19
+#: news.php:22
 msgid "Ajout du r&eacute;cit du voyage au Qu&eacute;bec"
 msgstr "Adding of the book travel about Quebec"
 
-#: news.php:20
+#: news.php:23
 msgid "Reconstruction du site en PHP"
 msgstr "Rebuilding of the website in PHP language"
 
-#: news.php:21
+#: news.php:24
 msgid "Photos du Qu&eacute;bec"
 msgstr "Adding of the Québec pictures"
 
-#: news.php:22
+#: news.php:25
 msgid "R&eacute;cit d'Hurghada termin&eacute"
 msgstr "Adding of the Hurghada book travel"
 
-#: news.php:23
+#: news.php:26
 msgid "Photos d'Hurghada diffus&eacute;es"
 msgstr "Adding of the Hurghada photos"
 
-#: travel.php:49
+#: travel.php:47
 msgid "Date"
 msgstr "Date"
 
-#: travel.php:50
+#: travel.php:48
 msgid "Commentaires"
 msgstr "Comments"
 

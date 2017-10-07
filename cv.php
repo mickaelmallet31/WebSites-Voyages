@@ -1,217 +1,161 @@
 <?php
-include 'library.php';
+	include 'library.php';
 
-Entete( 'cv', 'fre' );
+	Entete( 'cv', 'fre' );
 ?>
-<script type="text/javaScript">
-<!--
-
-function cache( att1, att2, att3, att4, att5, att6 )
-{
-    document.getElementById(att1).className='on';
-    document.getElementById(att2).className='off';
-    document.getElementById(att3).className='off';
-
-    document.getElementById(att4).className='on';
-    document.getElementById(att5).className='off';
-    document.getElementById(att6).className='off';
-}
-
-//--></script>
-
-<table style="width: 100%;">
-	<tbody>
-		<tr>
-			<td style="width: 60%;">
-				<p style="font-size: larger;">Mickaël MALLET</p> <br /> 25 rue des
-				Charmes<br /> 31830 Plaisance Du Touch<br /> FRANCE<br /> Tél. :
-				33.5.61.30.11.35 (répondeur)<br /> E-Mail : <a
-				href="mailto:manou_mickael@yahoo.fr">manou_mickael@yahoo.fr</a><br />
-			</td>
-			<td style="width: 40%;" align="center">
-				<p style="font-size: larger;">
-					INGÉNIEUR<br />INFORMATICIEN
-				</p>
-			</td>
-		</tr>
-	</tbody>
+<style>
+	td.cv {
+		font-size : 18px;
+		font-family:"Times New Roman",Georgia,Serif;
+		line-height:110%;
+	}
+	
+	font.section { 
+		color : grey;
+		font-weight:bold;
+	}
+	font.activite {
+		font-weight:bold;
+	}
+	font.lieu {
+		color : blue;
+	}
+	table.activite {
+		background-color: #F9B7FF; 
+		width:100%;
+	}
+	tr.activite {
+		vertical-align:top;
+	}
+</style>
+<table width='100%' cellpadding='10' cellspacing='0'>
+	<tr>
+		<td class="cv">
+			Mickael MALLET<br>
+			25 rue des charmes<br>
+			31830 Plaisance du Touch<br>
+			<?php echo _('T&eacute;l') ?>: +33 6 14 86 23 03<br/>
+			<br/>
+			<?php echo _('M&eacute;l') ?>: <a href='mailto:manou_mickael@yahoo.fr'>manou_mickael@yahoo.fr</a><br/>
+			LinkedIn : <a href='http://www.linkedin.com/in/mickaelmallet'>http://www.linkedin.com/in/mickaelmallet</a><br>
+		</td>
+		<td align='center'>
+			<div style='background-color:lightgreen; font-size:18px; font-width:bolder;'><br/><?php echo _('INGENIEUR GESTION DE CONFIGURATION / DEVELOPPEMENT') ?><br/><br/></div>
+		</td>
+	</tr>
 </table>
-<p>&nbsp;</p>
 
-<div
-	style="position: relative; height: 50px; width: 1000px;">
-	<!-- ERREUR LIGNE 350 DE nsBrowserStatusHandler.js C'EST SUREMENT JUSTE AU DESSUS -->
-
-	<div id="onglet1" class="onglet1"
-		onclick="cache( 'section1', 'section2', 'section3', 'num1', 'num2', 'num3' );">
-		<br /> <a class="on" id="num1" title=" Formation "> Formation </a>
-	</div>
-	<div id="onglet2" class="onglet2"
-		onclick="cache( 'section2', 'section1', 'section3', 'num2', 'num1', 'num3' );">
-		<br /> <a class="off" id="num2" title=" Expérience Professionnelle ">
-			Expérience Professionnelle </a>
-	</div>
-	<div id="onglet3" class="onglet3"
-		onclick="cache( 'section3', 'section1', 'section2', 'num3', 'num1', 'num2' );">
-		<br /> <a class="off" id="num3" title=" Information Complémentaire ">
-			Information Complémentaire </a>
-	</div>
-</div>
-
-<div class='cv'>
-
-	<div id="section1" class="off">
-		<table>
-			<tbody>
-				<tr>
-					<td style="width: 20px;"></td>
-					<td>
-						<p class="cv">Diplômes :</p>
-						<ul>
-							<li>Juin 1996 : D.E.S.S. Informatique et Ses Applications,
-								Institut de Formation Supérieure en Informatique et
-								Communication (IFSIC), Rennes</li>
-							<li>Juin 1995 : Maîtrise d'Informatique, IFSIC, Rennes</li>
-							<li>Juin 1994 : Licence d'Informatique, IFSIC, Rennes</li>
-							<li>Juin 1993 : D.U.T. Informatique, I.U.T. Lannion, Lannion</li>
-						</ul>
-
-						<p class="cv">Langages :</p>
-						<ul>
-							<li>C++, HTML, Visual Basic, Access, Turbo Pascal, Fox Pro, SQL,
-								8086, Cobol, Fortran, CAML, Signal, Lex, Yacc, VHDL, CSP</li>
-						</ul>
-
-						<p class="cv">Environnements :</p>
-						<ul>
-							<li>Windows (NT, 95, 3.11), Unix, MS-DOS, Mac OS</li>
-						</ul>
-
-						<p class="cv">Langues :</p>
-						<ul>
-							<li>Anglais courant (10 mois de stages en Irlande)</li>
-							<li>Notions d'Espagnol (séjour d'un mois en Amérique du Sud)</li>
-						</ul>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<br />
-	</div>
-
-	<!-- SCMP -->
-
-	<div id="section2" class="on">
-		<table>
-			<tbody>
-				<tr>
-					<td style="width: 20px;"></td>
-					<td>
-						<p class="cv">Motorola, Toulouse :</p>
-						<ul>
-							<li>Sept 2011-Décembre 2012: amélioration des outils de tests
-								automatiques (environnement sous Linux, contrôle par Arduino,
-								Scripts en Python, Commands GPIB pour piloter les callbox)</li>
-							<li>Sept 2006-Sept 2011: responsable gestion configuration des
-								composants STACK 2G/3G et LTE (outils Clearcase puis GIT)</li>
-							<li>Janvier 2004-Sept 2006: responsable gestion configuration du
-								composant STACK 2G (outil Clearcase)</li>
-							<li>Juillet 2002-Décembre 2003: gestion configuration du
-								composant STACK 2G (outil Clearcase)</li>
-							<li>Dec 2000-Juin 2002: toujours dans la section PCS
-								(développement d'un simulateur Layer 1 pour GPRS-EDGE-UMTS)</li>
-						</ul>
-
-						<p class="cv">Logiqual, Toulouse :</p>
-						<ul>
-							<li>Oct 99 : prestataire de service auprès de Motorola dans la
-								section PCS (développement d'un simulateur Layer 1 pour GPRS)
-								(14 mois)</li>
-						</ul>
-
-						<p class="cv">Cap Gemini, Rennes :</p>
-						<ul>
-							<li>Mars 1998 : prestataire de service auprès de Mitsubishi
-								Electric France, GSM Research &amp; Development dans l'équipe de
-								SIMToolkit (18 mois)</li>
-						</ul>
-
-						<p class="cv">Assistance Informatique des D.O.M., Direction des
-							Services Fiscaux, Fort de France :</p>
-						<ul>
-							<li>Octobre 1996 : Assistance informatique (installations,
-								formations et développements logiciels, installations et
-								réparations matérielles) durant le service national ;
-								développement du réseau Intranet (aide technique - 16 mois)</li>
-						</ul>
-
-						<p class="cv">Centre Commun d'Etudes de Télédiffusion et
-							Télécommunication, Cesson Sévigné :</p>
-						<ul>
-							<li>Mars 1996 : Participation au développement d'un générateur
-								pour la télévision numérique et test d'équipements de la chaîne
-								DVB (6 mois)</li>
-						</ul>
-
-						<p class="cv">Executive Systems Research Centre, University
-							College Cork, Cork :</p>
-						<ul>
-							<li>Juillet 1995 : Analyse et conception d'un programme d'analyse
-								financière en Visual Basic (VB) (2 mois)</li>
-							<li>Juillet 1994 : Analyse et conception d'une application de
-								visualisation de flux de données à l'intérieur d'une
-								organisation, en VB (3 mois)</li>
-							<li>Avril 1993 : Création d'une interface dans le domaine des
-								systèmes d'informations, en VB (3 mois)</li>
-						</ul>
-
-						<p class="cv">Fic Aplon, Saint Grégoire :</p>
-						<ul>
-							<li>Mars 1994 : Développement d'un gestionnaire de comptabilité
-								pour établissements scolaires, sous Access (2 mois)</li>
-						</ul>
-
-						<p class="cv">Seabrook Research Limited, Cork :</p>
-						<ul>
-							<li>Juillet 1993 : Réalisation d'un gestionnaire de facturation
-								pour un abattoir, sous Access (2 mois)</li>
-						</ul>
-
-						<p class="cv">Autres expériences :</p>
-						<ul>
-							<li>Maintenance informatique de premier niveau et animation de
-								formation à la Fédération des Oeuvres Laïques à Fort de France
-								en 1997-1998</li>
-							<li>Moniteur Informatique Pour Tous à la Faculté des Sciences de
-								Rennes en 1995</li>
-							<li>Pupitreur à l'I.U.T. de Lannion en 1992</li>
-						</ul>
-
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<br />
-	</div>
-
-	<!-- GCF -->
-
-	<div id="section3" class="off">
-		<ul>
-			<li>Permis A, B</li>
-			<li>Loisirs : les voyages (Irlande, Amérique du Sud, les îles de la
-				Caraïbe), les civilisations (Egypte, l'île de Pâques, les Incas),
-				littérature (romans policiers et fantastiques, revues scientifiques)</li>
-			<li>Sports : badminton, escalade, snow-board, ski, la course à pied
-				(marathons), le VTT, le street hockey, la plongée sous-marine
-				(niveau 3)</li>
-		</ul>
-		<br />
-	</div>
-</div>
+<table width='100%' cellpadding='10' cellspacing='0'>
+	<tr valign='top'>
+		<td width='60%' style='background-color: #F9B7FF; border-width: 1px; border-style: solid;'>
+			<font class='section'><?php echo _('EXPERIENCES PROFESSIONNELLES') ?></font><br/>
+            
+<font class='activite'><?php echo _("Responsable projet pour l'int&eacute;gration continue")?></font><br/>
+<font class='lieu'>Renault SW Labs, <?php echo _("depuis juillet 2017") ?>, 
+Toulouse</font><br/>
+<table class='activite'>
+    <tr class='activite'><td>-</td><td><?php echo _("Responsable projet pour l'int&eacute;gration continue")?></td></tr>
+</table>
 <br/>
+            
+<font class='activite'><?php echo _("Responsable du support de l'outil d'intÃ©gration Buildbot/ACS")?></font><br/>
+<font class='lieu'>Intel Corporation, <?php echo _("avril 2013 - juin 2017 (4 ans 3 mois)") ?>, 
+Toulouse</font><br/>
+<table class='activite'>
+    <tr class='activite'><td>-</td><td><?php echo _("Responsable du support de l'outil d'intÃ©gration Buildbot/ACS")?></td></tr>
+</table>
 <br/>
+            
+<font class='activite'><?php echo _("D&eacute;veloppeur d'un outil d'automatisation de tests de validation")?></font><br/>
+<font class='lieu'>Motorola Mobility, <?php echo _("septembre 2011 - Poste actuel (1 an 5 mois)") ?>, 
+Toulouse</font><br/>
+<table class='activite'>
+    <tr class='activite'><td>-</td><td><?php echo _("Am&eacute;lioration d'un outil &eacute;crit en Python pour automatiser les tests de validation de la livraison logiciel du modem, en contr&ocirc;lant le t&eacute;l&eacute;phone avec un bo&icirc;tier Arduino et les analyseurs logiques de r&eacute;seaux via des commandes GPIB")?></td></tr>
+    <tr class='activite'><td>-</td><td><?php echo _("Livraison de nouvelles versions du modem (outil GIT pour la gestion de configuration)") ?></td></tr>
+</table>
 <br/>
+
+<font class='activite'><?php echo _("Responsable Gestion de Configuration des composants STACK LTE/WCDMA/GSM") ?></font><br/>
+<font class='lieu'>Motorola Mobile Devices, <?php echo _("septembre 2004 - septembre 2011 (7 ans 1 mois)") ?>, Toulouse</font><br/>
+<table class='activite'><tr class='activite'><td>-</td><td>
+<?php echo _("Responsable de la gestion de configuration du composant STACK LTE/WCDMA/GSM (jusqu'&agrave; 7 personnes dans  l'&eacute;quipe : aux Etats-Unis, Inde et France) sous Clearcase puis sous GIT") ?></td></tr>
+<tr class='activite'><td>-</td><td><?php echo _("D&eacute;veloppement d'outils/interfaces Web pour propager les changements sur les diff&eacute;rentes branches du composant (scripts CGI en Perl)") ?></tr>
+<tr class='activite'><td>-</td><td><?php echo _("Contr&ocirc;le de la qualit&eacute; de la version sortie en utilisant l'outil Klocwork pour la d&eacute;tection statique d'erreurs, Purify pour la d&eacute;tection dynamique (fuite m&eacute;moire en autres)") ?></td></tr>
+<tr class='activite'><td>-</td><td><?php echo _("Utilisation d'outils de simulations/tests sur le r&eacute;seau pour valider le 
+comportement du composant") ?></td></tr>
+</table>
+<br/>
+
+<font class='activite'><?php echo _("Responsable Gestion de Configuration du composant STACK 2G") ?></font><br/>
+<font class='lieu'>Motorola Mobile Devices, <?php echo _("juillet 2002 - septembre 2004 (2 ans 3 mois)") ?>, 
+Toulouse</font><br/>
+<table class='activite'><tr class='activite'><td>-</td><td><?php echo _("Responsable de la gestion de configuration du composant STACK 2G sous Clearcase") ?></td></tr></table>
+<br/>
+
+<font class='activite'><?php echo _("D&eacute;veloppeur Outil Test & Simulation") ?></font><br/>
+<font class='lieu'>Motorola Mobile Devices, <?php echo _("octobre 1999 - juin 2002 (2 ans 9 mois)") ?>, 
+Toulouse</font><br/>
+<table class='activite'><tr class='activite'><td>-</td><td><?php echo _("D&eacute;veloppeur C d'un outil de simulation sous environnement Unix pour stresser le code de la t&acirc;che STACK 2G") ?></td></tr></table>
+<br/>
+
+<font class='activite'><?php echo _("D&eacute;veloppeur Protocol GSM")?></font><br/>
+<font class='lieu'>Mitsubishi, <?php echo _("f&eacute;vrier 1998 - septembre 1999 (1 an 8 mois)") ?>, Rennes</font><br/>
+<table class='activite'>
+<tr class='activite'><td width='5'>-</td><td><?php echo _("D&eacute;veloppeur C de la couche protocolaire Call Control") ?></td></tr>
+</table>
+<br/>
+
+<font class='activite'><?php echo _("Support Technique") ?></font><br/>
+<font class='lieu'>Service Informatique des Imp&ocirc;ts, <?php echo _("octobre 1996 - janvier 1998 (1 an 4 mois)") ?>, Martinique</font><br/>
+<table class='activite'><tr class='activite'><td>-</td><td><?php echo _("Support Technique pour les 4 centres des Imp&ocirc;ts de la Martinique (dans le cadre du Service Civil)")?></td></tr></table>
+<br/>
+
+<font class='activite'><?php echo _("D&eacute;veloppeur Logiciel de facturation") ?></font><br/>
+<font class='lieu'>Seabrook Research Limited, <?php echo _("juillet 1993 (2 mois)")?>, Cork (Irlande)</font><br/>
+<table class='activite'><tr class='activite'><td>-</td><td><?php echo _("D&eacute;veloppement d'un logiciel de facturation pour un abattoir irlandais sous Microsoft Access") ?></td></tr></table>
+		</td>
+		<td style='font-size:smaller;'>
+<font class='section'><?php echo _("AUTRES EXPERIENCES") ?></font><br/>
+<table>
+<tr class='activite'><td>-</td><td>CCETT, Rennes, <?php echo _("Mars 1996 (6 mois)") ?>: 
+<?php echo _("participation au d&eacute;veloppement d'un g&eacute;n&eacute;rateur pour la t&eacute;l&eacute;vision num&eacute;rique et test d'&eacute;quipements de la cha&icirc;ne DVB") ?></td></tr>
+<tr class='activite'><td>-</td><td>ESRC, Cork, <?php echo _("Juillet 1995 (2 mois)") ?>: <?php echo _("analyse et conception d'un programme d'analyse financi&egrave;re en Visual Basic (VB)") ?></td></tr>
+<tr class='activite'><td>-</td><td>ESRC, Cork, <?php echo _("Juillet 1994 (3 mois)") ?>: 
+<?php echo _("Analyse et conception d'une application de visualisation de flux de donn&eacute;es &agrave; l'int&eacute;rieur d'une organisation, en VB") ?></td></tr>
+<tr class='activite'><td>-</td><td>Fic Aplon, Saint Gr&eacute;goire, <?php echo _("Mars 1994 (2 mois)")?>: 
+<?php echo _("D&eacute;veloppement d'un gestionnaire de comptabilit&eacute; pour &eacute;tablissements scolaires, sous Access") ?></td></tr>
+<tr class='activite'><td>-</td><td>ESRC, Cork, <?php echo _("Avril 1993 (3 mois)") ?>: 
+<?php echo _("Cr&eacute;ation d'une interface dans le domaine des syst&egrave;mes d'informations, en VB") ?></td></tr>
+<tr class='activite'><td>-</td><td><?php echo _("Maintenance informatique de premier niveau et animation de formation &agrave; la F&eacute;d&eacute;ration des Oeuvres La&iuml;ques &agrave; Fort de France en 1997-1998") ?></td></tr>
+<tr class='activite'><td>-</td><td><?php echo _("Moniteur Informatique Pour Tous &agrave; la Facult&eacute; des Sciences de Rennes en 1995") ?></td></tr>
+<tr class='activite'><td>-</td><td><?php echo _("Pupitreur &agrave; l'I.U.T. de Lannion en 1992")?></td></tr>
+</table>
+<br/>
+
+<font class='section'><?php echo _("FORMATION") ?></font><br/>
+<table>
+<tr class='activite'><td>-</td><td>DESS Informatique et ses applications &agrave; l'IFSIC (Rennes) en 1996</td></tr>
+<tr class='activite'><td>-</td><td>DUT Information &agrave; Lannion en 1993</td></tr>
+</table>
+<br/>
+
+<font class='section'><?php echo _("LANGUES") ?></font><br/>
+<table>
+<tr class='activite'><td>-</td><td><?php echo _("Anglais op&eacute;rationnel (10 mois en Irlande)") ?></td></tr>
+<tr class='activite'><td>-</td><td><?php echo _("Notions d''Espagnol (1 mois en Am&eacute;rique du Sud)") ?></td></tr>
+</table>
+<br>
+
+<font class='section'><?php echo _("INFORMATIONS COMPLEMENTAIRES") ?></font><br/>
+<table>
+<tr class='activite'><td>-</td><td><?php echo _("Permis A et B") ?></td></tr>
+<tr class='activite'><td>-</td><td><?php echo _("Sports : plong&eacute;e sous-marine, course &agrave; pied, ski, surf, roller hockey") ?></td></tr>
+<tr class='activite'><td>-</td><td><?php echo _("Passions : les voyages, la litt&eacute;rature, les anciennes civilisations") ?></td></tr>
+</table>
+		</td>
+	</tr>
+</table>
+
 <?php
    EndOfPage('fre');
 ?>

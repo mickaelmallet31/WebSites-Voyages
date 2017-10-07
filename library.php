@@ -177,6 +177,27 @@ function Entete( $fichier, $language )
 	global $locale;
 	global $con;
 
+	switch ($locale)
+	{
+		case 'en_US' :
+			$border_en='border="1"';
+			$border_fr='';
+			$border_es='';
+			break;
+
+		case 'fr_FR' :
+			$border_fr='border="1"';
+			$border_en='';
+			$border_es='';
+			break;
+
+		case 'es_ES' :
+			$border_es='border="1"';
+			$border_en='';
+			$border_fr='';
+			break;
+	}
+
 	$selectedRunning = "";
 	$selectedSubDive = "";
 	$selectedRoller  = "";
@@ -203,7 +224,7 @@ function Entete( $fichier, $language )
 		case "bric_a_brac":
 			$titre = "Bric &agrave; brac";
 			$recit = "Page qui contient des informations dont j'ai eu besoin au cours du temps";
-			$motcle = "attelage;attache remorque;scenic 1 phase 2;circuit electrique;faisceau";
+			$motcle = "attelage;attache remorque;scenic 1 phase 2;circuit electrique;faisceau;code parrainage;parrain;1001pact;alg and you";
 			break;
 
 			case "image":
@@ -333,146 +354,137 @@ function Entete( $fichier, $language )
 			break;
 	}
 
-	echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"
-   \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">
-			<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\">\n";
-
-
-	echo "<head>\n";
-	echo "\t<title>$titre</title>\n";
-	echo "\t<meta name=\"description\" content=\"$recit\"/>\n";
-	echo "\t<meta name=\"keywords\" content=\"$motcle\"/>\n";
-	echo "\t<meta name=\"resource-type\" content=\"document\"/>\n";
-	echo "\t<meta name=\"distribution\" content=\"global\"/>\n";
-	echo "\t<meta name=\"security\" content=\"public\"/>\n";
-	echo "\t<meta http-equiv=\"pragma\" content=\"no-cache\"/>\n";
-	echo "\t<meta http-equiv=\"expires\" content=\"Mon, 21 May 2001 12:03:14 GMT\"/>\n";
-	echo "\t<meta name=\"robots\" content=\"all\"/>\n";
-	echo "\t<meta http-equiv='content-type' content='text/html;charset=UTF-8'/>\n";
-	echo "\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\" title=\"coolsheet\"/>\n";
-	echo "</head><body";
-
-	if ( $fichier == "cv" )
-	{
-		echo " onload=\"cache( 'section2', 'section1', 'section3', 'num2', 'num1', 'num3' )\"";
-	}
-
-	echo '><table style="padding: 10px 10px 10px 10px; width:1024px; -webkit-border-radius: 5px 5px 5px 5px;-moz-border-radius: 5px 5px 5px 5px;border-radius: 5px 5px 5px 5px;"><tr><td><a id="top"></a>';
-
-	switch ($locale)
-	{
-		case 'en_US' :
-			$border_en='border="1"';
-			$border_fr='';
-			$border_es='';
-			break;
-
-		case 'fr_FR' :
-			$border_fr='border="1"';
-			$border_en='';
-			$border_es='';
-			break;
-
-		case 'es_ES' :
-			$border_es='border="1"';
-			$border_en='';
-			$border_fr='';
-			break;
-	}
-
 	echo '
-	<table border="0"><tr><td width="150" align="right"></td><td width="700">
-	<ul id="menu">
-		<li class="violet"><a href="/index.php">'._("Accueil").'</a></li><!--
-     --><li class="violet"><a href="/news.php">'._("Nouveaut&eacute;s").'</a></li><!--
-     --><li class="violet"><a href="#">'._("CV").'</a>
-		<ul>
-			<li><a href="/cv_en.php">English version</a></li>
-			<li><a href="/cv_fr.php">Version fran&ccedil;aise</a></li>
-		</ul>
-		</li><!--
-     --><li class="violet"><a href="#">'._("Les sports").'</a>
-		<ul>
-			<li><a href="/running.php">'._("Courrir").'</a></li>
-			<li><a href="/roller.php">'._("Roller").'</a></li>
-			<li><a href="/subdive.php">'._("Plong&eacute;e").'</a></li>
-		</ul>
-		</li><!--
-     --><li class="violet"><a href="/links.php">'._("Liens").'</a></li><!--
-	 --><li class="violet"><a href="/bric_a_brac.php">'._("Bric &agrave; brac").'</a></li><!--
-     --><li class="violet"><a href="#">'._('Carnets de voyages').'</a>
-		<ul>
-			<li><a href="/travel.php?country=0">--- Accueil ---</a></li>
-			';
-			
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 
-			$result = mysqli_query($con, REQUETE_select_VOYAGE ) or die ("Requete REQUETE_select_VOYAGE invalide");
-			$optGroup = "";
-			while( $row = mysqli_fetch_object($result) )
-			{
-				$URL = GetLinkFromCountry( $row->ID, $comment, $X1, $Y1, $X2, $Y2 );
-				echo "\n\t\t\t<li><a href='$URL'>$comment</a></li>";
-			}
-			mysqli_free_result( $result );
-			
-			echo '
+    <head>	
+        <title>'.$titre.'</title>
+        <meta name="description" content="'.$recit.'"/>
+        <meta name="keywords" content="'.$motcle.'"/>
+        <meta name="resource-type\" content="document"/>
+        <meta name="distribution" content="global"/>
+        <meta name="security" content="public"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+        <meta http-equiv="expires" content="Mon, 21 May 2001 12:03:14 GMT"/>
+        <meta name="robots" content="all"/>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+        <link rel="stylesheet" type="text/css" href="style.css" title="coolsheet"/>
+    </head>
+    <body>
+        <table class="menu" style="padding: 10px 10px 10px 10px; width:1024px; -webkit-border-radius: 5px 5px 5px 5px;border-radius: 5px 5px 5px 5px;">
+            <tr><td width="150" align="right"></td><td width="700">
+	<ul id="menu">
+		<li class="violet"><a href="index.php">'._("Accueil").'</a></li><!--
+     --><li class="violet"><a href="news.php">'._("Nouveaut&eacute;s").'</a></li><!--
+     --><li class="violet"><a href="cv.php">'._("CV").'</a></li><!--
+     --><li class="violet"><a href="running.php">'._("Les sports").'</a>
+		<ul>
+			<li><a href="running.php">'._("Courrir").'</a></li>
+			<li><a href="roller.php">'._("Roller").'</a></li>
+			<li><a href="subdive.php">'._("Plong&eacute;e").'</a></li>
 		</ul>
 		</li><!--
-     --><li class="violet"><a href="#">'._('Galleries de photos').'</a>
+     --><li class="violet"><a href="links.php">'._("Liens").'</a></li><!--
+	 --><li class="violet"><a href="bric_a_brac.php">'._("Bric &agrave; brac").'</a></li><!--
+     --><li class="violet"><a href="travel.php?country=0">'._('Carnets de voyages').'</a>
 		<ul>
-			<li><a href="/gallery.php?id=0">--- Accueil ---</a></li>
-			';
-			
-			
-			$requete = "select Comment, ID, typeGallery
-			FROM fichier
-			WHERE ImageID != 0 AND cache=0 AND typeGallery != 2
-			ORDER BY Comment";
-			$result = mysqli_query($con, $requete) or die ("Requete invalide : $requete");
-			while( $row = mysqli_fetch_object( $result ) )
-			{
-				# Display the link . Reset it if the gallery type is 1
-				$link = "gallery.php?id=$row->ID";
-				if ($row->typeGallery==1) $link="javascript:void()";
-				echo "<li><a href='$link'>$row->Comment</a>";
-				
-				# Get the submenus of the typegallery 1 gallery
-				if ($row->typeGallery==1)
-				{
-					$requete2 = "select Comment, ID, typeGallery
-					FROM fichier
-					WHERE ImageID != 0 AND cache = 0 AND typeGallery = 2 AND masterGallery=$row->ID
-					ORDER BY Comment";
-					$result2 = mysqli_query($con, $requete2) or die ("Requete invalide : $requete2");
-					echo "<ul>";
-					while( $row = mysqli_fetch_object( $result2 ) )
-					{
-						echo "<li><a href='gallery.php?id=$row->ID'>$row->Comment</a></li>\n";
-					}
-					echo "</ul>\n";
-				}
-				echo "</li>\n";
-			}
-			mysqli_free_result( $result );
-		?>
+            <li><a href="travel.php?country=6">'._("Angleterre").'</a></li>
+			<li><a href="travel.php?country=26">'._("Barcelone").'</a></li>
+			<li><a href="travel.php?country=16">Belle-&Icirc;le</a></li>
+			<li><a href="bolivia.php">'._("Bolivie").'</a></li>
+			<li><a href="quebec.php">Canada: Qu&eacute;bec</a></li>
+			<li><a href="travel.php?country=19">Corse</a></li>
+			<li><a href="egypt.php">'._("Croisi&egrave;re sur le Nil").'</a></li>
+			<li><a href="travel.php?country=18">'._("Festival Interceltique de Lorient").'</a></li>
+			<li><a href="travel.php?country=8">'._("Guadeloupe").'</a></li>
+			<li><a href="hurghada.php">Hurghada</a></li>
+			<li><a href="bvi.php">'._("Iles Vierges Britanniques").'</a></li>
+			<li><a href="travel.php?country=10">'._("Irlande").'</a></li>
+			<li><a href="travel.php?country=11">Jersey</a></li>
+			<li><a href="travel.php?country=7">'._("La Dominique").'</a></li>
+			<li><a href="grenadin.php">'._("Les Grenadines").'</a></li>
+			<li><a href="travel.php?country=31">Mallorca</a></li>
+			<li><a href="travel.php?country=12">'._("Martinique").'</a></li>
+			<li><a href="bookperu.php">'._("P&eacute;rou").'</a></li>
+			<li><a href="travel.php?country=14">'._("Pays-Bas: Amsterdam").'</a></li>
+			<li><a href="travel.php?country=13">'._("Sainte Lucie").'</a></li>
+			<li><a href="travel.php?country=15">Trinidad &amp; Tobago</a></li>
+			<li><a href="florida.php">'._("USA: Floride").'</a></li>
+		</ul>
+		</li><!--
+     --><li class="violet"><a href="gallery.php?id=0">'._("Galleries de photos").'</a>
+		<ul>
+			<li><a href="gallery.php?id=6">'._("Angleterre").'</a></li>
+            <li><a href="gallery.php?id=5">'._("Bolivie").'</a></li>
+            <li><a href="gallery.php?id=3">Canada: Qu&eacute;bec</a></li>
+            <li><a href="javascript:void()">'._("Egypte").'</a>
+            <ul>
+                <li><a href="gallery.php?id=4">'._("Croisi&egrave;re sur le Nil").'</a></li>
+                <li><a href="gallery.php?id=23">Hurghada</a></li>
+            </ul>
+            </li>
+            <li><a href="javascript:void()">'._("Espagne").'</a>
+            <ul>
+                <li><a href="gallery.php?id=26">Barcelone</a></li>
+                <li><a href="gallery.php?id=30">Ibiza</a></li>
+                <li><a href="gallery.php?id=31">Mallorca</a></li>
+            </ul>
+            </li>
+            <li><a href="javascript:void()">France</a>
+            <ul>
+                <li><a href="gallery.php?id=16">Belle-&Icirc;le</a></li>
+                <li><a href="gallery.php?id=19">Corse</a></li>
+                <li><a href="gallery.php?id=18">'._("Festival Interceltique de Lorient").'</a></li>
+                <li><a href="gallery.php?id=8">Guadeloupe</a></li>
+                <li><a href="gallery.php?id=44">'._("L&icirc;le de la R&eacute;union").'</a></li>
+                <li><a href="gallery.php?id=12">Martinique</a></li>
+            </ul>
+            </li>
+            <li><a href="gallery.php?id=41">'._("Gr&egrave;ce : Cr&egrave;te").'</a></li>
+            <li><a href="gallery.php?id=20">'._("Iles Vierges Britanniques").'</a></li>
+            <li><a href="gallery.php?id=10">'._("Irlande").'</a></li>
+            <li><a href="gallery.php?id=42">'._("Italie : Venise").'</a></li>
+            <li><a href="gallery.php?id=11">Jersey</a></li>
+            <li><a href="gallery.php?id=7">'._("La Dominique").'</a></li>
+            <li><a href="gallery.php?id=9">'._("Les Grenadines").'</a></li>
+            <li><a href="gallery.php?id=43">'._("Maurice").'</a></li>
+            <li><a href="gallery.php?id=21">'._("P&eacute;rou").'</a></li>
+            <li><a href="gallery.php?id=14">'._("Pays-Bas: Amsterdam").'</a></li>
+            <li><a href="gallery.php?id=29">'._("Portugal: de Aveiro &agrave; Lisbonne").'</a></li>
+            <li><a href="gallery.php?id=13">'._("Sainte Lucie").'</a></li>
+            <li><a href="javascript:void()">Sport: Course &agrave; pied</a><ul><li><a href="gallery.php?id=32">Marathon de New-York 2005</a></li>
+            <li><a href="gallery.php?id=24">Marathon du M&eacute;doc et Trail des Citade</a></li>
+            </ul>
+            </li>
+            <li><a href="javascript:void()">Sport: Plong&eacute;e sous-marine</a><ul><li><a href="gallery.php?id=33">Cala Montjoi</a></li>
+            <li><a href="gallery.php?id=25">Martinique</a></li>
+            <li><a href="gallery.php?id=34">Porquerolles</a></li>
+            </ul>
+            </li>
+            <li><a href="javascript:void()">Sport: Ski</a><ul><li><a href="gallery.php?id=28">Chamonix</a></li>
+            </ul>
+            </li>
+            <li><a href="gallery.php?id=15">Trinidad &amp; Tobago</a></li>
+            <li><a href="gallery.php?id=22">'._("USA: Floride").'</a></li>            
 		</ul>
 		</li>
 	</ul>
 	<script type="text/javascript" src="http://counter3.01counter.com/private/countertab.js?c=d0f669a7061d5e51a9ae911ba22fd762"></script>
-<noscript><a href="http://www.compteurdevisite.com" title="compteur internet"><img src="http://counter3.01counter.com/private/compteurdevisite.php?c=d0f669a7061d5e51a9ae911ba22fd762" border="0" title="compteur internet" alt="compteur internet"></a>
+<noscript><a href="http://www.compteurdevisite.com" title="compteur internet"><img src="http://counter3.01counter.com/private/compteurdevisite.php?c=d0f669a7061d5e51a9ae911ba22fd762" border="0" title="compteur internet" alt="compteur internet"/></a>
 </noscript>
-	</td><td width="150" align="right">
-	<?php
-		echo "
-	<a href='?l=fr_FR'><img $border_fr src='/images/flag_fr.png'/></a>
-	<a href='?l=en_US'><img $border_en src='/images/flag_uk.png'/></a> 
-	<a href='?l=es_ES'><img $border_es src='/images/flag_sp.png'/></a>
-	";
-	?>
-	</td></tr></table>
-	<div style="min-height:600px;">
-<?php
-GetPubBanner( $pays, $fichier );
+	</td>
+    <td width="150" align="right">
+        <a href="?l=fr_FR"><img '.$border_fr.' src="images/flag_fr.png" alt="french flag"/></a>
+        <a href="?l=en_US"><img '.$border_en.' src="images/flag_uk.png" alt="UK flag"/></a> 
+        <a href="?l=es_ES"><img '.$border_es.' src="images/flag_sp.png" alt="spanish flag"/></a>
+	</td>
+    </tr>
+    </table>
+    <table style="padding: 50px 10px 10px 10px; width:1024px; -webkit-border-radius: 5px 5px 5px 5px;border-radius: 5px 5px 5px 5px;"><tr><td>
+    ';
+
+    GetPubBanner( $pays, $fichier );
 }
 
 //========================================================================
@@ -481,7 +493,14 @@ function DatabaseConnection( )
 {
 	global $con;
 	
-	$con = mysqli_connect("127.0.0.1", "mickael.mallet", "jsa35eej", "mickael_mallet");
+    if ($_SERVER['SERVER_ADDR'] == "127.0.0.1")
+    {
+        $con = mysqli_connect("127.0.0.1", "root", "", "mickael_mallet");
+    }
+    else
+    {
+        $con = mysqli_connect("127.0.0.1", "mickael.mallet", "jsa35eej", "mickael_mallet");
+    }
 	if (mysqli_connect_errno())
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -493,23 +512,6 @@ function EndOfPage( $CurLanguage )
 //========================================================================
 {
 	global $AmIConnected;
-
-	switch ( $CurLanguage )
-	{
-		case "fre" :
-			$msg = 'Derni&eacute;re mise &aacute; jour ';
-			$top_string = 'Haut de page';
-			break;
-
-		case "spa" :
-			$msg = 'Ultimas modificationes ';
-			$top_string = 'Superior de la pagina';
-			break;
-
-		case "eng" :
-			$top_string = 'Top of the page';
-			$msg = 'Last modifications';
-	}
 
 	// La variable fichier correspond au nom du fichier compteur (compteur.dat)
 	$fichier = $_SERVER['REQUEST_URI'];
@@ -564,8 +566,10 @@ function EndOfPage( $CurLanguage )
 	}
 	fclose($fp);
 
-	echo '</div><div style="text-align: center"><a class="top" href="#top">Top</a>
-		</div>
+	echo '
+    <br/>
+    <br/>
+    <br/>
     <a href="http://jigsaw.w3.org/css-validator/check/referer">
         <img style="border:0;width:88px;height:31px"
             src="http://jigsaw.w3.org/css-validator/images/vcss"
@@ -597,6 +601,6 @@ function EndOfPage( $CurLanguage )
 		</a>
 		<!-- /phpmyvisites -->
 		</td></tr></table>
-		';
+    ';
 }
 ?>
